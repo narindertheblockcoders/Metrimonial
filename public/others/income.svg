@@ -1,0 +1,7 @@
+<svg id="MDI_wallet-plus" data-name="MDI / wallet-plus" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Boundary" fill="#f77d15" stroke="rgba(0,0,0,0)" stroke-width="1" opacity="0">
+    <rect width="24" height="24" stroke="none"/>
+    <rect x="0.5" y="0.5" width="23" height="23" fill="none"/>
+  </g>
+  <path id="Path_wallet-plus" data-name="Path / wallet-plus" d="M3,0V3H0V5H3V8H5V5H8V3H5V0H3M9,3V6H6V9H3V19a2,2,0,0,0,2,2H19a1.993,1.993,0,0,0,2-2V18H12a2,2,0,0,1-2-2V8a2,2,0,0,1,2-2h9V5a2,2,0,0,0-2-2H9m3,5v8H22V8H12m4,2.5A1.5,1.5,0,1,1,14.5,12,1.5,1.5,0,0,1,16,10.5Z" transform="translate(1 2)" fill="#f77d15"/>
+</svg>
