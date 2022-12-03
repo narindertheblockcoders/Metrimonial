@@ -1856,7 +1856,7 @@ sup {
   color: yellow;
   background-color: #535353;
 }
-
+.form-check{cursor: pointer;}
 .form-switch .form-check-input {
   transition: none;
   height: 30px;
