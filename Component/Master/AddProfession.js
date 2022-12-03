@@ -59,7 +59,7 @@ const AddProfession = () => {
       );
       setTimeout(() => {
         window.location = "/master/addProfession";
-      }, 1000);
+      }, 500);
     } catch (err) {
       console.log(err);
       toast.error("Failed to add new country");
@@ -105,7 +105,9 @@ const AddProfession = () => {
           response.data.profession +
           " Has Been Removed Successfully"
       );
-      window.location = "/master/addProfession";
+      setTimeout(() => {
+        window.location = "/master/addProfession";
+      }, 500);
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the city. Please Try Again...");

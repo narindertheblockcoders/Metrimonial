@@ -129,7 +129,7 @@ const State = () => {
       );
       setTimeout(() => {
         window.location = "/master/addState";
-      }, 1500);
+      }, 500);
     } catch (err) {
       console.log(err);
     }
@@ -168,7 +168,9 @@ const State = () => {
           " Has Been Removed Successfully frorm " +
           countryName
       );
-      window.location = "/master/addState";
+      setTimeout(() => {
+        window.location = "/master/addState";
+      }, 500);
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the city. Please Try Again...");

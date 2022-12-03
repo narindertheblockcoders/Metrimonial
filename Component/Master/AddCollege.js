@@ -59,7 +59,7 @@ const AddCollege = () => {
       );
       setTimeout(() => {
         window.location = "/master/addCollege";
-      }, 1000);
+      }, 500);
     } catch (err) {
       console.log(err);
       toast.error("Failed to add new college");
@@ -105,7 +105,9 @@ const AddCollege = () => {
           response.data.college +
           " Has Been Removed Successfully"
       );
-      window.location = "/master/addCollege";
+      setTimeout(() => {
+        window.location = "/master/addCollege";
+      }, 500);
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the city. Please Try Again...");

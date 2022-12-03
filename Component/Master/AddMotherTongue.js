@@ -59,7 +59,7 @@ const AddCountry = () => {
       );
       setTimeout(() => {
         window.location = "/master/addMotherTongue";
-      }, 1000);
+      }, 500);
     } catch (err) {
       console.log(err);
       toast.error("Failed to add new country");
@@ -105,7 +105,9 @@ const AddCountry = () => {
           response.data.motherTounge +
           " Has Been Removed Successfully"
       );
-      window.location = "/master/addMotherTongue";
+      setTimeout(() => {
+        window.location = "/master/addMotherTongue";
+      }, 500);
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the city. Please Try Again...");

@@ -53,7 +53,7 @@ const AddCountry = () => {
       toast.success("Country " + response?.data.countryName + " Has Been Added Successfully");
       setTimeout(() => {
         window.location="/master/addCountry"
-      },1000);
+      },500);
     } catch (err) {
       console.log(err);
       toast.error("Failed to add new country");
@@ -92,7 +92,9 @@ const AddCountry = () => {
       const response = res.data;
       console.log(response, "to get the response from api to delete the country");
       toast.success("Country " + response.data.countryName + " Has Been Removed Successfully")
-      window.location="/master/addCountry"
+      setTimeout(() => {
+        window.location="/master/addCountry"
+      }, 500);
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the city. Please Try Again...")

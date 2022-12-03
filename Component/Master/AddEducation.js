@@ -59,7 +59,7 @@ const AddEducation = () => {
       );
       setTimeout(() => {
         window.location = "/master/addEducation";
-      }, 1000);
+      }, 500);
     } catch (err) {
       console.log(err);
       toast.error("Failed to add new country");
@@ -105,7 +105,9 @@ const AddEducation = () => {
           response.data.qualification +
           " Has Been Removed Successfully"
       );
-      window.location = "/master/addEducation";
+      setTimeout(() => {
+        window.location = "/master/addEducation";
+      }, 500);
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the city. Please Try Again...");
