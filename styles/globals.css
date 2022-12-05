@@ -4185,6 +4185,17 @@ section.forself .self-main .box-text-two h4 {
   color: #595959;
 }
 
+
+.forget-text, .logged-lable{
+  cursor: pointer;
+}
+
+
+
+
+
+
+
 @media (max-width: 1536px) {
 
 

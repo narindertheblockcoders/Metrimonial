@@ -159,7 +159,7 @@ const Login = () => {
                     </label>
                   </div>
 
-                  <p className="forget-text">Forget password?</p>
+                  {/* <p className="forget-text">Forget password?</p> */}
                 </div>
 
                 {errorEmail && (
@@ -192,7 +192,7 @@ const Login = () => {
                 <Button
                   variant="primary"
                   className="btn btn-round btn-warning w-100 p-0 "
-                  style={{ marginTop: "5px" }}
+                  style={{ marginTop: "15px" }}
                   type="submit"
                   disabled={isLoading}
                 >
