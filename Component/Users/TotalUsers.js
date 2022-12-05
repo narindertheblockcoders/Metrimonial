@@ -1,11 +1,11 @@
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import SideBar from "../SideBar";
 import Navbar from "../ui/Navbar";
 import Router from "next/router";
 import { useRouter } from "next/router";
 import { Button } from "react-bootstrap";
-import SideBar  from  '../SideBar'
 
 const TotalUsers = () => {
   const [users, setUsers] = useState();
@@ -32,9 +32,9 @@ const TotalUsers = () => {
   return (
     <>
       <div className="new-dashboard">
-       <SideBar/>
+        <SideBar />
+
         <section className="profile-sec pb-0 profile-sects">
-          
           <div className="container">
             <div className="row justify-content-center">
               <form className="input-sec mb-5" id="card-input-field">
@@ -72,7 +72,7 @@ const TotalUsers = () => {
                   USER PROFILE
                 </h3>
                 
-                <div className="Cards-head  mt-5">
+                <div className="Cards-head">
                 {users?.map((item,id)=> {
                   return(
                   <div class="card " id="card-settings">

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import SideBar from "../SideBar";
+import SideBar from "../Sidebar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
@@ -59,7 +59,7 @@ const AddProfession = () => {
       );
       setTimeout(() => {
         window.location = "/master/addProfession";
-      }, 500);
+      }, 1000);
     } catch (err) {
       console.log(err);
       toast.error("Failed to add new country");
@@ -105,9 +105,7 @@ const AddProfession = () => {
           response.data.profession +
           " Has Been Removed Successfully"
       );
-      setTimeout(() => {
-        window.location = "/master/addProfession";
-      }, 500);
+      window.location = "/master/addProfession";
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the city. Please Try Again...");
@@ -175,18 +173,15 @@ const AddProfession = () => {
                 <div className="input-line iptset-line" id="index-line"></div>
                 <div className="token-head">
                   <div className="rapper-between" id="token-form-padding">
-                    <Link href="/dashboard">
+                    {/* <Link href="/dashboard">
                       <h5
                         style={{ cursor: "pointer" }}
                         // onClick={() => router.back()}
                       >
                         {" "}
-                        <i
-                          className="bi bi-chevron-left"
-                          id="back-btn-icon"
-                        ></i>
+                        <i className="bi bi-chevron-left"  id="back-btn-icon"  ></i>
                       </h5>
-                    </Link>
+                    </Link> */}
                     <h5 className="heading-text pink-text ">PROFESSION</h5>
                     <h5 className="hide-text">1</h5>
                   </div>

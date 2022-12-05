@@ -3,8 +3,9 @@ import React, { useEffect, useState, useRouter } from "react";
 import axios from "axios";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { ToastContainer, toast } from "react-toastify";
-import Button from "react-bootstrap/Button";import Navbar from "../ui/Navbar";
-import SideBar from "../SideBar";
+import Button from "react-bootstrap/Button";
+import SideBar from "../Sidebar";
+import Navbar from "../ui/Navbar";
 
 const NewDashboard = () => {
   const [collectiveData, setCollectiveData] = useState();
@@ -30,11 +31,11 @@ const NewDashboard = () => {
   }, []);
   return (
     <div className="new-dashboard">
-      <SideBar/>
+      <SideBar />
       <section className="profile-sec profile-sects">
         <div className="container">
           <div className="row">
-            <Navbar />
+            {/* <Navbar /> */}
             <form className="funds-sec">
               <h3> </h3>
               <ToastContainer />

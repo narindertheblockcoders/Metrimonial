@@ -545,6 +545,7 @@ header .navbar-light .navbar-nav .nav-link {
   background-color: #fff !important;
   height: 500px !important;
   position: relative;
+  overflow: auto;
 }
 
 .profile-sects {
@@ -1856,7 +1857,7 @@ sup {
   color: yellow;
   background-color: #535353;
 }
-.form-check{cursor: pointer;}
+
 .form-switch .form-check-input {
   transition: none;
   height: 30px;
@@ -3503,7 +3504,7 @@ svg.rd3t-svg {
   float: left;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 15px;
 }
 .add-btn {
@@ -3546,8 +3547,9 @@ div#add-btn {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  height: 76vh;
-  overflow: auto;
+  /* height: 76vh;
+  overflow: auto; */
+  margin-top: 3rem;
 }
 #card-settings {
   float: left;
@@ -4183,15 +4185,22 @@ section.forself .self-main .box-text-two h4 {
   color: #595959;
 }
 
+@media (max-width: 1536px) {
 
 
-
+  #card-settings {
+    width: 27rem;
+}
+.Cards-head{margin-top: 2rem !important;}
+}
 
 @media (max-width: 1200px) {
   #tree-row {
     overflow: scroll !important;
   }
-
+  #card-settings {
+    width: 34rem;
+}
   svg.rd3t-svg {
     width: 140%;
     height: 100vh;
@@ -4229,12 +4238,14 @@ section.forself .self-main .box-text-two h4 {
     height: 46px;
     width: 50px;
     background-color: unset !important;
+    font-size: 24px;
   }
 
   #arrow-id {
     margin-top: -5px;
     margin-left: -15px;
     width: 50px;
+    display: none;
   }
 
   .toggle-sidebar {
@@ -4256,15 +4267,6 @@ section.forself .self-main .box-text-two h4 {
     transform: rotate(180deg);
     /* transition: all 0.6; */
   }
-}
-
-/* @media (max-width: 1199px) {
-  .toggle-sidebar .sidebar {
-    left: 0;
-  }
-} */
-
-@media (max-width: 1200px) {
   .profile-sec {
     padding: 30px 0;
     /* height: 100vh; */
@@ -4283,12 +4285,6 @@ section.forself .self-main .box-text-two h4 {
   .toggle-sidebar .sidebar {
     left: -300px;
   }
-}
-
-@media screen and (max-width: 1200px) {
-  /* .margin-txt {
-        float: left;
-        width: 113%;}    */
   .iframe-setting {
     height: 224px !important;
   }
@@ -4301,6 +4297,7 @@ section.forself .self-main .box-text-two h4 {
     width: 60% !important;
   }
 }
+
 
 @media screen and (max-width: 1199px) {
   .scan-previous {
@@ -4363,6 +4360,9 @@ section.forself .self-main .box-text-two h4 {
 }
 
 @media screen and (max-width: 1024px) {
+  .login-top-img::before{
+    top: 40%;
+  }
   #dashboard-chg {
     width: 70% !important;
   }
@@ -4375,9 +4375,8 @@ section.forself .self-main .box-text-two h4 {
 
   .profile-sec .input-sec {
     float: left;
-    width: 40.3%;
-  }
-
+    width: 65.3% !important;
+}
   .submit-sec .submit-txt-sec {
     float: left;
     width: 42.3%;
@@ -4411,11 +4410,16 @@ section.forself .self-main .box-text-two h4 {
   }
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 991px) {
   #faquery-item {
     margin-top: 20px !important;
   }
-
+  .Cards-head {
+    margin-top: 1rem !important;
+}
+#card-settings {
+  width: 36rem;
+}
   #teams-item {
     margin-top: 20px !important;
   }
@@ -4458,7 +4462,12 @@ section.forself .self-main .box-text-two h4 {
     color: black !important;
     padding-top: 0px;
   }
-
+  #card-input-field {
+    float: left;
+    width: 100%;
+    padding: 0 10px !important;
+}
+.Cards-head{justify-content: center;}
   .lr-sec {
     flex-direction: column !important;
   }
@@ -4570,7 +4579,7 @@ section.forself .self-main .box-text-two h4 {
   }
 
   .profile-sec .input-sec {
-    width: 100% !important;
+    /* width: 100% !important; */
     top: -3.4%;
     /* overflow: hidden; */
   }
@@ -4697,7 +4706,10 @@ section.forself .self-main .box-text-two h4 {
     margin-left: -35rem;
     overflow: auto;
   }
-
+  .profile-sec .input-sec {
+    float: left;
+    width: 87.3% !important;
+}
   /* .rd3t-tree-container{overflow: scroll;} */
   #add-withdraw {
     width: 50% !important;
@@ -4776,6 +4788,90 @@ section.forself .self-main .box-text-two h4 {
 }
 
 @media screen and (max-width: 414px) {
+  .profile-sec .input-sec {
+    float: left;
+    width: 100% !important;
+}
+  #card-settings {
+    width: 22rem;
+    flex-wrap: wrap !important;
+    justify-content: center;
+    padding: 10px;
+}
+#card-settings .card-img-top {
+  max-width: 300px;
+  height: 300px;
+}
+.card-body{
+  padding-bottom: 0px !important;
+}
+#card-settings .card-title {
+  font-size: 16px !important;
+  text-align: left;
+  margin-left: -12px;
+  padding: 0;
+}
+.profile-sec .input-sec .heading-text {
+  font-size: 18px;
+  margin-top: 0px !important;
+}
+
+div#add-btn {
+  padding-top: 10px !important;
+  padding-left: 10px;
+}
+/* .........User Details............... */
+
+.user-image {
+  width: 350px;
+  height: 350px;
+}
+
+
+section.forself{
+  padding: 0px;
+  height: 93.8vh !important;
+  overflow: auto !important;
+}
+section.forself .self-main #left-main-box {
+  flex-wrap: wrap !important;
+  padding: 0px;
+  justify-content: center;
+}
+section.forself .self-main .self-main-head {
+  padding: 30px 30px 30px 20px;
+}
+section.forself .self-main h3 {
+  font-size: 27px;
+  margin-bottom: 20px;
+}
+section.forself .self-main .box-text-two {
+  padding-left: 20px;
+  width: 100%;
+  margin-top: 20px;
+  border-left: none !important; 
+}
+section.forself .self-main .box-text-one {
+  width: 100%;
+  padding: 20px 20px;
+  padding-bottom: 0 !important;
+}
+section.forself .self-main .self-about .self-about-main .self-about-left {
+  float: left;
+  width: 100%;
+  margin-top: 20px;
+}
+section.forself .self-main .self-about .self-about-main .self-about-right {
+  float: right;
+  width: 100%;
+  margin-top: 20px;
+}
+section.forself .self-main .self-about .self-about-main{
+  flex-wrap: wrap !important;
+  flex-direction: column-reverse;
+
+}
+
   svg.rd3t-svg {
     width: 400%;
     height: 100vh;
@@ -5217,6 +5313,14 @@ section.forself .self-main .box-text-two h4 {
 }
 
 @media screen and (max-width: 375px) {
+  .login-top-img {
+    height: 185px;
+  }
+
+  .user-image {
+    width: 320px;
+    height: 320px;
+  }
   .verify-hight {
     min-height: 85vh !important;
   }
@@ -5325,10 +5429,14 @@ section.forself .self-main .box-text-two h4 {
   }
 }
 
-@media screen and (max-width: 353px) {
+@media screen and (max-width: 360px) {
   .iframe-setting {
     height: 185px !important;
   }
+  .user-image {
+    width: 300px;
+    height: 300px;
+}
 
   .dps {
     float: left;

@@ -1,4 +1,5 @@
 import React from "react";
+import SideBar from "../SideBar";
 import Link from "next/link";
 import $ from "jquery";
 import { useRouter } from "next/router";
@@ -6,7 +7,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import SideBar from "../SideBar";
 
 const AddCity = () => {
   const [country, setCountry] = useState();
@@ -219,7 +219,7 @@ const AddCity = () => {
     <div>
       <ToastContainer />
       <div className="new-dashboard">
-        <SideBar/>
+        <SideBar />
         <section className="profile-sec profile-sects">
           <div className="container">
             <div className="row justify-content-center">
@@ -271,18 +271,12 @@ const AddCity = () => {
 
                 <div className="token-head">
                   <div className="rapper-between" id="token-form-padding">
-                    <Link href="/dashboard">
-                      <h5
-                        style={{ cursor: "pointer" }}
-                        // onClick={() => router.back()}
-                      >
+                    {/* <Link href="/dashboard">
+                      <h5 style={{ cursor: "pointer" }}>
                         {" "}
-                        <i
-                          className="bi bi-chevron-left"
-                          id="back-btn-icon"
-                        ></i>
+                        <i className="bi bi-chevron-left" id="back-btn-icon" ></i>
                       </h5>
-                    </Link>
+                    </Link> */}
                     <h5 className="heading-text pink-text ">CITIES</h5>
                     <h5 className="hide-text">1</h5>
                   </div>

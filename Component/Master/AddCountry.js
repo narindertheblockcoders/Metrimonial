@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import SideBar from "../SideBar";
+import SideBar from "../Sidebar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
@@ -53,7 +53,7 @@ const AddCountry = () => {
       toast.success("Country " + response?.data.countryName + " Has Been Added Successfully");
       setTimeout(() => {
         window.location="/master/addCountry"
-      },500);
+      },1000);
     } catch (err) {
       console.log(err);
       toast.error("Failed to add new country");
@@ -92,9 +92,7 @@ const AddCountry = () => {
       const response = res.data;
       console.log(response, "to get the response from api to delete the country");
       toast.success("Country " + response.data.countryName + " Has Been Removed Successfully")
-      setTimeout(() => {
-        window.location="/master/addCountry"
-      }, 500);
+      window.location="/master/addCountry"
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the city. Please Try Again...")
@@ -262,18 +260,13 @@ const AddCountry = () => {
                 <div className="input-line iptset-line" id="index-line"></div>
                 <div className="token-head">
                   <div className="rapper-between" id="token-form-padding">
-                    <Link href="/dashboard">
-                      <h5
-                        style={{ cursor: "pointer" }}
-                        // onClick={() => router.back()}
-                      >
+                    {/* <Link href="/dashboard">
+                      <h5  style={{ cursor: "pointer" }} >
                         {" "}
-                        <i
-                          className="bi bi-chevron-left"
-                          id="back-btn-icon"
-                        ></i>
+                        <i className="bi bi-chevron-left" id="back-btn-icon" ></i>
                       </h5>
                     </Link>
+                     */}
                     <h5 className="heading-text pink-text ">COUNTRIES</h5>
                     <h5 className="hide-text">1</h5>
                   </div>

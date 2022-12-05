@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import SideBar from "../SideBar";
+import SideBar from "../Sidebar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
@@ -59,7 +59,7 @@ const AddCountry = () => {
       );
       setTimeout(() => {
         window.location = "/master/addMotherTongue";
-      }, 500);
+      }, 1000);
     } catch (err) {
       console.log(err);
       toast.error("Failed to add new country");
@@ -105,9 +105,7 @@ const AddCountry = () => {
           response.data.motherTounge +
           " Has Been Removed Successfully"
       );
-      setTimeout(() => {
-        window.location = "/master/addMotherTongue";
-      }, 500);
+      window.location = "/master/addMotherTongue";
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the city. Please Try Again...");
@@ -139,13 +137,7 @@ const AddCountry = () => {
                     <h3 className="heading-text mt-3 " id="city-text">
                       MOTHER TONGUE
                     </h3>
-                    <button
-                      type="button"
-                      className="btn-close "
-                      id="hide-btn-click"
-                      onClick={hide}
-                      data-bs-dismiss="input-sec"
-                    ></button>
+                    <button type="button" className="btn-close "  id="hide-btn-click"  onClick={hide}  data-bs-dismiss="input-sec"></button>
                   </div>
                   <div className="input-item mt-0" id="input-mt">
                     <h6 className="item-text">ADD MOTHER TONGUE</h6>
@@ -175,18 +167,15 @@ const AddCountry = () => {
                 <div className="input-line iptset-line" id="index-line"></div>
                 <div className="token-head">
                   <div className="rapper-between" id="token-form-padding">
-                    <Link href="/dashboard">
+                    {/* <Link href="/dashboard">
                       <h5
                         style={{ cursor: "pointer" }}
                         // onClick={() => router.back()}
                       >
                         {" "}
-                        <i
-                          className="bi bi-chevron-left"
-                          id="back-btn-icon"
-                        ></i>
+                        <i className="bi bi-chevron-left" id="back-btn-icon" ></i>
                       </h5>
-                    </Link>
+                    </Link> */}
                     <h5 className="heading-text pink-text ">MOTHER TONGUE</h5>
                     <h5 className="hide-text">1</h5>
                   </div>

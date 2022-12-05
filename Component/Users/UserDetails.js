@@ -1,8 +1,11 @@
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import SideBar from  '../SideBar'
-
+import SideBar from "../SideBar";
+import Navbar from "../ui/Navbar";
+import Router from "next/router";
+import { useRouter } from "next/router";
+import { Button } from "react-bootstrap";
 import userDetails from "../../pages/userDetails/[uid]";
 
 const UserDetails = (props) => {

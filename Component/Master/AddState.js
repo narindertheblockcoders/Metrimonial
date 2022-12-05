@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import SideBar from "../SideBar";
+import SideBar from "../Sidebar";
 import Link from "next/link";
 import Script from "next/script";
 import $ from "jquery";
@@ -129,7 +129,7 @@ const State = () => {
       );
       setTimeout(() => {
         window.location = "/master/addState";
-      }, 500);
+      }, 1500);
     } catch (err) {
       console.log(err);
     }
@@ -168,9 +168,7 @@ const State = () => {
           " Has Been Removed Successfully frorm " +
           countryName
       );
-      setTimeout(() => {
-        window.location = "/master/addState";
-      }, 500);
+      window.location = "/master/addState";
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the city. Please Try Again...");
@@ -232,18 +230,15 @@ const State = () => {
 
                 <div className="token-head">
                   <div className="rapper-between" id="token-form-padding">
-                    <Link href="/dashboard">
+                    {/* <Link href="/dashboard">
                       <h5
                         style={{ cursor: "pointer" }}
                         // onClick={() => router.back()}
                       >
                         {" "}
-                        <i
-                          className="bi bi-chevron-left"
-                          id="back-btn-icon"
-                        ></i>
+                        <i  className="bi bi-chevron-left" id="back-btn-icon"></i>
                       </h5>
-                    </Link>
+                    </Link> */}
                     <h5 className="heading-text pink-text ">STATE</h5>
                     <h5 className="hide-text">1</h5>
                   </div>

@@ -22,7 +22,7 @@ const SideBar = () => {
           id="toggle-setting"
         >
           {" "}
-          {/* <img id="arrow-id" src="/others/arws.webp" /> */}
+          <img id="arrow-id" src="/others/arws.webp" />
         </button>
         <aside className=" sidebar ">
           <ul className="sidebar-nav" id="sidebar-nav">
