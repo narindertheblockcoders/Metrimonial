@@ -72,7 +72,7 @@ const TotalUsers = () => {
                   USER PROFILE
                 </h3>
                 
-                <div className="Cards-head">
+                <div className="Cards-head  mt-5">
                 {users?.map((item,id)=> {
                   return(
                   <div class="card " id="card-settings">

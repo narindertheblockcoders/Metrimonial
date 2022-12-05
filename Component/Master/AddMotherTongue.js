@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import SideBar from "../Sidebar";
+import SideBar from "../SideBar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
@@ -59,10 +59,10 @@ const AddCountry = () => {
       );
       setTimeout(() => {
         window.location = "/master/addMotherTongue";
-      }, 1000);
+      }, 2000);
     } catch (err) {
       console.log(err);
-      toast.error("Failed to add new country");
+      toast.error(addMotherTongue + " Has already been added in Mother Tongue List... Please Check...");
     }
   }
 
@@ -105,10 +105,13 @@ const AddCountry = () => {
           response.data.motherTounge +
           " Has Been Removed Successfully"
       );
-      window.location = "/master/addMotherTongue";
+      setTimeout(()=>{
+        window.location = "/master/addMotherTongue";
+
+      },1000)
     } catch (err) {
       console.log(err);
-      toast.error("Failed to remove the city. Please Try Again...");
+      toast.error("Failed to remove the mother tongue. Please Try Again...");
     }
   }
 
@@ -137,7 +140,13 @@ const AddCountry = () => {
                     <h3 className="heading-text mt-3 " id="city-text">
                       MOTHER TONGUE
                     </h3>
-                    <button type="button" className="btn-close "  id="hide-btn-click"  onClick={hide}  data-bs-dismiss="input-sec"></button>
+                    <button
+                      type="button"
+                      className="btn-close "
+                      id="mother-btn-click"
+                      onClick={hide}
+                      data-bs-dismiss="input-sec"
+                    ></button>
                   </div>
                   <div className="input-item mt-0" id="input-mt">
                     <h6 className="item-text">ADD MOTHER TONGUE</h6>
@@ -168,12 +177,9 @@ const AddCountry = () => {
                 <div className="token-head">
                   <div className="rapper-between" id="token-form-padding">
                     {/* <Link href="/dashboard">
-                      <h5
-                        style={{ cursor: "pointer" }}
-                        // onClick={() => router.back()}
-                      >
+                      <h5 style={{ cursor: "pointer" }} >
                         {" "}
-                        <i className="bi bi-chevron-left" id="back-btn-icon" ></i>
+                        <i className="bi bi-chevron-left" id="back-btn-icon"></i>
                       </h5>
                     </Link> */}
                     <h5 className="heading-text pink-text ">MOTHER TONGUE</h5>
@@ -186,7 +192,7 @@ const AddCountry = () => {
                     <input
                       type="text"
                       className="form-control"
-                      // placeholder={motherTongueName || "Search Mother Tongue"}
+                      placeholder= "Search Mother Tongue"
                       aria-label="Username"
                       value={motherTongueName}
                       aria-describedby="basic-addon1"

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import SideBar from "../Sidebar";
+import SideBar from "../SideBar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
@@ -62,9 +62,10 @@ const AddCollege = () => {
       }, 1000);
     } catch (err) {
       console.log(err);
-      toast.error("Failed to add new college");
-    }
+      toast.error(addCollege + " Has already been added in College List... Please Check...");
+      
   }
+}
 
   async function formSubmitHandler(event) {
     event.preventDefault();
@@ -189,7 +190,7 @@ const AddCollege = () => {
                     <input
                       type="text"
                       className="form-control"
-                      // placeholder={motherTongueName || "Search Mother Tongue"}
+                      placeholder="Search College"
                       aria-label="Username"
                       value={collegeName}
                       aria-describedby="basic-addon1"

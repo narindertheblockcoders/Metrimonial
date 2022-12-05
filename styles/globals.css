@@ -1,13 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700;800;900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700;800;900&display=swap"); */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@300;400;500;700;900&display=swap');
+
 
 div {
   margin: 0px;
   padding: 0px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Barlow', sans-serif !important;
+
+  /* font-family: Arial, Helvetica, sans-serif; */
 }
 
 :root {
-  /* --toastify-text-color-success: green; */
+  /* --toastify-text-color-suc  cess: green; */
   --bg-color: #f88a15 !important;
   --gray-color: #fff;
 }
@@ -631,7 +636,7 @@ header .navbar-light .navbar-nav .nav-link {
 }
 
 .profile-sec .input-sec .heading-text {
-  font-size: 25px;
+  font-size: 26px;
   font-weight: 500 !important;
   text-align: center;
   margin-bottom: 0 !important;
@@ -3361,7 +3366,7 @@ svg.rd3t-svg {
   background-color: unset !important;
   border: none !important;
   color: #303030 !important;
-  font-size: 14px !important;
+  font-size: 15px !important;
 }
 
 #search-bar .form-control:focus {
@@ -3466,8 +3471,8 @@ svg.rd3t-svg {
 
 .left-text-eth {
   float: left;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 400;
   margin: 0;
   text-align: left;
 }
@@ -3512,8 +3517,8 @@ svg.rd3t-svg {
   color: white !important;
   float: left;
   width: 15%;
-  font-size: 14px !important;
-  font-weight: 600 !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
 }
 #bar-tops {
   position: absolute;
@@ -3525,14 +3530,14 @@ svg.rd3t-svg {
 }
 button.btn-close {
   position: relative;
-  right: -28%;
+  right: -24%;
 }
 #close-btn-setting {
   margin-left: 30px;
 }
 #btn-closes {
   position: relative;
-  right: -32% !important;
+  right: -34% !important;
 }
 div#add-btn {
   padding-top: 10px !important;
@@ -4191,8 +4196,18 @@ section.forself .self-main .box-text-two h4 {
 }
 
 
-
-
+#hide-btn-click{left: 32% !important;}
+#state-hide-btn{left: 32% !important;}
+#hide-btn-clicks {
+  left: 22% !important;
+}
+#profession-btn-click{left: 24%;}
+#city-text {
+  margin-left: 20px !important;
+}
+#mother-btn-click {
+  left: 19% !important;
+}
 
 
 
@@ -5502,7 +5517,7 @@ section.forself .self-main .self-about .self-about-main{
 .sidebar-nav .nav-link {
   display: flex;
   align-items: center;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--gray-color);
   transition: 0.3;
@@ -5597,6 +5612,13 @@ section.forself .self-main .self-about .self-about-main{
   margin-top: -2px !important;
   margin-right: 10px !important;
 }
+#out-class {
+  color: var(--gray-color) !important;
+  font-size: 16px !important;
+  margin-top: -2px !important;
+  margin-right: 10px !important;
+  -webkit-text-stroke: 0px solid white;
+}
 
 .bi-chevron-down::before {
   content: "\f282";
@@ -5607,14 +5629,12 @@ section.forself .self-main .self-about .self-about-main{
 }
 
 .sidebar-nav .nav-link:hover {
-  color: var(--bg-color);
+  color: var(--gray-color) !important;
   background: none;
-  font-size: 14px;
+  font-size: 15px;
 }
 
-.sidebar-nav .nav-link:hover i {
-  color: black;
-}
+
 
 a:hover {
   color: var(--bg-color) !important;

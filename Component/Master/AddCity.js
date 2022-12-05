@@ -152,6 +152,7 @@ const AddCity = () => {
       }, 1500);
     } catch (err) {
       console.log(err);
+      toast.error("City " + addCity + " Has already been added in State " + stateName + " Please Check...");
     }
   }
 
@@ -203,7 +204,9 @@ const AddCity = () => {
           " Has Been Removed Successfully frorm " +
           stateName
       );
-      window.location = "/master/addCity";
+      setTimeout(() => {
+        window.location = "/master/addCity";
+      }, 1000);
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the city. Please Try Again...");
@@ -233,7 +236,7 @@ const AddCity = () => {
                   <div className="login-top-img">
                     <h3 className="heading-text mt-3" id="close-btn-setting">
                       {" "}
-                      Cities
+                      City
                     </h3>
                     <button
                       type="button"
@@ -274,13 +277,13 @@ const AddCity = () => {
                     {/* <Link href="/dashboard">
                       <h5 style={{ cursor: "pointer" }}>
                         {" "}
-                        <i className="bi bi-chevron-left" id="back-btn-icon" ></i>
+                        <i  className="bi bi-chevron-left"  id="back-btn-icon" ></i>
                       </h5>
                     </Link> */}
-                    <h5 className="heading-text pink-text ">CITIES</h5>
+                    <h5 className="heading-text pink-text ">CITY</h5>
                     <h5 className="hide-text">1</h5>
                   </div>
-                  <h6 className="State-text mt-0">Countries</h6>
+                  <h6 className="State-text mt-0">Country</h6>
 
                   <div className="input-group mb-1" id="search-bar">
                     <span className="input-group-text" id="basic-addon1">
@@ -399,7 +402,7 @@ const AddCity = () => {
                 </div>
 
                 <div className="token-head ">
-                  <h6 className="State-text mt-4">Cities</h6>
+                  <h6 className="State-text mt-4">City</h6>
 
                   <div className="input-group mb-1" id="search-bar">
                     <span className="input-group-text" id="basic-addon1">

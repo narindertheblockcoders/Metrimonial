@@ -91,7 +91,7 @@ const Login = () => {
   }
 
   return (
-    <div>
+    <div style={{fontFamily:"Bookman old Style !important"}}>
       <section className="profile-sec ">
         <div className="container">
           <div className="row justify-content-center">

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import SideBar from "../Sidebar";
+import SideBar from "../SideBar";
 import Link from "next/link";
 import Script from "next/script";
 import $ from "jquery";
@@ -132,6 +132,7 @@ const State = () => {
       }, 1500);
     } catch (err) {
       console.log(err);
+      toast.error("State " + addState + " Has already been added in " + countryName +  " Please Check...");
     }
   }
 
@@ -171,7 +172,7 @@ const State = () => {
       window.location = "/master/addState";
     } catch (err) {
       console.log(err);
-      toast.error("Failed to remove the city. Please Try Again...");
+      toast.error("Failed to remove the state. Please Try Again...");
     }
   }
 
@@ -200,6 +201,7 @@ const State = () => {
                       className="btn-close"
                       aria-label="Close"
                       onClick={jqueryCode}
+                      id="state-hide-btn"
                     ></button>
                   </div>
                   <div className="input-item mt-0" id="input-mt">
@@ -231,18 +233,15 @@ const State = () => {
                 <div className="token-head">
                   <div className="rapper-between" id="token-form-padding">
                     {/* <Link href="/dashboard">
-                      <h5
-                        style={{ cursor: "pointer" }}
-                        // onClick={() => router.back()}
-                      >
+                      <h5  style={{ cursor: "pointer" }}>
                         {" "}
-                        <i  className="bi bi-chevron-left" id="back-btn-icon"></i>
+                        <i className="bi bi-chevron-left" id="back-btn-icon" ></i>
                       </h5>
                     </Link> */}
                     <h5 className="heading-text pink-text ">STATE</h5>
                     <h5 className="hide-text">1</h5>
                   </div>
-                  <h6 className="State-text mt-0">Countries</h6>
+                  <h6 className="State-text mt-0">Country</h6>
 
                   <div className="input-group mb-1" id="search-bar">
                     <span className="input-group-text" id="basic-addon1">

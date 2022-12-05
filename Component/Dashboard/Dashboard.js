@@ -4,7 +4,7 @@ import axios from "axios";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { ToastContainer, toast } from "react-toastify";
 import Button from "react-bootstrap/Button";
-import SideBar from "../Sidebar";
+import SideBar from "../SideBar";
 import Navbar from "../ui/Navbar";
 
 const NewDashboard = () => {
@@ -35,7 +35,7 @@ const NewDashboard = () => {
       <section className="profile-sec profile-sects">
         <div className="container">
           <div className="row">
-            {/* <Navbar /> */}
+            <Navbar />
             <form className="funds-sec">
               <h3> </h3>
               <ToastContainer />

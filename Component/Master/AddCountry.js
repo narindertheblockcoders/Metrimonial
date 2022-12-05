@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import SideBar from "../Sidebar";
+import SideBar from "../SideBar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
@@ -12,7 +12,8 @@ const AddCountry = () => {
   const [country, setCountry] = useState();
   const [searchCountry, setSearchCountry] = useState();
   const [addCountry, setAddCountry] = useState();
-  const [countryName, setCountryName] = useState()
+  const [countryName, setCountryName] = useState();
+  const [countryAdded, setCountryAdded] = useState(0)
   const router = useRouter();
 
   async function jqueryCode() {
@@ -38,7 +39,11 @@ const AddCountry = () => {
 
   useEffect(() => {
     getCountry();
-  }, []);
+  }, [countryAdded]);
+
+  // useEffect(()=>{
+  //   getCountry();
+  // },[countryDeleted])
 
 
   async function addCountryFn(data) {
@@ -51,12 +56,11 @@ const AddCountry = () => {
       const response = res.data;
       console.log(response, "to get the response from api to add country");
       toast.success("Country " + response?.data.countryName + " Has Been Added Successfully");
-      setTimeout(() => {
-        window.location="/master/addCountry"
-      },1000);
+      setCountryAdded(countryAdded+1)
+      hide();
     } catch (err) {
-      console.log(err);
-      toast.error("Failed to add new country");
+      console.log(err, "to check the error status");
+        toast.error("Country " + addCountry + " Has already been added in Country List... Please check...");
     }
   }
 
@@ -83,6 +87,7 @@ const AddCountry = () => {
   async function deleteCountry(e) {
     console.log(e, "to get the id of the country");
     const id = e;
+
     try {
       const token = localStorage.getItem("token");
       let res = await axios.post("/api/master/country/deleteCountry", {
@@ -92,10 +97,11 @@ const AddCountry = () => {
       const response = res.data;
       console.log(response, "to get the response from api to delete the country");
       toast.success("Country " + response.data.countryName + " Has Been Removed Successfully")
-      window.location="/master/addCountry"
+      setCountryAdded(countryAdded+1);
+      setCountryName(null)
     } catch (err) {
       console.log(err);
-      toast.error("Failed to remove the city. Please Try Again...")
+      toast.error("Failed to remove the country. Please Try Again...")
     }
   }
 
@@ -104,107 +110,6 @@ const AddCountry = () => {
     setCountryName(item.countryName)
   }
   return (
-    // <div>
-    //   <ToastContainer />
-    //   <div className="new-dashboard">
-    //     <SideBar />
-    //     <section className="profile-sec profile-sects">
-    //       <div className="container">
-    //         <div className="row justify-content-center">
-    //           <form
-    //             className="input-sec input-top p-0 state-form"
-    //             id="bar-tops"
-    //             onSubmit={formSubmitHandler}
-    //           >
-    //             <div className="input-line iptset-line" id="index-line"></div>
-    //             <div className="p-3">
-    //               <div className="login-top-img">
-    //                 <h3 className="heading-text mt-3" id="close-btn-setting">
-    //                   {" "}
-    //                   COUNTRY
-    //                 </h3>
-    //                 <button
-    //                   type="button"
-    //                   className="btn-close"
-    //                   aria-label="Close"
-    //                   onClick={jqueryCode}
-    //                 ></button>
-    //               </div>
-    //               <div className="input-item mt-0" id="input-mt">
-    //                 <h6 className="item-text">ADD COUNTRY</h6>
-    //                 <input
-    //                   className="textinput"
-    //                   type="text"
-    //                   name="username"
-    //                   autoComplete="on"
-    //                   onChange={(e) => setAddCountry(e.target.value)}
-    //                 />
-    //               </div>
-
-    //               <button
-    //                 variant="primary"
-    //                 className="btn btn-round btn-warning w-100 p-0 "
-    //                 style={{ marginTop: "30px" }}
-    //                 type="submit"
-    //               >
-    //                 {" "}
-    //                 ADD{" "}
-    //               </button>
-    //             </div>
-    //           </form>
-
-    //           <form className="input-sec input-top p-0" id="bar-top">
-    //             <div className="input-line iptset-line" id="index-line"></div>
-               
-    //             <div className="token-head ">
-    //               <div className="rapper-between" id="token-form-padding">
-    //                   <h5
-    //                     style={{ cursor: "pointer" }}
-    //                   >
-    //                     {" "}
-    //                     <i
-    //                       className="bi bi-chevron-left"
-    //                       id="back-btn-icon"
-    //                       onClick={() => router.back()}
-    //                     ></i>
-    //                   </h5>
-    //                 <h5 className="heading-text pink-text "> Country </h5>
-    //                 <h5 className="hide-text">1</h5>
-    //               </div>
-    //             </div>
-               
-    //             <div className="input-group mb-1 " id="search-bar">
-    //               <span className="input-group-text" id="basic-addon1">
-    //                 <i className="bi bi-search"></i>
-    //               </span>
-    //               <select
-    //                 type="text"
-    //                 className="form-control form-select"
-    //                 placeholder="Select County"
-    //                 aria-label="Username"
-    //                 aria-describedby="basic-addon1"
-    //                 >
-    //                 {country?.map((item,id)=>{
-    //                  return(
-    //                 <option key={id} value={item.id}>{item.countryName}</option>
-    //                 )
-    //                 })}
-    //                 </select>
-    //               <div
-    //                 onClick={jqueryCode}
-    //                 className="btn add-btn p-2"
-    //                 id="add-btn"
-    //               >
-    //                 ADD
-    //               </div>
-    //             </div>
-             
-    //           </form>
-    //         </div>
-    //       </div>
-    //     </section>
-    //   </div>
-    // </div>
     <div>
       <ToastContainer />
       <div className="new-dashboard">
@@ -238,7 +143,7 @@ const AddCountry = () => {
                       className="textinput"
                       type="text"
                       name="username"
-                      autoComplete="on"
+                      autoComplete="off"
                       onChange={(e) => setAddCountry(e.target.value)}
                     />
                   </div>
@@ -263,11 +168,9 @@ const AddCountry = () => {
                     {/* <Link href="/dashboard">
                       <h5  style={{ cursor: "pointer" }} >
                         {" "}
-                        <i className="bi bi-chevron-left" id="back-btn-icon" ></i>
-                      </h5>
-                    </Link>
-                     */}
-                    <h5 className="heading-text pink-text ">COUNTRIES</h5>
+                        <i  className="bi bi-chevron-left"  id="back-btn-icon" ></i> </h5>
+                    </Link> */}
+                    <h5 className="heading-text pink-text ">COUNTRY</h5>
                     <h5 className="hide-text">1</h5>
                   </div>
                   <div className="input-group mb-1" id="search-bar">
@@ -277,7 +180,7 @@ const AddCountry = () => {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Search City"
+                      placeholder="Search Country"
                       value={countryName}
                       aria-label="Username"
                       aria-describedby="basic-addon1"

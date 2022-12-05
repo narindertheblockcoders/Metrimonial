@@ -68,7 +68,7 @@ const SideBar = () => {
                 <li>
                   <a href="/users/totalUsers">
                     <i className="fa fa-circle"></i>
-                    <span>USER LIST</span>
+                    <span>USER PROFILE</span>
                   </a>
                 </li>
 
@@ -160,178 +160,16 @@ const SideBar = () => {
                 
               </ul>
             </li>
-            {/* <li className="nav-item">
-              <a
-                className="nav-link "
-                data-bs-target="#network-nav"
-                data-bs-toggle="collapse"
-                href="#"
-              >
-                <i className="fa fa-network-wired " id="i-class"></i>
-                <span className="spanic">INCOMES</span>
-                <i className="fa fa-chevron-down" id="icon-cd"></i>
-              </a>
-              <ul
-                id="network-nav"
-                className="nav-content collapse show"
-                data-bs-parent="#network-nav"
-              >
-                <li>
-                  <a href="/allMatchingIncome">
-                    <i className="fa fa-circle"></i>
-                    <span>MATCHING INCOMES</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-circle"></i>
-                    <span>BINARY INCOMES</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/directIncome">
-                    <i className="fa fa-circle"></i>
-                    <span>DIRECT INCOMES</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-circle"></i>
-                    <span>ROC INCOMES</span>
-                  </a>
-                </li>
-              </ul>
-            </li> */}
-            {/* <li className="nav-item">
-              <a
-                className="nav-link "
-                data-bs-target="#network-nav"
-                data-bs-toggle="collapse"
-                href="#"
-              >
-                <i className="fa fa-network-wired " id="i-class"></i>
-                <span className="spanic">WITHDRAW</span>
-                <i className="fa fa-chevron-down" id="icon-cd"></i>
-              </a>
-              <ul
-                id="network-nav"
-                className="nav-content collapse show"
-                data-bs-parent="#network-nav"
-              >
-                <li>
-                  <a href="#">
-                    <i className="fa fa-circle"></i>
-                    <span>WITHDRAW REQUEST</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-circle"></i>
-                    <span>APPROVED W.R.</span>
-                  </a>
-                </li>
-              </ul>
-            </li> */}
-            {/* <li className="nav-item">
-              <a
-                className="nav-link "
-                data-bs-target="#wall-nav"
-                data-bs-toggle="collapse"
-                href="#"
-              >
-                <i className="fa-solid fa-wallet" id="i-class"></i>
-                <span className="spanic">WALLET</span>
-                <i className="fa fa-chevron-down" id="icon-cd"></i>
-              </a>
-              <ul
-                id="wall-nav"
-                className="nav-content collapse show"
-                data-bs-parent="#wall-nav"
-              >
-                <li>
-                  <a href="">
-                    <i className="fa fa-circle"></i>
-                    <span onClick={(e) => createwallet(e)}>CREDIT WALLET</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/withdrawInfo">
-                    <i className="fa fa-circle"></i>
-                    <span>DEBIT WALLET</span>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="/withdraw">
-                    <i className="fa fa-circle"></i>
-                    <span>COLLECTION WALLET</span>
-                  </a>
-                </li>
-              </ul>
-            </li> */}
-
-            {/* <li className="nav-item">
-              <a
-                className="nav-link "
-                data-bs-target="#incentive-nav"
-                data-bs-toggle="collapse"
-                href="#"
-              >
-                <i className="fa-solid fa-arrow-up-right-dots" id="i-class"></i>
-                <span className="spanic">POWER</span>
-                <i className="fa fa-chevron-down" id="icon-cd"></i>
-              </a>
-              <ul
-                id="incentive-nav"
-                className="nav-content collapse show"
-                data-bs-parent="#incentive-nav"
-              >
-                <li>
-                  <a href="/directIncome">
-                    <i className="fa fa-circle"></i>
-                    <span>GENERATE POWER</span>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#">
-                    <i className="fa fa-circle"></i>
-                    <span>USER LEFT PV</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-circle"></i>
-                    <span>USER RIGHT PV</span>
-                  </a>
-                </li>
-              </ul>
-            </li> */}
-
-            {/* <li className="nav-item">
-              <a
-                className="nav-link "
-                href=""
-              >
-                <span className="spanic">SETTINGS</span>
-              </a>
-            </li> */}
-            {/* <li className="nav-item">
-              <a
-                className="nav-link "
-                href=""
-              >
-                <span className="spanic">REWARDS</span>
-              </a>
-            </li> */}
-
+         
             <li className="nav-item">
               <button className="nav-link"
               type="submit" 
               onClick={logOutHandler}
               style={{border:"none"}} 
               >
-                <span className="spanic">Logout</span>
+                                {/* <i className="bi bi-box-arrow-right " id="i-class"></i> */}
+                                <i class="bi bi-box-arrow-left" id="  "></i>
+                <span className="spanic"> LOGOUT</span>
               </button>
             </li>
           </ul>

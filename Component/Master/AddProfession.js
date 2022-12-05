@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import SideBar from "../Sidebar";
+import SideBar from "../SideBar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
@@ -62,7 +62,7 @@ const AddProfession = () => {
       }, 1000);
     } catch (err) {
       console.log(err);
-      toast.error("Failed to add new country");
+      toast.error(addProfession + " Has already been added in Profession List... Please Check...");
     }
   }
 
@@ -108,7 +108,7 @@ const AddProfession = () => {
       window.location = "/master/addProfession";
     } catch (err) {
       console.log(err);
-      toast.error("Failed to remove the city. Please Try Again...");
+      toast.error("Failed to remove the profession. Please Try Again...");
     }
   }
 
@@ -140,7 +140,7 @@ const AddProfession = () => {
                     <button
                       type="button"
                       className="btn-close "
-                      id="hide-btn-click"
+                      id="profession-btn-click"
                       onClick={hide}
                       data-bs-dismiss="input-sec"
                     ></button>
@@ -174,12 +174,9 @@ const AddProfession = () => {
                 <div className="token-head">
                   <div className="rapper-between" id="token-form-padding">
                     {/* <Link href="/dashboard">
-                      <h5
-                        style={{ cursor: "pointer" }}
-                        // onClick={() => router.back()}
-                      >
+                      <h5 style={{ cursor: "pointer" }}>
                         {" "}
-                        <i className="bi bi-chevron-left"  id="back-btn-icon"  ></i>
+                        <i className="bi bi-chevron-left" id="back-btn-icon" ></i>
                       </h5>
                     </Link> */}
                     <h5 className="heading-text pink-text ">PROFESSION</h5>
@@ -192,7 +189,7 @@ const AddProfession = () => {
                     <input
                       type="text"
                       className="form-control"
-                      // placeholder={motherTongueName || "Search Mother Tongue"}
+                      placeholder= "Search Profession"
                       aria-label="Username"
                       value={professionName}
                       aria-describedby="basic-addon1"

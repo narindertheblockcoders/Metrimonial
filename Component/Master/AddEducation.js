@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import SideBar from "../Sidebar";
+import SideBar from "../SideBar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
@@ -62,7 +62,7 @@ const AddEducation = () => {
       }, 1000);
     } catch (err) {
       console.log(err);
-      toast.error("Failed to add new country");
+      toast.error(addQualification + " Has already been added in Qualification list... Please Check...");
     }
   }
 
@@ -108,7 +108,7 @@ const AddEducation = () => {
       window.location = "/master/addEducation";
     } catch (err) {
       console.log(err);
-      toast.error("Failed to remove the city. Please Try Again...");
+      toast.error("Failed to remove the Qualification. Please Try Again...");
     }
   }
 
@@ -140,7 +140,7 @@ const AddEducation = () => {
                     <button
                       type="button"
                       className="btn-close "
-                      id="hide-btn-click"
+                      id="hide-btn-clicks"
                       onClick={hide}
                       data-bs-dismiss="input-sec"
                     ></button>
@@ -174,15 +174,9 @@ const AddEducation = () => {
                 <div className="token-head">
                   <div className="rapper-between" id="token-form-padding">
                     {/* <Link href="/dashboard">
-                      <h5
-                        style={{ cursor: "pointer" }}
-                        // onClick={() => router.back()}
-                      >
+                      <h5 style={{ cursor: "pointer" }} >
                         {" "}
-                        <i
-                          className="bi bi-chevron-left"
-                          id="back-btn-icon"
-                        ></i>
+                        <i  className="bi bi-chevron-left"  id="back-btn-icon"></i>
                       </h5>
                     </Link> */}
                     <h5 className="heading-text pink-text ">QUALIFICATION</h5>
@@ -195,7 +189,7 @@ const AddEducation = () => {
                     <input
                       type="text"
                       className="form-control"
-                      // placeholder={motherTongueName || "Search Mother Tongue"}
+                      placeholder= "Search Qualification"
                       aria-label="Username"
                       value={qualificationName}
                       aria-describedby="basic-addon1"
