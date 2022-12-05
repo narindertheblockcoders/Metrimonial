@@ -3992,7 +3992,7 @@ section.bst-match .container-fluid {
   background: #f88a15;
   padding: 6px 17px;
   text-decoration: none;
-  color: white;
+  color: white !important;
   border-radius: 5px;
   font-size: 14px;
   margin: 10px 0px;
