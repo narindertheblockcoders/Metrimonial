@@ -176,7 +176,7 @@ const AddCountry = () => {
                       type="text"
                       className="form-control"
                       placeholder="Search Country"
-                      value={countryName}
+                      value={countryName || "Search Country"}
                       aria-label="Username"
                       aria-describedby="basic-addon1"
                       onChange={(e) => countrySearchFn(e)}

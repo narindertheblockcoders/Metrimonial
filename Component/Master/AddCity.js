@@ -206,7 +206,7 @@ const AddCity = () => {
         "to get the response from api to delete the country"
       );
       toast.success(
-        "Selected City Has Been Removed Successfully frorm " +
+        "Selected City Has Been Removed Successfully from " +
           stateName
       );
      setCityAdded(cityAdded+1)
@@ -418,7 +418,8 @@ const AddCity = () => {
                       type="text"
                       className="form-control"
                       placeholder="Search city"
-                      value={cityName}
+                      value={cityName || "Search City " }
+
                       onChange={(e) => citySearchFn(e)}
                     />
                     <div

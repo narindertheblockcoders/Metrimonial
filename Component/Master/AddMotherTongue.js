@@ -55,7 +55,7 @@ const AddCountry = () => {
       });
       const response = res.data;
       console.log(response, "to get the response from api to add country");
-      toast.success(
+      toast.success("Mother Tongue " +
          response?.data.motherTounge + " Has Been Added Successfully"
       );
       setMotherTongueAdded(motherTongueAdded+1)
@@ -141,7 +141,7 @@ const AddCountry = () => {
                     <button
                       type="button"
                       className="btn-close "
-                      id="hide-btn-click"
+                      id="mother-btn-click"
                       onClick={hide}
                       data-bs-dismiss="input-sec"
                     ></button>
@@ -192,7 +192,7 @@ const AddCountry = () => {
                       className="form-control"
                       placeholder= "Search Mother Tongue"
                       aria-label="Username"
-                      value={motherTongueName}
+                      value={motherTongueName || "Search Mother-Tongue"}
                       aria-describedby="basic-addon1"
                       onChange={(e) => motherTongueSearchFn(e)}
                     />

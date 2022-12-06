@@ -141,7 +141,7 @@ const AddEducation = () => {
                     <button
                       type="button"
                       className="btn-close "
-                      id="hide-btn-click"
+                      id="hide-btn-clicks"
                       onClick={hide}
                       data-bs-dismiss="input-sec"
                     ></button>
@@ -192,7 +192,7 @@ const AddEducation = () => {
                       className="form-control"
                       placeholder= "Search Qualification"
                       aria-label="Username"
-                      value={qualificationName}
+                      value={qualificationName || "Search Qualification"}
                       aria-describedby="basic-addon1"
                       onChange={(e) => qualificationSearchFn(e)}
                     />

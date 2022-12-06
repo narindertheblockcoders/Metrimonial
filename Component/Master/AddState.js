@@ -215,6 +215,8 @@ const State = () => {
                       className="btn-close"
                       aria-label="Close"
                       onClick={jqueryCode}
+                      id="state-hide-btn"
+
                     ></button>
                   </div>
                   <div className="input-item mt-0" id="input-mt">
@@ -325,7 +327,7 @@ const State = () => {
                       type="text"
                       className="form-control"
                       placeholder="Search State"
-                      value={stateName}
+                      value={stateName || "Search State"}
                       aria-label="Username"
                       aria-describedby="basic-addon1"
                       onChange={(e) => stateSearchFn(e.target.value)}

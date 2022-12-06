@@ -68,7 +68,7 @@ const SideBar = () => {
                 <li>
                   <a href="/users/totalUsers">
                     <i className="fa fa-circle"></i>
-                    <span>USER LIST</span>
+                    <span>USER PROFILE</span>
                   </a>
                 </li>
 

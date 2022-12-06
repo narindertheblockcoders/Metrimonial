@@ -141,7 +141,7 @@ const AddProfession = () => {
                     <button
                       type="button"
                       className="btn-close "
-                      id="hide-btn-click"
+                      id="profession-btn-click"
                       onClick={hide}
                       data-bs-dismiss="input-sec"
                     ></button>
@@ -192,11 +192,10 @@ const AddProfession = () => {
                       className="form-control"
                       placeholder= "Search Profession"
                       aria-label="Username"
-                      value={professionName}
+                      value={professionName || "Serach Profession"}
                       aria-describedby="basic-addon1"
                       onChange={(e) => professionSearchFn(e)}
                     />
-
                     <div
                       onClick={jqueryCode}
                       className="btn add-btn"

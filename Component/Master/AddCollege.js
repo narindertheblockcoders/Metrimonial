@@ -193,7 +193,7 @@ const AddCollege = () => {
                       className="form-control"
                       placeholder="Search College"
                       aria-label="Username"
-                      value={collegeName}
+                      value={collegeName || "Search College"}
                       aria-describedby="basic-addon1"
                       onChange={(e) => collegeSearchFn(e)}
                     />
