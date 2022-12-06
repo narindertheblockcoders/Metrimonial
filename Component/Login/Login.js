@@ -155,7 +155,7 @@ const Login = () => {
                       required
                     />
                     <label className="logged-lable" htmlFor="flexCheckDefault">
-                      Default checkbox
+                      Default Checkbox
                     </label>
                   </div>
 

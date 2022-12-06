@@ -12,7 +12,8 @@ const AddCollege = () => {
   const [college, setCollege] = useState();
   const [searchCollege, setSearchCollege] = useState();
   const [addCollege, setAddCollege] = useState();
-  const [collegeName, setCollegeName] = useState()
+  const [collegeName, setCollegeName] = useState();
+  const [collegeAdded, setCollegeAdded] = useState(0)
   const router = useRouter();
 
   async function jqueryCode() {
@@ -43,7 +44,7 @@ const AddCollege = () => {
 
   useEffect(() => {
     getCollege();
-  }, []);
+  }, [collegeAdded]);
 
   async function addCollegeFn(data) {
     try {
@@ -54,12 +55,11 @@ const AddCollege = () => {
       });
       const response = res.data;
       console.log(response, "to get the response from api to add country");
-      toast.success( "college " + 
-         response?.data.college + " Has Been Added Successfully"
+      toast.success( 
+         response?.data.collegeName + " Has Been Added Successfully"
       );
-      setTimeout(() => {
-        window.location = "/master/addCollege";
-      }, 1000);
+      setCollegeAdded(collegeAdded+1);
+      hide();
     } catch (err) {
       console.log(err);
       toast.error(addCollege + " Has already been added in College List... Please Check...");
@@ -102,11 +102,12 @@ const AddCollege = () => {
         response,
         "to get the response from api to delete the country"
       );
-      toast.success( "College " +
-          response.data.college +
+      toast.success(
+          response.data.collegeName +
           " Has Been Removed Successfully"
       );
-      window.location = "/master/addCollege";
+      setCollegeAdded(collegeAdded+1)
+      setCollegeName(null);
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the city. Please Try Again...");

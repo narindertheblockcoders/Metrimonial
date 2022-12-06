@@ -68,7 +68,7 @@ const SideBar = () => {
                 <li>
                   <a href="/users/totalUsers">
                     <i className="fa fa-circle"></i>
-                    <span>USER PROFILE</span>
+                    <span>USER LIST</span>
                   </a>
                 </li>
 
@@ -140,7 +140,7 @@ const SideBar = () => {
                 <li>
                   <a href="/master/addEducation">
                     <i className="fa fa-circle"></i>
-                    <span>DEGREE</span>
+                    <span>QUALIFICATION</span>
                   </a>
                 </li>
 

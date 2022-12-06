@@ -21,6 +21,7 @@ const AddCity = () => {
   const [city, setCity] = useState();
   const [addCity, setAddCity] = useState();
   const [cityName, setCityName] = useState();
+  const [cityAdded, setCityAdded] = useState();
   const router = useRouter();
 
   async function jqueryCode() {
@@ -125,7 +126,7 @@ const AddCity = () => {
     const stateId = item.id;
     console.log(stateId, "to see id is working or nto");
     setStateName(item.stateName);
-    getCityFn(stateId);
+    getCityFn(stateId, cityAdded);
   }
 
   useEffect(() => {
@@ -147,9 +148,9 @@ const AddCity = () => {
           " Has been added successfully in " +
           stateName
       );
-      setTimeout(() => {
-        window.location = "/master/addCity";
-      }, 1500);
+        setCityAdded(cityAdded+1)
+        await getCityFn(stateId)
+        hide();
     } catch (err) {
       console.log(err);
       toast.error("City " + addCity + " Has already been added in State " + stateName + " Please Check...");
@@ -159,6 +160,11 @@ const AddCity = () => {
   async function formSubmitHandler(event) {
     event.preventDefault();
 
+    if (!stateId) {
+      toast.error("Please Select the Country and then State to add the City")
+      hide();
+      return;
+    }
     const data = {
       stateId: stateId,
       cityName: addCity,
@@ -179,6 +185,7 @@ const AddCity = () => {
       const response = res.data;
       console.log(response, "to get the response from api to get all cities");
       setCity(response.data);
+      return response.data
     } catch (err) {
       console.log(err);
     }
@@ -199,14 +206,12 @@ const AddCity = () => {
         "to get the response from api to delete the country"
       );
       toast.success(
-        "City " +
-          response.data.cityName +
-          " Has Been Removed Successfully frorm " +
+        "Selected City Has Been Removed Successfully frorm " +
           stateName
       );
-      setTimeout(() => {
-        window.location = "/master/addCity";
-      }, 1000);
+     setCityAdded(cityAdded+1)
+     await getCityFn(stateId)
+     setCityName(null);
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the city. Please Try Again...");

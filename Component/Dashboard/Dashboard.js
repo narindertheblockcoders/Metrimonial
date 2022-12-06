@@ -35,7 +35,7 @@ const NewDashboard = () => {
       <section className="profile-sec profile-sects">
         <div className="container">
           <div className="row">
-            <Navbar />
+            {/* <Navbar /> */}
             <form className="funds-sec">
               <h3> </h3>
               <ToastContainer />

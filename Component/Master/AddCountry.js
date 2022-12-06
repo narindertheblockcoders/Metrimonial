@@ -12,8 +12,8 @@ const AddCountry = () => {
   const [country, setCountry] = useState();
   const [searchCountry, setSearchCountry] = useState();
   const [addCountry, setAddCountry] = useState();
-  const [countryName, setCountryName] = useState();
-  const [countryAdded, setCountryAdded] = useState(0)
+  const [countryName, setCountryName] = useState()
+  const [countryAdded, setCountryAdded] = useState(0);
   const router = useRouter();
 
   async function jqueryCode() {
@@ -41,10 +41,6 @@ const AddCountry = () => {
     getCountry();
   }, [countryAdded]);
 
-  // useEffect(()=>{
-  //   getCountry();
-  // },[countryDeleted])
-
 
   async function addCountryFn(data) {
     try {
@@ -56,13 +52,13 @@ const AddCountry = () => {
       const response = res.data;
       console.log(response, "to get the response from api to add country");
       toast.success("Country " + response?.data.countryName + " Has Been Added Successfully");
-      setCountryAdded(countryAdded+1)
-      hide();
+     setCountryAdded(countryAdded+1)
+     hide();
     } catch (err) {
       console.log(err, "to check the error status");
         toast.error("Country " + addCountry + " Has already been added in Country List... Please check...");
-    }
   }
+}
 
   async function formSubmitHandler(event) {
     event.preventDefault();    const data = {
@@ -87,7 +83,6 @@ const AddCountry = () => {
   async function deleteCountry(e) {
     console.log(e, "to get the id of the country");
     const id = e;
-
     try {
       const token = localStorage.getItem("token");
       let res = await axios.post("/api/master/country/deleteCountry", {
@@ -96,8 +91,8 @@ const AddCountry = () => {
       });
       const response = res.data;
       console.log(response, "to get the response from api to delete the country");
-      toast.success("Country " + response.data.countryName + " Has Been Removed Successfully")
-      setCountryAdded(countryAdded+1);
+      toast.success("Selected Country Has Been Removed Successfully")
+      setCountryAdded(countryAdded+1)
       setCountryName(null)
     } catch (err) {
       console.log(err);
@@ -143,7 +138,7 @@ const AddCountry = () => {
                       className="textinput"
                       type="text"
                       name="username"
-                      autoComplete="off"
+                      autoComplete="on"
                       onChange={(e) => setAddCountry(e.target.value)}
                     />
                   </div>
@@ -232,8 +227,9 @@ const AddCountry = () => {
                               </div>
                             </div>
                             <div className="right-part">
-                              <p>
+                              <p onClick={() => deleteCountry(item.id)}>
                                 <i
+                                  style={{style:"pointer"}}
                                   className="bi bi-trash3"
                                   id="pin-dark-icon"
                                 ></i>

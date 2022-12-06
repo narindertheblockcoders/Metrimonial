@@ -17,6 +17,7 @@ const State = () => {
   const [state, setState] = useState();
   const [searchState, setSearchState] = useState();
   const [stateName, setStateName] = useState();
+  const [stateAdded, setStateAdded] = useState(0);
   const router = useRouter();
 
   async function jqueryCode() {
@@ -48,8 +49,8 @@ const State = () => {
   async function countrySearchFn(e) {
     const search = e.target.value;
     setCountyName(null);
-    setState(null)
-    setSearchState(null)
+    setState(null);
+    setSearchState(null);
     console.log(search, "to get the output of search");
     const filterData = country.filter((item) => {
       const userData = item.countryName;
@@ -85,6 +86,7 @@ const State = () => {
       );
       setState(null);
       setState(response.data);
+      return response.data;
     } catch (err) {
       console.log(err);
     }
@@ -127,17 +129,29 @@ const State = () => {
           " Has been added successfully in " +
           countryName
       );
-      setTimeout(() => {
-        window.location = "/master/addState";
-      }, 1500);
+      setStateAdded(stateAdded + 1);
+      await getStateFn(countryId);
+      hide();
     } catch (err) {
       console.log(err);
-      toast.error("State " + addState + " Has already been added in " + countryName +  " Please Check...");
+      toast.error(
+        "State " +
+          addState +
+          " Has already been added in " +
+          countryName +
+          " Please Check..."
+      );
     }
   }
 
   async function formSubmitHandler(event) {
     event.preventDefault();
+
+    if (!countryId) {
+      toast.error("Please Select the Country to Add the State");
+      hide();
+      return;
+    }
 
     const data = {
       countryId: countryId,
@@ -164,12 +178,12 @@ const State = () => {
         "to get the response from api to delete the country"
       );
       toast.success(
-        "State " +
-          response.data.stateName +
-          " Has Been Removed Successfully frorm " +
+        " Selected State Has Been Removed Successfully frorm " +
           countryName
       );
-      window.location = "/master/addState";
+      setStateAdded(stateAdded + 1);
+      await getStateFn(countryId);
+      setStateName(null)
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the state. Please Try Again...");
@@ -201,7 +215,6 @@ const State = () => {
                       className="btn-close"
                       aria-label="Close"
                       onClick={jqueryCode}
-                      id="state-hide-btn"
                     ></button>
                   </div>
                   <div className="input-item mt-0" id="input-mt">

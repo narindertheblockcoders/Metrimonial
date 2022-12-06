@@ -13,6 +13,7 @@ const AddEducation = () => {
   const [searchQualification, setSearchQualification] = useState();
   const [addQualification, setAddQualification] = useState();
   const [qualificationName, setQualificationName] = useState()
+  const [qualificationAdded, setQualificationAdded] = useState(0)
   const router = useRouter();
 
   async function jqueryCode() {
@@ -43,7 +44,7 @@ const AddEducation = () => {
 
   useEffect(() => {
     getQualification();
-  }, []);
+  }, [qualificationAdded]);
 
   async function addQualificationFn(data) {
     try {
@@ -57,9 +58,8 @@ const AddEducation = () => {
       toast.success( "Qualification " + 
          response?.data.qualification + " Has Been Added Successfully"
       );
-      setTimeout(() => {
-        window.location = "/master/addEducation";
-      }, 1000);
+      setQualificationAdded(qualificationAdded+1)
+      hide();
     } catch (err) {
       console.log(err);
       toast.error(addQualification + " Has already been added in Qualification list... Please Check...");
@@ -105,7 +105,8 @@ const AddEducation = () => {
           response.data.qualification +
           " Has Been Removed Successfully"
       );
-      window.location = "/master/addEducation";
+      setQualificationAdded(qualificationAdded+1)
+      setQualificationName(null)
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the Qualification. Please Try Again...");
@@ -140,7 +141,7 @@ const AddEducation = () => {
                     <button
                       type="button"
                       className="btn-close "
-                      id="hide-btn-clicks"
+                      id="hide-btn-click"
                       onClick={hide}
                       data-bs-dismiss="input-sec"
                     ></button>

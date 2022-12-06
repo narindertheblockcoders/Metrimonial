@@ -13,6 +13,7 @@ const AddProfession = () => {
   const [searchProfession, setSearchProfession] = useState();
   const [addProfession, setAddProfession] = useState();
   const [professionName, setProfessionName] = useState()
+  const [professionAdded, setProfessionAdded] = useState(0)
   const router = useRouter();
 
   async function jqueryCode() {
@@ -43,7 +44,7 @@ const AddProfession = () => {
 
   useEffect(() => {
     getProfession();
-  }, []);
+  }, [professionAdded]);
 
   async function addProfessionFn(data) {
     try {
@@ -57,9 +58,8 @@ const AddProfession = () => {
       toast.success( "Profession " + 
          response?.data.profession + " Has Been Added Successfully"
       );
-      setTimeout(() => {
-        window.location = "/master/addProfession";
-      }, 1000);
+      setProfessionAdded(professionAdded+1)
+      hide();
     } catch (err) {
       console.log(err);
       toast.error(addProfession + " Has already been added in Profession List... Please Check...");
@@ -105,7 +105,8 @@ const AddProfession = () => {
           response.data.profession +
           " Has Been Removed Successfully"
       );
-      window.location = "/master/addProfession";
+      setProfessionAdded(professionAdded+1);
+      setProfessionName(null);
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the profession. Please Try Again...");
@@ -140,7 +141,7 @@ const AddProfession = () => {
                     <button
                       type="button"
                       className="btn-close "
-                      id="profession-btn-click"
+                      id="hide-btn-click"
                       onClick={hide}
                       data-bs-dismiss="input-sec"
                     ></button>

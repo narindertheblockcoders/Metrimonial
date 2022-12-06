@@ -13,6 +13,7 @@ const AddCountry = () => {
   const [searchMotherTongue, setSearchMotherTongue] = useState();
   const [addMotherTongue, setAddMotherTongue] = useState();
   const [motherTongueName, setMotherTongueName] = useState()
+  const [motherTongueAdded, setMotherTongueAdded] = useState(0)
   const router = useRouter();
 
   async function jqueryCode() {
@@ -43,7 +44,7 @@ const AddCountry = () => {
 
   useEffect(() => {
     getMotherTongue();
-  }, []);
+  }, [motherTongueAdded]);
 
   async function addMotherTongueFn(data) {
     try {
@@ -57,9 +58,8 @@ const AddCountry = () => {
       toast.success(
          response?.data.motherTounge + " Has Been Added Successfully"
       );
-      setTimeout(() => {
-        window.location = "/master/addMotherTongue";
-      }, 2000);
+      setMotherTongueAdded(motherTongueAdded+1)
+      hide();
     } catch (err) {
       console.log(err);
       toast.error(addMotherTongue + " Has already been added in Mother Tongue List... Please Check...");
@@ -105,10 +105,8 @@ const AddCountry = () => {
           response.data.motherTounge +
           " Has Been Removed Successfully"
       );
-      setTimeout(()=>{
-        window.location = "/master/addMotherTongue";
-
-      },1000)
+      setMotherTongueAdded(motherTongueAdded+1);
+      setMotherTongueName(null)
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the mother tongue. Please Try Again...");
@@ -143,7 +141,7 @@ const AddCountry = () => {
                     <button
                       type="button"
                       className="btn-close "
-                      id="mother-btn-click"
+                      id="hide-btn-click"
                       onClick={hide}
                       data-bs-dismiss="input-sec"
                     ></button>
