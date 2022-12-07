@@ -27,7 +27,7 @@ const SideBar = () => {
         <aside className=" sidebar ">
           <ul className="sidebar-nav" id="sidebar-nav">
             <a className="navbar-brand" href="/" id="href-set">
-              <img id="logo-id" src="/navbar/logo.png" />
+              <img id="logo-id" src="/navbar/new-logo.png" />
             </a>
             <div className="profile-menu">
               <img

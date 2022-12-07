@@ -43,12 +43,15 @@ div#fluid-set {
 
 .stier-logo {
   margin-top: 25px;
-  width: 36%;
+  width: 75%;
+  margin-bottom: 20px;
 }
 
-#logo-id {
-  width: 84% !important;
+#logo-id {  
+  width: 75% !important;
   margin-left: 15px;
+  margin-bottom: 15px;
+
 }
 
 #toggle-setting {
@@ -4933,6 +4936,7 @@ section.forself .self-main .box-text-two h4 {
 }
 
 @media screen and (max-width: 414px) {
+  #logo-id{margin-left: 0;}
   .profile-sec .input-sec {
     float: left;
     width: 100% !important;
