@@ -127,7 +127,7 @@ const AddCountry = () => {
                     <button
                       type="button"
                       className="btn-close "
-                      id="hide-btn-click"
+                      id="country-btn-click"
                       onClick={hide}
                       data-bs-dismiss="input-sec"
                     ></button>

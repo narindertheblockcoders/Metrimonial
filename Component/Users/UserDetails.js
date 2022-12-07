@@ -85,9 +85,9 @@ const UserDetails = (props) => {
                     </div>
                     <div className="flex-box-one">
                       <ul>
-                        <li> City,State, Country</li>
+                        <li> City, State, Country</li>
                         <li>
-                          <b>{userData?.city} {" "} {userData?.state} {" "} {userData?.country}</b>{" "}
+                          <b>{userData?.city}, {" "} {userData?.state}, {" "} {userData?.country}</b>{" "}
                         </li>
                       </ul>
                     </div>
@@ -158,6 +158,7 @@ const UserDetails = (props) => {
                     <ul>
                       <li> Marital Status</li>
                       <li>
+                        
                         <b>{userData?.maritalStatus}</b>
                       </li>
                     </ul>

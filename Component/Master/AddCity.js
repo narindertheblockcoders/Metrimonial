@@ -246,7 +246,7 @@ const AddCity = () => {
                     <button
                       type="button"
                       class="btn-close"
-                      id="btn-closes"
+                      id="city-btn-closes"
                       aria-label="Close"
                       onClick={jqueryCode}
                     ></button>

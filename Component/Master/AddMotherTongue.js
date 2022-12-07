@@ -192,7 +192,7 @@ const AddCountry = () => {
                       className="form-control"
                       placeholder= "Search Mother Tongue"
                       aria-label="Username"
-                      value={motherTongueName || "Search Mother-Tongue"}
+                      value={motherTongueName || "Search Mother Tongue"}
                       aria-describedby="basic-addon1"
                       onChange={(e) => motherTongueSearchFn(e)}
                     />
