@@ -150,6 +150,7 @@ const AddCity = () => {
       );
         setCityAdded(cityAdded+1)
         await getCityFn(stateId)
+        setSearchCity(null);
         hide();
     } catch (err) {
       console.log(err);
@@ -211,7 +212,8 @@ const AddCity = () => {
       );
      setCityAdded(cityAdded+1)
      await getCityFn(stateId)
-     setCityName(null);
+     setCityName("");
+     setSearchCity(null)
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the city. Please Try Again...");
@@ -246,7 +248,7 @@ const AddCity = () => {
                     <button
                       type="button"
                       class="btn-close"
-                      id="city-btn-closes"
+                      id="btn-closes"
                       aria-label="Close"
                       onClick={jqueryCode}
                     ></button>
@@ -418,7 +420,7 @@ const AddCity = () => {
                       type="text"
                       className="form-control"
                       placeholder="Search city"
-                      value={cityName || "Search City " }
+                      value={cityName}
 
                       onChange={(e) => citySearchFn(e)}
                     />

@@ -106,7 +106,8 @@ const AddProfession = () => {
           " Has Been Removed Successfully"
       );
       setProfessionAdded(professionAdded+1);
-      setProfessionName(null);
+      setProfessionName("");
+      setSearchProfession(null)
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the profession. Please Try Again...");
@@ -141,7 +142,7 @@ const AddProfession = () => {
                     <button
                       type="button"
                       className="btn-close "
-                      id="profession-btn-click"
+                      id="hide-btn-click"
                       onClick={hide}
                       data-bs-dismiss="input-sec"
                     ></button>
@@ -192,7 +193,7 @@ const AddProfession = () => {
                       className="form-control"
                       placeholder= "Search Profession"
                       aria-label="Username"
-                      value={professionName || "Serach Profession"}
+                      value={professionName}
                       aria-describedby="basic-addon1"
                       onChange={(e) => professionSearchFn(e)}
                     />

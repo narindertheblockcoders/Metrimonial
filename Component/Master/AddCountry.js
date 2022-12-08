@@ -54,6 +54,7 @@ const AddCountry = () => {
       toast.success("Country " + response?.data.countryName + " Has Been Added Successfully");
      setCountryAdded(countryAdded+1)
      hide();
+     setCountryName("")
     } catch (err) {
       console.log(err, "to check the error status");
         toast.error("Country " + addCountry + " Has already been added in Country List... Please check...");
@@ -92,8 +93,9 @@ const AddCountry = () => {
       const response = res.data;
       console.log(response, "to get the response from api to delete the country");
       toast.success("Selected Country Has Been Removed Successfully")
+      setSearchCountry(null)
       setCountryAdded(countryAdded+1)
-      setCountryName(null)
+      setCountryName("")
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the country. Please Try Again...")
@@ -127,7 +129,7 @@ const AddCountry = () => {
                     <button
                       type="button"
                       className="btn-close "
-                      id="country-btn-click"
+                      id="hide-btn-click"
                       onClick={hide}
                       data-bs-dismiss="input-sec"
                     ></button>
@@ -176,7 +178,7 @@ const AddCountry = () => {
                       type="text"
                       className="form-control"
                       placeholder="Search Country"
-                      value={countryName || "Search Country"}
+                      value={countryName}
                       aria-label="Username"
                       aria-describedby="basic-addon1"
                       onChange={(e) => countrySearchFn(e)}

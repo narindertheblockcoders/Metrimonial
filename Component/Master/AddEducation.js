@@ -106,7 +106,8 @@ const AddEducation = () => {
           " Has Been Removed Successfully"
       );
       setQualificationAdded(qualificationAdded+1)
-      setQualificationName(null)
+      setQualificationName("")
+      setSearchQualification(null)
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the Qualification. Please Try Again...");
@@ -141,7 +142,7 @@ const AddEducation = () => {
                     <button
                       type="button"
                       className="btn-close "
-                      id="hide-btn-clicks"
+                      id="hide-btn-click"
                       onClick={hide}
                       data-bs-dismiss="input-sec"
                     ></button>
@@ -192,7 +193,7 @@ const AddEducation = () => {
                       className="form-control"
                       placeholder= "Search Qualification"
                       aria-label="Username"
-                      value={qualificationName || "Search Qualification"}
+                      value={qualificationName}
                       aria-describedby="basic-addon1"
                       onChange={(e) => qualificationSearchFn(e)}
                     />

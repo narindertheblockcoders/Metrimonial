@@ -72,7 +72,9 @@ const AddCountry = () => {
       motherTounge: addMotherTongue,
     };
     console.log(data, "data entered by the use to add country");
+    setMotherTongueName("")
     addMotherTongueFn(data);
+    setSearchMotherTongue(null)
   }
 
   async function motherTongueSearchFn(e) {
@@ -106,7 +108,8 @@ const AddCountry = () => {
           " Has Been Removed Successfully"
       );
       setMotherTongueAdded(motherTongueAdded+1);
-      setMotherTongueName(null)
+      setMotherTongueName("")
+      setSearchMotherTongue(null)
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the mother tongue. Please Try Again...");
@@ -141,7 +144,7 @@ const AddCountry = () => {
                     <button
                       type="button"
                       className="btn-close "
-                      id="mother-btn-click"
+                      id="hide-btn-click"
                       onClick={hide}
                       data-bs-dismiss="input-sec"
                     ></button>
@@ -192,7 +195,7 @@ const AddCountry = () => {
                       className="form-control"
                       placeholder= "Search Mother Tongue"
                       aria-label="Username"
-                      value={motherTongueName || "Search Mother Tongue"}
+                      value={motherTongueName}
                       aria-describedby="basic-addon1"
                       onChange={(e) => motherTongueSearchFn(e)}
                     />
