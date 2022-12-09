@@ -54,7 +54,6 @@ const AddCountry = () => {
       toast.success("Country " + response?.data.countryName + " Has Been Added Successfully");
      setCountryAdded(countryAdded+1)
      hide();
-     setCountryName("")
     } catch (err) {
       console.log(err, "to check the error status");
         toast.error("Country " + addCountry + " Has already been added in Country List... Please check...");
@@ -93,9 +92,9 @@ const AddCountry = () => {
       const response = res.data;
       console.log(response, "to get the response from api to delete the country");
       toast.success("Selected Country Has Been Removed Successfully")
-      setSearchCountry(null)
       setCountryAdded(countryAdded+1)
       setCountryName("")
+      setSearchCountry(null)
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the country. Please Try Again...")

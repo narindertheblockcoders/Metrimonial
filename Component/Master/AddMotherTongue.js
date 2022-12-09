@@ -72,9 +72,7 @@ const AddCountry = () => {
       motherTounge: addMotherTongue,
     };
     console.log(data, "data entered by the use to add country");
-    setMotherTongueName("")
     addMotherTongueFn(data);
-    setSearchMotherTongue(null)
   }
 
   async function motherTongueSearchFn(e) {
@@ -99,11 +97,13 @@ const AddCountry = () => {
         id: id,
       });
       const response = res.data;
+      console.log(response,"this heres")
       console.log(
         response,
         "to get the response from api to delete the country"
       );
-      toast.success(
+
+      toast.success("Mother Tongue " +
           response.data.motherTounge +
           " Has Been Removed Successfully"
       );
@@ -144,7 +144,7 @@ const AddCountry = () => {
                     <button
                       type="button"
                       className="btn-close "
-                      id="hide-btn-click"
+                      id="mother-btn-click"
                       onClick={hide}
                       data-bs-dismiss="input-sec"
                     ></button>

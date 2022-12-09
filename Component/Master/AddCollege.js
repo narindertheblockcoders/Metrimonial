@@ -108,7 +108,7 @@ const AddCollege = () => {
       );
       setCollegeAdded(collegeAdded+1)
       setCollegeName("");
-      setSearchCollege(null);
+      setSearchCollege(null)
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the city. Please Try Again...");
@@ -194,7 +194,7 @@ const AddCollege = () => {
                       className="form-control"
                       placeholder="Search College"
                       aria-label="Username"
-                      value={collegeName}
+                      value={collegeName || "Search College"}
                       aria-describedby="basic-addon1"
                       onChange={(e) => collegeSearchFn(e)}
                     />

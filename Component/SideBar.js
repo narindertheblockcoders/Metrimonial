@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import { useRouter } from "next/router";
+import {signOut} from "next-auth/react"
 
 const SideBar = () => {
   const router  = useRouter();
   const [toggle, setToggle] = useState(false);
 
-  async function logOutHandler(evnet){
-    
-    window.localStorage.clear();
-    router.push("/login")
+  async function logOutHandler(event){
+  event.preventDefault();
+  signOut()
   }
 
   return (

@@ -216,7 +216,7 @@ const State = () => {
                       className="btn-close"
                       aria-label="Close"
                       onClick={jqueryCode}
-                    ></button>
+                      id="state-hide-btn"></button>
                   </div>
                   <div className="input-item mt-0" id="input-mt">
                     <h6 className="item-text">ADD STATE</h6>

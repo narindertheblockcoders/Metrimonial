@@ -42,7 +42,7 @@ const UserDetails = (props) => {
         <SideBar />
 
         <section className="forself profile-sects">
-          <div className="container">
+          <div className="container" id="user-detail-container">
             <div className="self-main">
               <div className="self-main-head">
                 <h3>Profile created for Self</h3>

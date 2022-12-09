@@ -106,8 +106,7 @@ const AddEducation = () => {
           " Has Been Removed Successfully"
       );
       setQualificationAdded(qualificationAdded+1)
-      setQualificationName("")
-      setSearchQualification(null)
+      setQualificationName(null)
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the Qualification. Please Try Again...");
@@ -142,7 +141,7 @@ const AddEducation = () => {
                     <button
                       type="button"
                       className="btn-close "
-                      id="hide-btn-click"
+                      id="hide-btn-clicks"
                       onClick={hide}
                       data-bs-dismiss="input-sec"
                     ></button>

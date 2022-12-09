@@ -142,7 +142,7 @@ const AddProfession = () => {
                     <button
                       type="button"
                       className="btn-close "
-                      id="hide-btn-click"
+                      id="profession-btn-click"
                       onClick={hide}
                       data-bs-dismiss="input-sec"
                     ></button>

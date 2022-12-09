@@ -13,19 +13,19 @@ const dashboard = () => {
 
 export default dashboard
 
-// export async function getServerSideProps(context) {
-//   const session = await getSession(context)
-//   if (!session) {
-//     return {
-//       redirect: {
-//         destination: "/login",
-//         permanent: false,
-//       }
-//     }
-//   }
-//   return {
-//     props:{
-//       session
-//     }
-//   }
-// }
+export async function getServerSideProps(context) {
+  const session = await getSession(context)
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      }
+    }
+  }
+  return {
+    props:{
+      session
+    }
+  }
+}

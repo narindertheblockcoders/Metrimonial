@@ -150,7 +150,6 @@ const AddCity = () => {
       );
         setCityAdded(cityAdded+1)
         await getCityFn(stateId)
-        setSearchCity(null);
         hide();
     } catch (err) {
       console.log(err);
@@ -420,7 +419,7 @@ const AddCity = () => {
                       type="text"
                       className="form-control"
                       placeholder="Search city"
-                      value={cityName}
+                      value={cityName }
 
                       onChange={(e) => citySearchFn(e)}
                     />

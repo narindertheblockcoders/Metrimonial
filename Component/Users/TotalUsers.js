@@ -72,7 +72,7 @@ const TotalUsers = () => {
                   USER PROFILE
                 </h3>
                 
-                <div className="Cards-head  mt-5">
+                <div className="Cards-head ">
                 {users?.map((item,id)=> {
                   return(
                   <div class="card " id="card-settings">
@@ -82,15 +82,33 @@ const TotalUsers = () => {
                       alt="..."
                     />
                     <div key={id} class="card-body">
-                      <h5 class="card-title">Name:- {item.name} </h5>
-                      <h5 class="card-title">Email:- {item.email} </h5>
-                      <h5 class="card-title">Phone:- {item.phone} </h5>
-                      <h5 class="card-title">Age:- {item.age}</h5>
-                      <h5 class="card-title">Country:- {item.country}</h5>
+
+                      <div className="card-body-parts">
+                      <h5 class="card-title">Name:-  </h5>
+                      <h5 class="card-title" id="card-title"> {item.name} </h5></div>
+
+                      <div className="card-body-parts">
+                      <h5 class="card-title">Email:- </h5>
+                      <h5 class="card-title" id="card-title"> {item.email} </h5></div>
+
+                      <div className="card-body-parts">
+                      <h5 class="card-title">Phone:-  </h5>
+                      <h5 class="card-title" id="card-title"> {item.phone} </h5></div>
+
+                      <div className="card-body-parts">
+                      <h5 class="card-title">Age:- </h5>
+                      <h5 class="card-title" id="card-title"> {item.age}</h5></div>
+
+                      <div className="card-body-parts">
+                      <h5 class="card-title">Country:- </h5>
+                      <h5 class="card-title" id="card-title"> {item.country}</h5></div>
+                      <div className="card-body-parts">
+                      <h5></h5>
                       <h5 class="card-title" id="more-detail">
+
                         <Link href={"/userDetails/"+ item.id} >
                         More details ..</Link>
-                        </h5>
+                        </h5></div>
 
                     </div>
                     <div>

@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Button from "react-bootstrap/Button";
+import {signIn} from "next-auth/react";
 
 const Login = () => {
   const [email, setEmail] = useState();
@@ -15,48 +16,11 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
-  async function login(data) {
-    try {
-      let res = await axios.post("/api/login/login", data);
-      const response = res.data;
-      console.log(response, "to get the respnse from api for login");
-      localStorage.setItem("token", response.data.data);
-      setVerify(true);
-      setErrorPassword(false);
-      setErrorEmail(false);
-      setPasswordError(false);
-      setIsLoading(true);
-      toast.success(" User loggedIn successfully");
-       setTimeout(() => {
-        router.push('/dashboard')
-       }, 1000);
-    } catch (err) {
-      console.log(err, "to check the status of the Error");
-      console.log(err.response.data.Error.status,"to get error status")
-      const errMsg = err.response.data.Error.status;
-      if (errMsg == "400") {
-        setErrorPassword(true);
-        setErrorEmail(false);
-        setVerify(false);
-        setIsLoading(false);
-        setPasswordError(false);
-        toast.error("Invalid Password")
-        return;
-      }
-      if (errMsg == "401"){
-        setErrorEmail(true);
-        setErrorPassword(false);
-        setVerify(false);
-        setIsLoading(false);
-        setPasswordError(false);
-        toast.error("User Doesn't Exist")
-        return;
-      }
-    }
-  }
+ 
 
   async function formSubmitHandler(event) {
     event.preventDefault();
+    try{
 
     var regularExpression =
       /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
@@ -71,10 +35,23 @@ const Login = () => {
       return;
     }
 
-    const data = {
+    const res = await signIn("credentials", {
+      redirect: false,
       email,
-      password,
-    };
+      password
+    })
+    console.log (res, 'response from credentials')
+
+    if(res?.error) {
+      console.log(res.error)
+      toast.error("User Doesn't Exist")
+    }
+    if(!res.error) {
+      router.push ('/dashboard')
+    }
+  }catch(err){
+    toast.error("Invalid Password")
+  }
 
      if (!regularExpression.test(password)) {
       setIsLoading(false);
@@ -84,10 +61,6 @@ const Login = () => {
       setPasswordError(true);
       return;
     }
-
-    console.log(data, "data entered by the user to login");
-
-    login(data);
   }
 
   return (
