@@ -5530,6 +5530,11 @@ section.forself .self-main .box-text-two {
   .iframe-setting {
     height: 205px !important;
   }
+  .profile-sec {
+    padding: 15px 10px;
+    padding-bottom: 35px !important;
+}
+#login-profile-sec{min-height: 100vh !important;}
 }
 
 @media screen and (max-width: 375px) {
