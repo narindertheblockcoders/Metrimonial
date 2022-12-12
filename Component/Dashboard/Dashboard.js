@@ -37,10 +37,10 @@ const NewDashboard = () => {
           <div className="row">
             {/* <Navbar /> */}
             <form className="funds-sec">
-              <h3> </h3>
+              <h3 className="dummy-txts"> </h3>
               <ToastContainer />
               <div className="col-head mt-1 " id="col-head">
-                <h6 className="mt-2 mb-4" style={{ fontSize: "14px" }}>
+                <h6 className="dummy-txts mt-2 mb-4"  style={{ fontSize: "14px" }}>
                   {" "}
                 </h6>
                 {collectiveData?.map((item, id) => {
