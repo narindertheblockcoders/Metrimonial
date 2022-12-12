@@ -4986,6 +4986,12 @@ section.forself .self-main .box-text-two {
 
 }
 @media screen and (max-width: 414px) {
+  .sidebar-nav {
+    padding: 0;
+    margin: 0;
+    padding-bottom: 100px;
+    list-style: none;
+}
   .profile-sec .input-sec {
     float: left;
     width: 91% !important;
