@@ -55,8 +55,7 @@ const AddCollege = () => {
       });
       const response = res.data;
       console.log(response, "to get the response from api to add country");
-      toast.success( 
-         response?.data.collegeName + " Has Been Added Successfully"
+      toast.success( "College " +   response?.data.collegeName + " Has Been Added Successfully"
       );
       setCollegeAdded(collegeAdded+1);
       hide();
@@ -102,8 +101,7 @@ const AddCollege = () => {
         response,
         "to get the response from api to delete the country"
       );
-      toast.success(
-          response.data.collegeName +
+      toast.success("College " + response.data.collegeName +
           " Has Been Removed Successfully"
       );
       setCollegeAdded(collegeAdded+1)

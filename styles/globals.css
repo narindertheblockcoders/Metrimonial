@@ -4619,10 +4619,7 @@ section.forself .self-main .box-text-two {
     left: -5% !important;
   }
 
-  .profile-sec .input-sec {
-    float: left;
-    width: 65%;
-  }
+
 
 }
 
@@ -4849,10 +4846,7 @@ section.forself .self-main .box-text-two {
 }
 
 @media screen and (max-width: 767px) {
-  .profile-sec .input-sec {
-      float: left;
-      width: 87%;
-  }
+
   svg.rd3t-svg {
     width: 235%;
     height: 100vh;
@@ -4994,7 +4988,7 @@ section.forself .self-main .box-text-two {
 @media screen and (max-width: 414px) {
   .profile-sec .input-sec {
     float: left;
-    width: 100% !important;
+    width: 91% !important;
   }
 
   #card-settings {
@@ -5848,9 +5842,9 @@ footer#footer-set {
   font-size: 15px;
 }
 
-.sidebar-nav .nav-link:hover i {
+/* .sidebar-nav .nav-link:hover i {
   color: black;
-}
+} */
 
 a:hover {
   color: var(--bg-color) !important;
