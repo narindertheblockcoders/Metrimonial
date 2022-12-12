@@ -242,7 +242,7 @@ const AddCity = () => {
                   <div className="login-top-img">
                     <h3 className="heading-text mt-3" id="close-btn-setting">
                       {" "}
-                      City
+                      CITY
                     </h3>
                     <button
                       type="button"
