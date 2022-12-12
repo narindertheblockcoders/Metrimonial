@@ -4989,7 +4989,7 @@ section.forself .self-main .box-text-two {
   .sidebar-nav {
     padding: 0;
     margin: 0;
-    padding-bottom: 100px;
+    padding-bottom: 100px !important;
     list-style: none;
 }
   .profile-sec .input-sec {
