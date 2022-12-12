@@ -5023,8 +5023,9 @@ section.forself .self-main .box-text-two {
 
   div#add-btn {
     padding-top: 10px !important;
-    padding-left: 10px;
-  }
+    font-size: 14px !important;
+    padding-left: 9px;
+}
 
   /* .........User Details............... */
 
