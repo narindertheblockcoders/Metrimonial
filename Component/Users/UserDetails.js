@@ -41,7 +41,7 @@ const UserDetails = (props) => {
       <div className="new-dashboard">
         <SideBar />
 
-        <section className="forself profile-sects">
+        <section className="forself profile-sects" id="totalDetailProfileSec">
           <div className="container" id="user-detail-container">
             <div className="self-main">
               <div className="self-main-head">

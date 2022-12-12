@@ -18,7 +18,7 @@ const SideBar = () => {
       <div className={toggle ? "" : "toggle-sidebar"}>
         <button
           onClick={() => setToggle(!toggle)}
-          className="btn primary bi bi-list toggle-sidebar"
+          className="btn primary bi bi-list toggle-sidebar toggle-settings"
           id="toggle-setting"
         >
           {" "}

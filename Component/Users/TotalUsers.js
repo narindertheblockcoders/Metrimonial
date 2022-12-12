@@ -34,7 +34,7 @@ const TotalUsers = () => {
       <div className="new-dashboard">
         <SideBar />
 
-        <section className="profile-sec pb-0 profile-sects">
+        <section className="profile-sec pb-0 profile-sects" id="totalUserProfileSec">
           <div className="container">
             <div className="row justify-content-center">
               <form className="input-sec mb-5" id="card-input-field">

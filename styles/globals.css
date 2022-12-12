@@ -4915,8 +4915,13 @@ section.forself .self-main .box-text-two {
     width: 100%;
     padding: 20px 20px;
     padding-bottom: 0 !important;
-    padding-left: 0px !important;
   }
+  section.forself .self-main .self-about .self-about-main {
+    float: left;
+    width: 100%;
+    display: flex;
+    padding: 0px 30px 30px 20px;
+}
 
   section.forself .self-main .self-about .self-about-main .self-about-left {
     float: left;
@@ -5098,8 +5103,19 @@ section.forself .self-main .box-text-two {
     max-width: 300px;
     height: 300px;
 }
-
-
+.profile-sec {
+  padding: 15px 10px;
+  padding-bottom: 100px !important;
+}
+footer#footer-set {
+  float: left;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+} 
+/* .toggle-settings{float: right !important ;} */
+#totalUserProfileSec{padding-bottom: 100px !important;}
+#totalDetailProfileSec{margin-bottom: 110px !important;}
 
 }
 @media screen and (max-width: 414px) {
@@ -5535,11 +5551,11 @@ section.forself .self-main .box-text-two {
     width: 100%;
     left: 0;
   }
-
+/* 
   .profile-sec {
     padding: 58px 10px;
     padding-bottom: 35px !important;
-  }
+  } */
 
   /* .funds-sec h3{margin: 0px;} */
 
