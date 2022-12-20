@@ -3537,7 +3537,7 @@ svg.rd3t-svg {
   background-color: var(--bg-color) !important;
   color: white !important;
   float: left;
-  width: 15%;
+  /* width: 15%; */
   font-size: 15px !important;
   font-weight: 700 !important;
 }
@@ -3549,6 +3549,12 @@ svg.rd3t-svg {
 }
 
 .state-form {
+  display: none;
+}
+.state-form1 {
+  display: none;
+}
+.state-form2 {
   display: none;
 }
 
@@ -4248,6 +4254,11 @@ section.forself .self-main .box-text-two h4 {
   left: 31% !important;
 }
 
+#hidee-btn-click {
+  left: 44% !important;
+}
+
+
 #state-hide-btn {
   left: 33% !important;
 }
@@ -4293,14 +4304,19 @@ section.forself .self-main .box-text-two h4 {
 .Cards-head {
   margin-top: 3rem !important;
 }
-
-
-
-
+.right-form-sec{float: left; width: 60%; padding-left: 50px; text-align: left;}
+#cards-head-resp{justify-content: center !important;}
+.card-couple-page{width: 50rem !important;padding: 30px 20px !important;}
+.couple-input-text{margin-right: 10px !important;}
+.couple-input-sec{float: left; width: 100%; display: flex; padding-right: 80px !important;}
+.couple-button-sec{float: left; width: 100%; display: flex; justify-content: center; align-items: center;}
+#card-settings #card-img-top {
+  max-width: 301px;
+  height: 300px;
+}
+.profile-upload{display: none;}
 
 @media (max-width: 1900px) {
-
-
 section.forself {
   float: left;
   width: 100%;
@@ -4993,6 +5009,10 @@ section.forself .self-main .box-text-two {
     margin-top: 20px !important;
   }
 
+  .card-couple-page{flex-direction: column !important ;}
+  .right-form-sec {
+    float: left;
+    width: 100%; padding-left: 0;}
 }
 
 @media screen and (max-width: 576px) {
@@ -5122,7 +5142,9 @@ footer#footer-set {
 /* .toggle-settings{float: right !important ;} */
 #totalUserProfileSec{padding-bottom: 100px !important;}
 #totalDetailProfileSec{margin-bottom: 110px !important;}
-
+.couple-input-sec {
+  padding-right: 0px !important;
+}
 }
 @media screen and (max-width: 414px) {
 
@@ -5694,6 +5716,11 @@ footer#footer-set {
 }
 
 @media screen and (max-width: 375px) {
+  #card-input-field {
+    float: left;
+    width: 100% !important;
+    padding: 0 10px !important;
+}
   .login-top-img {
     height: 152px;
   }

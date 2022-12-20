@@ -157,6 +157,20 @@ const SideBar = () => {
                     <span>MOTHER TONGUE</span>
                   </a>
                 </li>
+
+                
+                <li>
+                  <a href="/master/addSocialMedia">
+                    <i className="fa fa-circle"></i>
+                    <span>SOCIAL MEDIA</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/master/addCoupleDescription">
+                    <i className="fa fa-circle"></i>
+                    <span>HAPPY COUPLE</span>
+                  </a>
+                </li>
                 
               </ul>
             </li>
@@ -168,7 +182,7 @@ const SideBar = () => {
               style={{border:"none"}} 
               >
                                 {/* <i className="bi bi-box-arrow-right " id="i-class"></i> */}
-                                <i class="bi bi-box-arrow-left" id="  "></i>
+                                <i className="bi bi-box-arrow-left" id="  "></i>
                 <span className="spanic"> LOGOUT</span>
               </button>
             </li>

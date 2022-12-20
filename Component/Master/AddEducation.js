@@ -170,91 +170,91 @@ const AddEducation = () => {
                 </div>
               </form>
 
-              <form className="input-sec input-top p-0" id="bar-top">
-                <div className="input-line iptset-line" id="index-line"></div>
-                <div className="token-head">
-                  <div className="rapper-between" id="token-form-padding">
-                    {/* <Link href="/dashboard">
-                      <h5 style={{ cursor: "pointer" }} >
-                        {" "}
-                        <i  className="bi bi-chevron-left"  id="back-btn-icon"></i>
-                      </h5>
-                    </Link> */}
-                    <h5 className="heading-text pink-text ">QUALIFICATION</h5>
-                    <h5 className="hide-text">1</h5>
-                  </div>
-                  <div className="input-group mb-1" id="search-bar">
-                    <span className="input-group-text" id="basic-addon1">
-                      <i className="bi bi-search"></i>
-                    </span>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder= "Search Qualification"
-                      aria-label="Username"
-                      value={qualificationName}
-                      aria-describedby="basic-addon1"
-                      onChange={(e) => qualificationSearchFn(e)}
-                    />
+                <form className="input-sec input-top p-0" id="bar-top">
+                  <div className="input-line iptset-line" id="index-line"></div>
+                  <div className="token-head">
+                    <div className="rapper-between" id="token-form-padding">
+                      {/* <Link href="/dashboard">
+                        <h5 style={{ cursor: "pointer" }} >
+                          {" "}
+                          <i  className="bi bi-chevron-left"  id="back-btn-icon"></i>
+                        </h5>
+                      </Link> */}
+                      <h5 className="heading-text pink-text ">QUALIFICATION</h5>
+                      <h5 className="hide-text">1</h5>
+                    </div>
+                    <div className="input-group mb-1" id="search-bar">
+                      <span className="input-group-text" id="basic-addon1">
+                        <i className="bi bi-search"></i>
+                      </span>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder= "Search Qualification"
+                        aria-label="Username"
+                        value={qualificationName}
+                        aria-describedby="basic-addon1"
+                        onChange={(e) => qualificationSearchFn(e)}
+                      />
 
-                    <div
-                      onClick={jqueryCode}
-                      className="btn add-btn"
-                      id="add-btn"
-                    >
-                      ADD
+                      <div
+                        onClick={jqueryCode}
+                        className="btn add-btn"
+                        id="add-btn"
+                      >
+                        ADD
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="token-parts">
-                  { qualificationName ? null :
-                    searchQualification == null
-                    ? qualification?.map((item, id) => {
-                        return (
-                          <div key={id} className="parts-head" onClick={()=>selectedQualification(item)}>
-                            <div className="left-part">
-                              <div className="left-side-text">
-                                <h5 className="left-text-eth">
-                                  {item.qualification}
-                                </h5>
+                  <div className="token-parts">
+                    { qualificationName ? null :
+                      searchQualification == null
+                      ? qualification?.map((item, id) => {
+                          return (
+                            <div key={id} className="parts-head" onClick={()=>selectedQualification(item)}>
+                              <div className="left-part">
+                                <div className="left-side-text">
+                                  <h5 className="left-text-eth">
+                                    {item.qualification}
+                                  </h5>
+                                </div>
+                              </div>
+                              <div className="right-part">
+                                <p onClick={() => deleteQualification(item.id)}>
+                                  <i
+                                    style={{ cursor: "pointer" }}
+                                    className="bi bi-trash3"
+                                    id="pin-dark-icon"
+                                  ></i>
+                                </p>
                               </div>
                             </div>
-                            <div className="right-part">
-                              <p onClick={() => deleteQualification(item.id)}>
-                                <i
-                                  style={{ cursor: "pointer" }}
-                                  className="bi bi-trash3"
-                                  id="pin-dark-icon"
-                                ></i>
-                              </p>
-                            </div>
-                          </div>
-                        );
-                      })
+                          );
+                        })
 
-                    : searchQualification?.map((item, id) => {
-                        return (
-                          <div key={id} className="parts-head" onClick={()=>selectedQualification(item)}>
-                            <div className="left-part">
-                              <div className="left-side-text">
-                                <h5 className="left-text-eth">
-                                  {item.qualification}
-                                </h5>
+                      : searchQualification?.map((item, id) => {
+                          return (
+                            <div key={id} className="parts-head" onClick={()=>selectedQualification(item)}>
+                              <div className="left-part">
+                                <div className="left-side-text">
+                                  <h5 className="left-text-eth">
+                                    {item.qualification}
+                                  </h5>
+                                </div>
+                              </div>
+                              <div className="right-part">
+                                <p onClick={()=> deleteQualification(item.id)}>
+                                  <i
+                                    className="bi bi-trash3"
+                                    id="pin-dark-icon"
+                                  ></i>
+                                </p>
                               </div>
                             </div>
-                            <div className="right-part">
-                              <p onClick={()=> deleteQualification(item.id)}>
-                                <i
-                                  className="bi bi-trash3"
-                                  id="pin-dark-icon"
-                                ></i>
-                              </p>
-                            </div>
-                          </div>
-                        );
-                      })}
-                </div>
-              </form>
+                          );
+                        })}
+                  </div>
+                </form>
             </div>
           </div>
         </section>
