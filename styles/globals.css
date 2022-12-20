@@ -3611,6 +3611,7 @@ div#add-btn {
 #card-settings .card-img-top {
   max-width: 200px;
   height: 200px;
+  cursor: pointer;
 }
 
 #card-settings .card-title {
@@ -4314,7 +4315,19 @@ section.forself .self-main .box-text-two h4 {
   max-width: 301px;
   height: 300px;
 }
+
+.couple-image-sec {float: left; width: 50%; display: flex; justify-content: center; align-items: center; flex-direction: column;}
+.img-upload-class h2{background-color: var(--bg-color); color: white; padding: 10px 15px;}
 .profile-upload{display: none;}
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 1900px) {
 section.forself {

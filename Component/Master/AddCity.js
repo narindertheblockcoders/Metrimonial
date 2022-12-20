@@ -142,13 +142,13 @@ const AddCity = () => {
       });
       const response = res.data;
       console.log(response, "to get the response from api to add state");
+      setCityAdded(cityAdded+1)
       toast.success(
         "City " +
           response.data.cityName +
           " Has been added successfully in " +
           stateName
       );
-        setCityAdded(cityAdded+1)
         await getCityFn(stateId)
         hide();
     } catch (err) {

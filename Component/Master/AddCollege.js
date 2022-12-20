@@ -55,9 +55,9 @@ const AddCollege = () => {
       });
       const response = res.data;
       console.log(response, "to get the response from api to add country");
+      setCollegeAdded(collegeAdded+1);
       toast.success( "College " +   response?.data.collegeName + " Has Been Added Successfully"
       );
-      setCollegeAdded(collegeAdded+1);
       hide();
     } catch (err) {
       console.log(err);
@@ -192,7 +192,7 @@ const AddCollege = () => {
                       className="form-control"
                       placeholder="Search College"
                       aria-label="Username"
-                      value={collegeName || "Search College"}
+                      value={collegeName}
                       aria-describedby="basic-addon1"
                       onChange={(e) => collegeSearchFn(e)}
                     />

@@ -12,7 +12,7 @@ const AddCountry = () => {
   const [country, setCountry] = useState();
   const [searchCountry, setSearchCountry] = useState();
   const [addCountry, setAddCountry] = useState();
-  const [countryName, setCountryName] = useState()
+  const [countryName, setCountryName] = useState();
   const [countryAdded, setCountryAdded] = useState(0);
   const router = useRouter();
 
@@ -28,9 +28,14 @@ const AddCountry = () => {
   async function getCountry() {
     try {
       const token = localStorage.getItem("token");
-      let res = await axios.post("/api/master/country/getCountry", { token: token });
+      let res = await axios.post("/api/master/country/getCountry", {
+        token: token,
+      });
       const response = res.data;
-      console.log(response.data, "to get the response from api to get the Countries");
+      console.log(
+        response.data,
+        "to get the response from api to get the Countries"
+      );
       setCountry(response.data);
     } catch (err) {
       console.log(err);
@@ -41,27 +46,33 @@ const AddCountry = () => {
     getCountry();
   }, [countryAdded]);
 
-
   async function addCountryFn(data) {
     try {
-      const token = localStorage.getItem("token")
+      const token = localStorage.getItem("token");
       let res = await axios.post("/api/master/country/addCountry", {
         token: token,
         data,
       });
       const response = res.data;
       console.log(response, "to get the response from api to add country");
-      toast.success("Country " + response?.data.countryName + " Has Been Added Successfully");
-     setCountryAdded(countryAdded+1)
-     hide();
+      toast.success(
+        "Country " + response?.data.countryName + " Has Been Added Successfully"
+      );
+      setCountryAdded(countryAdded + 1);
+      hide();
     } catch (err) {
       console.log(err, "to check the error status");
-        toast.error("Country " + addCountry + " Has already been added in Country List... Please check...");
+      toast.error(
+        "Country " +
+          addCountry +
+          " Has already been added in Country List... Please check..."
+      );
+    }
   }
-}
 
   async function formSubmitHandler(event) {
-    event.preventDefault();    const data = {
+    event.preventDefault();
+    const data = {
       countryName: addCountry,
     };
     console.log(data, "data entered by the use to add country");
@@ -70,7 +81,7 @@ const AddCountry = () => {
 
   async function countrySearchFn(e) {
     const search = e.target.value;
-    setCountryName(null)
+    setCountryName(null);
     console.log(search, "to get the output of search");
     const filterData = country.filter((item) => {
       const userData = item.countryName;
@@ -90,20 +101,23 @@ const AddCountry = () => {
         id: id,
       });
       const response = res.data;
-      console.log(response, "to get the response from api to delete the country");
-      toast.success("Selected Country Has Been Removed Successfully")
-      setCountryAdded(countryAdded+1)
-      setCountryName("")
-      setSearchCountry(null)
+      console.log(
+        response,
+        "to get the response from api to delete the country"
+      );
+      toast.success("Selected Country Has Been Removed Successfully");
+      setCountryAdded(countryAdded + 1);
+      setCountryName("");
+      setSearchCountry(null);
     } catch (err) {
       console.log(err);
-      toast.error("Failed to remove the country. Please Try Again...")
+      toast.error("Failed to remove the country. Please Try Again...");
     }
   }
 
   async function selectedCountry(item) {
-    console.log(item,"to get the details of country")
-    setCountryName(item.countryName)
+    console.log(item, "to get the details of country");
+    setCountryName(item.countryName);
   }
   return (
     <div>
@@ -193,11 +207,16 @@ const AddCountry = () => {
                   </div>
                 </div>
                 <div className="token-parts">
-                  { countryName ? null :
-                    searchCountry == null
+                  {countryName
+                    ? null
+                    : searchCountry == null
                     ? country?.map((item, id) => {
                         return (
-                          <div key={id} className="parts-head" onClick={() => selectedCountry(item)}>
+                          <div
+                            key={id}
+                            className="parts-head"
+                            onClick={() => selectedCountry(item)}
+                          >
                             <div className="left-part">
                               <div className="left-side-text">
                                 <h5 className="left-text-eth">
@@ -219,7 +238,11 @@ const AddCountry = () => {
                       })
                     : searchCountry?.map((item, id) => {
                         return (
-                          <div key={id} className="parts-head" onClick={()=>selectedCountry(item)}>
+                          <div
+                            key={id}
+                            className="parts-head"
+                            onClick={() => selectedCountry(item)}
+                          >
                             <div className="left-part">
                               <div className="left-side-text">
                                 <h5 className="left-text-eth">
@@ -230,7 +253,7 @@ const AddCountry = () => {
                             <div className="right-part">
                               <p onClick={() => deleteCountry(item.id)}>
                                 <i
-                                  style={{style:"pointer"}}
+                                  style={{ style: "pointer" }}
                                   className="bi bi-trash3"
                                   id="pin-dark-icon"
                                 ></i>

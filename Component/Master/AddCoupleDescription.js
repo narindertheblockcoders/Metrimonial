@@ -151,15 +151,19 @@ const AddCoupleDescription = (props) => {
                 <div className="Cards-head " id="cards-head-resp">
                   <div className="card card-couple-page" id="card-settings">
 
-                  <div>
-                    <label htmlFor="img">
-                    <img
-                      // src={item.avatar}
-                      src={showImage || "/dashboard/direct.png"}
-                      className="card-img-top"
-                      id="card-img-top"
-                      alt="..."
-                      />
+                  <div className="couple-image-sec">
+                    <label htmlFor="img" className="img-upload-class">
+                      {showImage?(
+         <img
+         // src={item.avatar}
+         src={showImage || ""}
+         className="card-img-top"
+         id="card-img-top"
+         alt="..."
+         />
+                      ):( <h2>Upload Image </h2>  )
+                      }
+           
                       </label>
                     <input
                       onChange={(e) => uploadImage(e)}
@@ -168,10 +172,11 @@ const AddCoupleDescription = (props) => {
                       name="img"
                       accept="image/*"
                       className="profile-upload"
+                  
                     />
-                    <p className="profileupload-text">
+                    {/* <p className="profileupload-text">
                       Click to upload the Photo
-                    </p>
+                    </p> */}
                     </div>
 
                     <div className="right-form-sec">

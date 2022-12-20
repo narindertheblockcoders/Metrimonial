@@ -106,7 +106,8 @@ const AddEducation = () => {
           " Has Been Removed Successfully"
       );
       setQualificationAdded(qualificationAdded+1)
-      setQualificationName(null)
+      setQualificationName("")
+      setSearchQualification(null)
     } catch (err) {
       console.log(err);
       toast.error("Failed to remove the Qualification. Please Try Again...");
