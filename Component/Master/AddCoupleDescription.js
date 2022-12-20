@@ -268,7 +268,7 @@ const AddCoupleDescription = (props) => {
                           disabled={isLoading}
                           // onClick={addHappyCouple}
                         >
-                          {isLoading ? "Loading…" : "   LOGIN"}
+                          {isLoading ? "Loading…" : "   SUBMIT"}
                         </Button>
                       </div>
                     </div>
