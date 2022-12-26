@@ -182,7 +182,7 @@ const SideBar = () => {
                 href="#"
               >
                 {/* <i className="fa fa-user " id="i-class"></i> */}
-                <i class="bi bi-slack" id="i-class"></i>
+                <i className="bi bi-slack" id="i-class"></i>
                 <span className="spanic">SOCIAL MEDIA</span>
                 {/* <i className="fa fa-chevron-down" id="icon-cd"></i> */}
               </a>
@@ -198,7 +198,7 @@ const SideBar = () => {
                 data-bs-toggle="collapse"
                 href="#"
               >
-                <i class="bi bi-person-heart" id="i-class"></i>
+                <i className="bi bi-person-heart" id="i-class"></i>
                 <span className="spanic">TESTIMONIAL</span>
                 <i className="fa fa-chevron-down" id="icon-cd"></i>
               </a>

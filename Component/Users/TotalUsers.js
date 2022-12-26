@@ -75,36 +75,36 @@ const TotalUsers = () => {
                 <div className="Cards-head ">
                 {users?.map((item,id)=> {
                   return(
-                  <div class="card " id="card-settings">
+                  <div className="card " id="card-settings">
                     <img
                       src={item.avatar}
-                      class="card-img-top"
+                      className="card-img-top"
                       alt="..."
                     />
-                    <div key={id} class="card-body">
+                    <div key={id} className="card-body">
 
                       <div className="card-body-parts">
-                      <h5 class="card-title">Name:-  </h5>
-                      <h5 class="card-title" id="card-title"> {item.name} </h5></div>
+                      <h5 className="card-title">Name:-  </h5>
+                      <h5 className="card-title" id="card-title"> {item.name} </h5></div>
 
                       <div className="card-body-parts">
-                      <h5 class="card-title">Email:- </h5>
-                      <h5 class="card-title" id="card-title"> {item.email} </h5></div>
+                      <h5 className="card-title">Email:- </h5>
+                      <h5 className="card-title" id="card-title"> {item.email} </h5></div>
 
                       <div className="card-body-parts">
-                      <h5 class="card-title">Phone:-  </h5>
-                      <h5 class="card-title" id="card-title"> {item.phone} </h5></div>
+                      <h5 className="card-title">Phone:-  </h5>
+                      <h5 className="card-title" id="card-title"> {item.phone} </h5></div>
 
                       <div className="card-body-parts">
-                      <h5 class="card-title">Age:- </h5>
-                      <h5 class="card-title" id="card-title"> {item.age}</h5></div>
+                      <h5 className="card-title">Age:- </h5>
+                      <h5 className="card-title" id="card-title"> {item.age}</h5></div>
 
                       <div className="card-body-parts">
-                      <h5 class="card-title">Country:- </h5>
-                      <h5 class="card-title" id="card-title"> {item.country}</h5></div>
+                      <h5 className="card-title">Country:- </h5>
+                      <h5 className="card-title" id="card-title"> {item.country}</h5></div>
                       <div className="card-body-parts">
                       <h5></h5>
-                      <h5 class="card-title" id="more-detail">
+                      <h5 className="card-title" id="more-detail">
 
                         <Link href={"/userDetails/"+ item.id} >
                         More details ..</Link>

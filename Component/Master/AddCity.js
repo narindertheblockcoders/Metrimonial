@@ -246,7 +246,7 @@ const AddCity = () => {
                     </h3>
                     <button
                       type="button"
-                      class="btn-close"
+                      className="btn-close"
                       id="btn-closes"
                       aria-label="Close"
                       onClick={jqueryCode}
