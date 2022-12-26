@@ -28,6 +28,7 @@ const HappyCoupleLatest = () => {
               MATCHED BY <span> ORTHODOX MATRIMONIAL </span>
             </h2>
           </div>
+          <div className="couple-header">
             {happycouple?.map((item,id)=> {
                 return(
           <div className="couple-mathed-sec">
@@ -44,6 +45,7 @@ const HappyCoupleLatest = () => {
           </div>
                 )
           })}
+          </div>
         </div>
       </section>
     </div>

@@ -223,7 +223,14 @@ const SideBar = () => {
                 <li>
                   <a href="/master/happyCoupleLatest">
                     <i className="fa fa-circle"></i>
-                    <span>HAPPY COUPLE</span>
+                    <span>ALL HAPPY COUPLE</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="/master/hideCouples">
+                    <i className="fa fa-circle"></i>
+                    <span>ALL HIDE COUPLE</span>
                   </a>
                 </li>
              

@@ -1,6 +1,7 @@
 import axios from "axios";
 import NextAuth from "next-auth";
 import CredentialsProviders from "next-auth/providers/credentials";
+import jwt_decode from "jwt-decode";
 
 export default NextAuth({
   session: {
@@ -20,8 +21,11 @@ export default NextAuth({
           data
         );
         let user = response.data;
-        let token = response.data.data;
-        console.log(response);
+        let token = response.data.data
+        var decoded = jwt_decode(token);
+        // console.log(jwt_decode(token),"to see token is decoded or not")
+        let iat = decoded.id;
+        console.log(iat,"to get the id of the user")
         if (!token) {
           throw new Error("Invalid token");
         }
@@ -31,7 +35,7 @@ export default NextAuth({
         if (response.status == 200) {
           return (user = {
             name: token,
-            email: email,
+            email: iat,
           });
         }
       },

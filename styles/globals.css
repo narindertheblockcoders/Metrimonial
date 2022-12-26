@@ -4366,6 +4366,8 @@ section.forself .self-main .box-text-two h4 {
   margin-right: 10px !important;
 }
 
+.couple-header {float: left; width: 100%; margin-bottom: 100px;}
+
 .couple-input-sec {
   float: left;
   width: 100%;
@@ -4461,6 +4463,7 @@ section.forself .self-main .box-text-two h4 {
   color: #000;
   font-weight: 400;
   font-family: CramelFont !important;
+  text-transform: capitalize;
 }
 
 .left-mathed-sec p {
@@ -4489,6 +4492,8 @@ align-items: center;
   width: 100%;
   max-height: 350px;
   background-size: cover !important;
+  object-fit: cover;
+  aspect-ratio: 1/1;
 }
 
 
@@ -4514,6 +4519,7 @@ align-items: center;
 @media (max-width: 1550px) {
   .left-mathed-sec h3 {
     font-size: 65px;
+
   }
 
   .left-mathed-sec {

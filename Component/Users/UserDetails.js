@@ -9,6 +9,8 @@ import { Button } from "react-bootstrap";
 import userDetails from "../../pages/userDetails/[uid]";
 
 const UserDetails = (props) => {
+  console.log(props,"to get the id from token")
+  console.log(props.props.token.email)
   const [userData, setUserData] = useState();
   console.log(props.props.id, "to check whethers props are working or not");
 
@@ -35,6 +37,50 @@ const UserDetails = (props) => {
   useEffect(() => {
     getUsers();
   }, []);
+
+  async function getApprovedAdmin1(data) {
+    try {
+      let res = await axios.post("/api/approve/approvedBySubAdmin",data)
+      const response = res.data;
+      console.log(response,"to get response from api to apporve from admin 1")
+    }catch(err){
+      console.log(err)
+    }
+  }
+
+  async function formSubmitHandler (event) {
+    event.preventDefault()
+
+    const data ={
+      id:props.props.id,
+      adminApproved1:props.props.token.email
+    }
+    console.log(data,"data entered by the admin")
+    getApprovedAdmin1(data)
+  }
+
+//   async function getApprovedAdmin2(dataa) {
+//     try {
+//       let res = await axios.post("/api/approve/approvedBySubAdmin2",dataa)
+//       const response = res.data;
+//       console.log(response,"to get response from api to apporve from admin 2")
+//     }catch(err){
+//       console.log(err)
+//   }
+// }
+
+//   async function formSubmitHandler2 (event) {
+//     event.preventDefault()
+
+//     const dataa ={
+//       id:props.props.id,
+//       adminApproved2:1
+//     }
+//     console.log(dataa,"data entered by the admin")
+//     getApprovedAdmin2(dataa)
+//   }
+
+
 
   return (
     <>
@@ -180,8 +226,8 @@ const UserDetails = (props) => {
                     <h3>Approved by</h3>
                     <ul>
                       
-                      <li><button className="button sub-admin-btn" type="button" >Sub Admin</button></li>
-                      <li><button className="button sub-admin-btn" type="button" >Admin</button></li>
+                      <li><button className="button sub-admin-btn" type="button" onClick={formSubmitHandler} >Sub Admin</button></li>
+                      <li><button className="button sub-admin-btn" type="button">Admin</button></li>
 
                     </ul>
                     <ul>

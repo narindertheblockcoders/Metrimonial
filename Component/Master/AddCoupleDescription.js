@@ -8,11 +8,10 @@ import axios from "axios";
 import { useRouter } from "next/router";
 
 const AddCoupleDescription = (props) => {
-  // console.log(
-  //   props.props.token.name,
-  //   "to see whether props are working or not"
-  // );
-  console.log(props,"to see whether props are working or not")
+  console.log(
+    props,
+    "to see whether props are working or not"
+  );
 
   const [name, setName] = useState();
   const [description, setDescription] = useState();
@@ -59,12 +58,15 @@ const AddCoupleDescription = (props) => {
         };
        const response = await axios(config);
        console.log(response,'response is here')
+       setIsLoading(true)
        toast.success("Couple Added Successfully")
+
        setTimeout(() => {
-        router.push("/dashboard")
+        router.push("/master/happyCoupleLatest")
        }, 1000);
       } catch (err) {
         console.log(err);
+        setIsLoading(false)
       }
     // }
   }
@@ -189,6 +191,7 @@ const AddCoupleDescription = (props) => {
                           aria-label="Username"
                           aria-describedby="basic-addon1"
                           onChange={(e) => setName(e.target.value)}
+                          required
                         />
                       </div>
                       <h6 className="State-text mt-3">Description  (max 500 words...)</h6>
@@ -196,10 +199,12 @@ const AddCoupleDescription = (props) => {
                         <textarea
                           type="text"
                           maxLength="500"
+                          rows="5"
                           className="form-control"
                           aria-label="Username"
                           aria-describedby="basic-addon1"
                           onChange={(e) => setDescription(e.target.value)}
+                          required
                         />
                       </div>
                       <h6 className="State-text mt-3">Date</h6>
@@ -215,6 +220,7 @@ const AddCoupleDescription = (props) => {
                             aria-label="Username"
                             aria-describedby="basic-addon1"
                             onChange={(e) => setDate(e.target.value)}
+                            required
                           >
                             <option> DD</option>
                             {dayData?.map((item, id) => {
@@ -233,6 +239,7 @@ const AddCoupleDescription = (props) => {
                             aria-describedby="basic-addon1"
                             id="couple-input-text"
                             onChange={(e) => setMonth(e.target.value)}
+                            required
                           >
                             <option>MM</option>
                             {monthData?.map((item, id) => {
@@ -247,6 +254,7 @@ const AddCoupleDescription = (props) => {
                             aria-label="Username"
                             aria-describedby="basic-addon1"
                             onChange={(e) => setYear(e.target.value)}
+                            required
                           >
                             <option>YYYY</option>
                             {yearData?.map((item, id) => {

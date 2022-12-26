@@ -30,9 +30,13 @@ export async function getServerSideProps(context){
       };
     }
 
+
+    console.log(session?.user,"to see the token value")
+    let token = session?.user
+
     return {
         props :{
-            id:id
+            id,token
         }
     }
 
