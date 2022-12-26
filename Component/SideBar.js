@@ -27,19 +27,17 @@ const SideBar = () => {
         <aside className=" sidebar ">
           <ul className="sidebar-nav" id="sidebar-nav">
             <a className="navbar-brand" href="/" id="href-set">
-              <img id="logo-id" className="mb-3" src="/navbar/new-logo.png" />
+              <img id="logo-id" className="mb-5" src="/navbar/new-logo.png" />
             </a>
-            <div className="profile-menu">
+            {/* <div className="profile-menu">
               <img
                 className="profileImage"
                 id="profilePictureMenu"
-                // src={avatar}
                 alt=""
               />
               <div className="profile-info overflowHidden" title="">
-                {/* {tokenData?.firstName} */}
               </div>
-            </div>
+            </div> */}
 
             <li className="nav-item">
               <a className="collap" href="/dashboard">
@@ -159,7 +157,7 @@ const SideBar = () => {
                 </li>
 
                 
-                <li>
+                {/* <li>
                   <a href="/master/addSocialMedia">
                     <i className="fa fa-circle"></i>
                     <span>SOCIAL MEDIA</span>
@@ -170,8 +168,65 @@ const SideBar = () => {
                     <i className="fa fa-circle"></i>
                     <span>HAPPY COUPLE</span>
                   </a>
-                </li>
+                </li> */}
+
                 
+              </ul>
+            </li>
+
+            <li className="nav-item">
+              <a
+                className="nav-link "
+                data-bs-target="#components-navs"
+                data-bs-toggle="collapse"
+                href="#"
+              >
+                {/* <i className="fa fa-user " id="i-class"></i> */}
+                <i class="bi bi-slack" id="i-class"></i>
+                <span className="spanic">SOCIAL MEDIA</span>
+                {/* <i className="fa fa-chevron-down" id="icon-cd"></i> */}
+              </a>
+              <ul
+                id="components-navs"
+                className="nav-content collapse show"
+                data-bs-parent="#sidebar-nav"
+              >
+                </ul></li>
+
+            
+
+            
+                 <li className="nav-item">
+              <a
+                className="nav-link "
+                data-bs-target="#components-navs"
+                data-bs-toggle="collapse"
+                href="#"
+              >
+                <i class="bi bi-person-heart" id="i-class"></i>
+                <span className="spanic">TESTIMONIAL</span>
+                <i className="fa fa-chevron-down" id="icon-cd"></i>
+              </a>
+              <ul
+                id="components-navs"
+                className="nav-content collapse show"
+                data-bs-parent="#sidebar-nav"
+              >
+                 {/* <li>
+                  <a href="/master/addSocialMedia">
+                    <i className="fa fa-circle"></i>
+                    <span>SOCIAL MEDIA</span>
+                  </a>
+                </li> */}
+                <li>
+                  <a href="/master/addCoupleDescription">
+                    <i className="fa fa-circle"></i>
+                    <span>HAPPY COUPLE</span>
+                  </a>
+                </li>
+
+
+             
               </ul>
             </li>
          

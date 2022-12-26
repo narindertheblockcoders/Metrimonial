@@ -5129,6 +5129,7 @@ section.forself .self-main .box-text-two {
 
 }
 @media screen and (max-width: 480px) {
+  #leftt-section{margin-top: 0px !important;}
   section.forself .self-main .box-text-one {
     width: 100%;
     padding: 20px 20px;

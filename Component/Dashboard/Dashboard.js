@@ -6,9 +6,11 @@ import { ToastContainer, toast } from "react-toastify";
 import Button from "react-bootstrap/Button";
 import SideBar from "../SideBar";
 import Navbar from "../ui/Navbar";
+import { useSendTransaction } from "wagmi";
 
 const NewDashboard = () => {
   const [collectiveData, setCollectiveData] = useState();
+  const [adminDetail, setAdminDetail] = useState();
 
   async function getCollectiveData() {
     try {
@@ -26,7 +28,24 @@ const NewDashboard = () => {
     }
   }
 
+  async function getAdminDetails() {
+    try {
+      const token = localStorage.getItem("token");
+      console.log(token, "to get the token from localStorage");
+      let res = await axios.post("/api/dashboard/adminDetails", { token: token });
+      const response = res.data;
+      console.log(
+        response,
+        "to get the response from api on dashboard for admin details"
+      );
+      setAdminDetail(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   useEffect(() => {
+    getAdminDetails();
     getCollectiveData();
   }, []);
   return (
@@ -36,6 +55,13 @@ const NewDashboard = () => {
         <div className="container">
           <div className="row">
             {/* <Navbar /> */}
+            <div
+                className="left-dashboard  first-set mt-4 mb-4"
+                id="leftt-section"
+              >
+                {" "}
+                <h5>Welcome:-  {" "} {adminDetail?.firstName} </h5>
+              </div>
             <form className="funds-sec">
               <h3 className="dummy-txts"> </h3>
               <ToastContainer />
