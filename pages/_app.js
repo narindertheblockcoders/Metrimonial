@@ -78,7 +78,7 @@ function MyApp({ Component, pageProps }) {
                 key="description"
                 property="og:description" content="Matrimonial"/>
               <meta property="og:image" key="image" style={{width:"100%"}} content="/new-logo.png" />
-              <link rel="icon" type="image/x-icon"  style={{width:"100%"}} href="/logo.ico"/>
+              <link rel="icon" type="image/x-icon"  style={{width:"100%"}} href="/new-logo.png"/>
 
             </Head>
             {/* <div className="new-dashboard"> */}
