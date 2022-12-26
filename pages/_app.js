@@ -77,7 +77,7 @@ function MyApp({ Component, pageProps }) {
               <meta
                 key="description"
                 property="og:description" content="Matrimonial"/>
-              <meta property="og:image" key="image" content="" />
+              <meta property="og:image" key="image" content="/logo.ico" />
             </Head>
             {/* <div className="new-dashboard"> */}
             {/* <Navbar /> */}

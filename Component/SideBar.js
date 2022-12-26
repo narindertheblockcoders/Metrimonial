@@ -178,7 +178,7 @@ const SideBar = () => {
               <a
                 className="nav-link "
                 data-bs-target="#components-navs"
-                data-bs-toggle="collapse"
+                // data-bs-toggle="collapse"
                 href="#"
               >
                 {/* <i className="fa fa-user " id="i-class"></i> */}
@@ -186,12 +186,7 @@ const SideBar = () => {
                 <span className="spanic">SOCIAL MEDIA</span>
                 {/* <i className="fa fa-chevron-down" id="icon-cd"></i> */}
               </a>
-              <ul
-                id="components-navs"
-                className="nav-content collapse show"
-                data-bs-parent="#sidebar-nav"
-              >
-                </ul></li>
+              </li>
 
             
 
@@ -221,11 +216,16 @@ const SideBar = () => {
                 <li>
                   <a href="/master/addCoupleDescription">
                     <i className="fa fa-circle"></i>
-                    <span>HAPPY COUPLE</span>
+                    <span>ADD HAPPY COUPLE</span>
                   </a>
                 </li>
 
-
+                <li>
+                  <a href="/master/happyCoupleLatest">
+                    <i className="fa fa-circle"></i>
+                    <span>HAPPY COUPLE</span>
+                  </a>
+                </li>
              
               </ul>
             </li>

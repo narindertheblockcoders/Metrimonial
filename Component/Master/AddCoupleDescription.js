@@ -89,7 +89,7 @@ const AddCoupleDescription = (props) => {
       array2.push(i);
     }
 
-    for (let i = 1950; i <= 2004; i++) {
+    for (let i = 1950; i <= 2023; i++) {
       array3.push(i);
     }
     setMonthData(array);

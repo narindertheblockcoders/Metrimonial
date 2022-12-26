@@ -177,8 +177,31 @@ const UserDetails = (props) => {
                     </ul>
                   </div>
                   <div className="self-about-right">
-                    <h3>About hello</h3>
-                    <p>hello</p>
+                    <h3>Approved by</h3>
+                    <ul>
+                      
+                      <li><button className="button sub-admin-btn" type="button" >Sub Admin</button></li>
+                      <li><button className="button sub-admin-btn" type="button" >Admin</button></li>
+
+                    </ul>
+                    <ul>
+                      <li className="li-status">Status</li>
+                      <li><b>Admin</b></li>
+                    </ul>
+                  </div>
+
+                  <div className="self-about-right">
+                    <h3>Profile</h3>
+                    <ul>
+                      
+                      <li><button className="button sub-admin-btn" type="button" >Hide</button></li>
+                      <li><button className="button sub-admin-btn" type="button" >Unhide</button></li>
+
+                    </ul>
+                    <ul>
+                      <li className="li-status">Status</li>
+                      <li><b>Hide</b></li>
+                    </ul>
                   </div>
                 </div>
 
