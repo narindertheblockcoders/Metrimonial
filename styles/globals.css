@@ -3626,9 +3626,9 @@ div#add-btn {
   font-size: 16px !important;
   text-align: left;
   margin-left: 20px;
-  text-transform: capitalize;
-}
 
+}
+.name-title{  text-transform: capitalize !important;}
 #card-input-field {
   float: left;
   width: 100%;
@@ -4511,9 +4511,21 @@ section.forself .self-main .box-text-two h4 {
   aspect-ratio: 1/1;
 }
 
+#sidebar-close-btn{
+  right: -92% !important;
+  top: -1% !important;
+  display: none;
+}
 
-
-
+.field-icon {
+  float: right;
+  margin-right: 15px;
+  margin-top: -33px;
+  position: relative;
+  z-index: 2;
+  float: right;
+  cursor: pointer;
+}
 
 @media (max-width: 1900px) {
   section.forself {
@@ -4542,7 +4554,7 @@ section.forself .self-main .box-text-two h4 {
   }
 
   #card-settings {
-    width: 32rem;
+    width: 34rem;
   }
 
   .Cards-head {
@@ -4558,6 +4570,10 @@ section.forself .self-main .box-text-two h4 {
 }
 
 @media (max-width: 1366px) {
+  #card-settings {
+    width: 32rem;
+  }
+
 
   /* section.forself .self-main .box-text-one {
     width: 100%;
@@ -4668,6 +4684,7 @@ section.forself .self-main .box-text-two h4 {
     height: 100vh;
     transition: all 0.3s;
   }
+  
 
   .toggle-sidebar #main,
   .toggle-sidebar #footer {
@@ -5392,6 +5409,7 @@ section.forself .self-main .box-text-two h4 {
 }
 
 @media screen and (max-width: 480px) {
+
   .couple-head-sec {
     margin-top: 0px !important;
   }
@@ -5456,6 +5474,9 @@ section.forself .self-main .box-text-two h4 {
 
 @media screen and (max-width: 414px) {
 
+  #sidebar-close-btn{
+    display: block;
+  }
   .new-dashboard {
     float: left;
     width: 100%;

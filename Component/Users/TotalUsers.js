@@ -85,7 +85,7 @@ const TotalUsers = () => {
 
                       <div className="card-body-parts">
                       <h5 className="card-title">Name:-  </h5>
-                      <h5 className="card-title" id="card-title"> {item.name} </h5></div>
+                      <h5 className="card-title name-title" id="card-title"> {item.name} </h5></div>
 
                       <div className="card-body-parts">
                       <h5 className="card-title">Email:- </h5>

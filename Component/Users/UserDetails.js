@@ -19,10 +19,10 @@ const UserDetails = (props) => {
   const [adminTwoDisable, setAdminTwoDisable] = useState();
   const [adminOneDisable, setAdminOneDisable] = useState();
   const [nothing, setNothing] = useState("Not Approved");
-  const [subAdmin, setSubAdmin] = useState();
-  const [nullText, setNullText] = useState();
 
   console.log(props.props.id, "to check whethers props are working or not");
+
+
 
   async function getUsers() {
     try {
@@ -60,6 +60,7 @@ const UserDetails = (props) => {
       if (response.adminApproved1 == 1 && response.adminApproved2 == 0) {
         setNothing(" Sub admin");
       } else if (response.adminApproved1 == 0 && response.adminApproved2 == 1) {
+        // setAdminOneDisable(true)
         setNothing(" admin");
       } else if (response.adminApproved1 == 1 && response.adminApproved2 == 1) {
         setNothing(" both admins");
@@ -98,24 +99,24 @@ const UserDetails = (props) => {
     try {
       let res = await axios.post("/api/approve/approvedBySubAdmin", data);
       const response = res.data;
+      getApprovedStatus();
       console.log(response, "to get response from api to apporve from admin 1");
-      setAdminOneData(response.data.message);
+      // setAdminOneData(response.data.message);
       toast.success("Sub Admin Checked Succesfully");
     } catch (err) {
       console.log(err);
-      toast.success("Please Try Again");
+      toast.error("Please Try Again");
     }
   }
 
   async function formSubmitHandler(event) {
     event.preventDefault();
-
+    
     const data = {
       id: props.props.id,
-      adminApproved1: props.props.token.email,
+      adminApproved1: "1",
     };
     console.log(data, "data entered by the admin");
-    getApprovedStatus();
     getApprovedAdmin1(data);
   }
 
@@ -128,11 +129,12 @@ const UserDetails = (props) => {
         response.data,
         "to get response from api to apporve from admin 1"
       );
+      getApprovedStatus();
       setAdminTwoData(response.data);
       toast.success("Admin Checked Succesfully");
     } catch (err) {
       console.log(err);
-      toast.success("Please Try Again");
+      toast.error("Please Try Again");
     }
   }
 
@@ -142,9 +144,9 @@ const UserDetails = (props) => {
     const data = {
       id: props.props.id,
       adminApproved2: 1 };
+      
     console.log(data, "data entered by the admin");
     getApprovedAdmin2(data);
-    getApprovedStatus();
   }
 
 
@@ -237,8 +239,7 @@ const UserDetails = (props) => {
                         <li>
                           <div className="input-group mb-3">
                             <span className="form-control">
-                              {userData?.phone.slice(0, 3)} *****
-                              {userData?.phone.slice(-2)}
+                              {userData?.phone}
                             </span>
                           </div>
                         </li>
@@ -312,33 +313,19 @@ const UserDetails = (props) => {
                             Sub Admin
                           </button>
                         ) : (
-                          <button
-                            className="button sub-admin-btn"
-                            type="button"
-                            disabled={adminOneDisable}
-                            onClick={formSubmitHandler}
-                          >
+                          <button className="button sub-admin-btn" type="button" disabled={adminOneDisable} onClick={formSubmitHandler}>
                             Sub Admin
                           </button>
                         )}
                       </li>
                       <li>
                         {adminTwoData == 1 ? (
-                          <button
-                            className="button sub-admin-btn"
-                            type="button"
-                            id="sub-admin-disable"
-                          >
+                          <button  className="button sub-admin-btn"  type="button"  id="sub-admin-disable">
                             {" "}
                             Admin
                           </button>
                         ) : (
-                          <button
-                            className="button sub-admin-btn"
-                            type="button"
-                            disabled={adminTwoDisable}
-                            onClick={adminChecked}
-                          >
+                          <button className="button sub-admin-btn" type="button" disabled={adminTwoDisable} onClick={adminChecked} >
                             Admin
                           </button>
                         )}

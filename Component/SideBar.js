@@ -2,16 +2,20 @@ import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import { useRouter } from "next/router";
-import {signOut} from "next-auth/react"
+import { signOut } from "next-auth/react";
 
 const SideBar = () => {
-  const router  = useRouter();
+  const router = useRouter();
   const [toggle, setToggle] = useState(false);
 
-  async function logOutHandler(event){
-  event.preventDefault();
-  signOut()
+  async function logOutHandler(event) {
+    event.preventDefault();
+    signOut();
   }
+ async function sidebarHide (){
+  // document.getElementsByClassName("sidebar")[0].style.left="-300px"
+ }
+
 
   return (
     <div>
@@ -25,6 +29,14 @@ const SideBar = () => {
           {/* <img id="arrow-id" src="/others/arws.webp" /> */}
         </button>
         <aside className=" sidebar ">
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            aria-label="Close"
+            data-bs-dismiss="sidebar"
+            id="sidebar-close-btn"
+            onClick={() => setToggle(!toggle)}
+          ></button>
           <ul className="sidebar-nav" id="sidebar-nav">
             <a className="navbar-brand" href="/" id="href-set">
               <img id="logo-id" className="mb-5" src="/navbar/new-logo.png" />
@@ -108,7 +120,7 @@ const SideBar = () => {
                 className="nav-content collapse show"
                 data-bs-parent="#network-nav"
               >
-                  <li>
+                <li>
                   <a href="/master/addCountry">
                     <i className="fa fa-circle"></i>
                     <span>COUNTRY</span>
@@ -126,7 +138,6 @@ const SideBar = () => {
                     <span>CITY</span>
                   </a>
                 </li>
-              
 
                 <li>
                   <a href="/master/addCollege">
@@ -156,7 +167,6 @@ const SideBar = () => {
                   </a>
                 </li>
 
-                
                 {/* <li>
                   <a href="/master/addSocialMedia">
                     <i className="fa fa-circle"></i>
@@ -169,8 +179,6 @@ const SideBar = () => {
                     <span>HAPPY COUPLE</span>
                   </a>
                 </li> */}
-
-                
               </ul>
             </li>
 
@@ -186,12 +194,9 @@ const SideBar = () => {
                 <span className="spanic">SOCIAL MEDIA</span>
                 {/* <i className="fa fa-chevron-down" id="icon-cd"></i> */}
               </a>
-              </li>
+            </li>
 
-            
-
-            
-                 <li className="nav-item">
+            <li className="nav-item">
               <a
                 className="nav-link "
                 data-bs-target="#components-navs"
@@ -207,7 +212,7 @@ const SideBar = () => {
                 className="nav-content collapse show"
                 data-bs-parent="#sidebar-nav"
               >
-                 {/* <li>
+                {/* <li>
                   <a href="/master/addSocialMedia">
                     <i className="fa fa-circle"></i>
                     <span>SOCIAL MEDIA</span>
@@ -233,18 +238,18 @@ const SideBar = () => {
                     <span>ALL HIDE COUPLE</span>
                   </a>
                 </li>
-             
               </ul>
             </li>
-         
+
             <li className="nav-item">
-              <button className="nav-link"
-              type="submit" 
-              onClick={logOutHandler}
-              style={{border:"none"}} 
+              <button
+                className="nav-link"
+                type="submit"
+                onClick={logOutHandler}
+                style={{ border: "none" }}
               >
-                                {/* <i className="bi bi-box-arrow-right " id="i-class"></i> */}
-                                <i className="bi bi-box-arrow-left" id="  "></i>
+                {/* <i className="bi bi-box-arrow-right " id="i-class"></i> */}
+                <i className="bi bi-box-arrow-left" id="  "></i>
                 <span className="spanic"> LOGOUT</span>
               </button>
             </li>

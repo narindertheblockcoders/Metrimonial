@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Button from "react-bootstrap/Button";
 import {signIn} from "next-auth/react";
-
+import $ from "jquery"
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -63,6 +63,33 @@ const Login = () => {
     }
   }
 
+
+async function jQueryFunction(){
+
+
+  $(".toggle-password").click(function() {
+
+    $(this).toggleClass("fa-eye fa-eye-slash");
+    var input = $($(this).attr("toggle"));
+    if (input.attr("type") == "password") {
+      input.attr("type", "text");
+    } else {
+      input.attr("type", "password");
+    }
+  });
+    
+}
+
+useEffect(()=>{
+jQueryFunction()
+},[])
+
+
+
+
+
+
+
   return (
     <div style={{fontFamily:"Bookman old Style !important"}}>
       <section className="profile-sec " id="login-profile-sec">
@@ -90,6 +117,13 @@ const Login = () => {
                   />
                 </div>
 
+                {/* <div class="form-group">
+            <label class="col-md-4 control-label">Password</label>
+            <div class="col-md-6">
+              <input id="password-field" type="password" class="form-control" name="password" value="secret">
+              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+            </div>
+          </div> */}
                 <div
                   className="input-item"
                   style={{ marginTop: "25px", marginBottom: "10px" }}
@@ -99,9 +133,12 @@ const Login = () => {
                     className="textinput"
                     type="password"
                     name="last-name"
+                    id="password-field"
                     onChange={(e) => setPassword(e.target.value)}
                     autoComplete="on"
                   />
+               <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+
                 </div>
 
                   <div
