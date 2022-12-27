@@ -5132,6 +5132,17 @@ section.forself .self-main .box-text-two h4 {
 
 @media screen and (max-width: 767px) {
 
+.couple-image-sec {
+  float: left;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.card-couple-page {
+  width: 50rem !important;
+  padding:  20px !important;
+}
+
+
   svg.rd3t-svg {
     width: 235%;
     height: 100vh;
