@@ -60,7 +60,7 @@ const NewDashboard = () => {
                 id="leftt-section"
               >
                 {" "}
-                <h5>Welcome:-  {" "} {adminDetail?.firstName} </h5>
+                <h5>Welcome -  {" "} {adminDetail?.firstName} </h5>
               </div>
             <form className="funds-sec">
               <h3 className="dummy-txts"> </h3>
