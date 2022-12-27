@@ -4422,9 +4422,10 @@ section.forself .self-main .box-text-two h4 {
 /* <=.........Cople section Style.............=> */
 
 #couple-profile-div {
-  height: 100vh !important;
+  height: 92vh !important;
   overflow: auto !important;
   min-height: 100vh;
+  padding-bottom: 100px !important;
 }
 
 .couple-head-sec {

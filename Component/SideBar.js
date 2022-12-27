@@ -235,7 +235,7 @@ const SideBar = () => {
                 <li>
                   <a href="/master/hideCouples">
                     <i className="fa fa-circle"></i>
-                    <span>ALL HIDE COUPLE</span>
+                    <span>ALL HIDE PROFILE</span>
                   </a>
                 </li>
               </ul>
