@@ -7,11 +7,18 @@ import Router from "next/router";
 import { useRouter } from "next/router";
 import { Button } from "react-bootstrap";
 import userDetails from "../../pages/userDetails/[uid]";
+import { data } from "jquery";
 
 const UserDetails = (props) => {
   console.log(props,"to get the id from token")
   console.log(props.props.token.email)
   const [userData, setUserData] = useState();
+  const [adminOneData, setAdminOneData]= useState()
+  const [adminTwoData, setAdminTwoData]= useState()
+  const [adminTwoDisable, setAdminTwoDisable]= useState()
+  const [adminOneDisable, setAdminOneDisable]= useState()
+
+
   console.log(props.props.id, "to check whethers props are working or not");
 
   async function getUsers() {
@@ -38,15 +45,43 @@ const UserDetails = (props) => {
     getUsers();
   }, []);
 
+  async function getApprovedStatus() {
+    try {
+      const id =props.props.id 
+      let res = await axios.post("/api/approve/approvedStatus",{id:id})
+      const response = res.data.data.data[0];
+      console.log(response,"to get response from api to apporve from status")
+   
+      setAdminOneData(response.adminApproved1)
+      setAdminOneDisable(true)
+
+      setAdminTwoData(response.adminApproved2)
+      setAdminTwoDisable(true)
+
+    }catch(err){
+      console.log(err)
+      setAdminOneDisable(false)
+    }
+  }
+
+  useEffect(()=>{
+    getApprovedStatus()
+   },[])
+  
+
   async function getApprovedAdmin1(data) {
     try {
       let res = await axios.post("/api/approve/approvedBySubAdmin",data)
       const response = res.data;
       console.log(response,"to get response from api to apporve from admin 1")
+      setAdminOneData(response.data.message)
+
     }catch(err){
       console.log(err)
+     
     }
   }
+
 
   async function formSubmitHandler (event) {
     event.preventDefault()
@@ -58,6 +93,34 @@ const UserDetails = (props) => {
     console.log(data,"data entered by the admin")
     getApprovedAdmin1(data)
   }
+
+
+  async function getApprovedAdmin2(data) {
+    try {
+      let res = await axios.post("/api/approve/approvedBySubAdmin2",data)
+      const response = res.data.data;
+      console.log(response.data,"to get response from api to apporve from admin 1")
+
+      
+
+    }catch(err){
+      console.log(err)
+
+    }
+  }
+
+  async function adminChecked (event) {
+    event.preventDefault()
+
+    const data ={
+      id:props.props.id,
+      adminApproved2:props.props.token.email
+    }
+
+    console.log(data,"data entered by the admin")
+    getApprovedAdmin2(data)
+  }
+  
 
 //   async function getApprovedAdmin2(dataa) {
 //     try {
@@ -226,13 +289,25 @@ const UserDetails = (props) => {
                     <h3>Approved by</h3>
                     <ul>
                       
-                      <li><button className="button sub-admin-btn" type="button" onClick={formSubmitHandler} >Sub Admin</button></li>
-                      <li><button className="button sub-admin-btn" type="button">Admin</button></li>
+                      <li>
+                        {adminOneDisable?( <button className="button sub-admin-btn" type="button" id="sub-admin-disable" >Sub Admin</button>  )
+                        :( <button className="button sub-admin-btn" type="button"  onClick={formSubmitHandler} >Sub Admin</button>)
+                      }
+
+                        </li>
+                      <li>
+                        {adminTwoDisable?( <button className="button sub-admin-btn" type="button" id="sub-admin-disable" > Admin</button>):
+                        ( <button className="button sub-admin-btn" type="button"  onClick={adminChecked}>Admin</button>)
+                      }
+                      </li>
 
                     </ul>
                     <ul>
                       <li className="li-status">Status</li>
-                      <li><b>Admin</b></li>
+                      <li><b>
+                        {/* {adminOneData?("Sub Admin"):"Nothing"} */}
+                      {adminTwoData?("Admin"):"Nothing"}
+                      </b></li>
                     </ul>
                   </div>
 

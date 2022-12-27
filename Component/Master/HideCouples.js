@@ -21,11 +21,13 @@ const HideCouplesList = () => {
       <div className="new-dashboard">
         <SideBar />
 
-        <section className="forself profile-sects" id="totalDetailProfileSec">
+        <section className="forself profile-sects" id="couple-profile-div">
           <div className="container" id="user-detail-container">
+            
               {hideCouple?.map((item,id)=> {
                 return(
-              <div className="self-main mt-5 ">
+                  
+              <div className="self-main mb-5 ">
               <div className="self-main-head">
                 <h3>Profile created for Self</h3>
               </div>

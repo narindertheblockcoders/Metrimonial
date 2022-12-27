@@ -3186,6 +3186,7 @@ section#skills {
 
 #leftt-section h5 {
   margin: 0;
+  text-transform: capitalize;
 }
 
 #index-lines {
@@ -3758,6 +3759,7 @@ section.forself .self-main .self-about .self-about-main .self-about-right p {
   width: 324px;
   height: 340px;
   object-fit: cover;
+  aspect-ratio: 1/1;
   border-radius: 5px;
 }
 
@@ -3872,6 +3874,10 @@ section.forself .self-main .self-about .self-about-main .self-about-right {
   margin: 10px 0px;
   font-weight: 700;
   border: none !important;
+}
+
+#sub-admin-disable {
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(255, 255, 255, 0.15) 0px -36px 30px 0px inset, rgba(255, 255, 255, 0.1) 0px -79px 40px 0px inset, rgba(253, 242, 242, 0.06) 0px 2px 1px, rgba(255, 242, 242, 0.09) 0px 4px 2px, rgba(255, 234, 234, 0.09) 0px 8px 4px, rgba(255, 249, 249, 0.09) 0px 16px 8px, rgba(246, 223, 223, 0.09) 0px 32px 16px;
 }
 
 section.forself .self-main .self-about .self-about-main .self-about-left ul {
@@ -4366,7 +4372,11 @@ section.forself .self-main .box-text-two h4 {
   margin-right: 10px !important;
 }
 
-.couple-header {float: left; width: 100%; margin-bottom: 100px;}
+.couple-header {
+  float: left;
+  width: 100%;
+  margin-bottom: 100px;
+}
 
 .couple-input-sec {
   float: left;
@@ -4409,7 +4419,11 @@ section.forself .self-main .box-text-two h4 {
 
 /* <=.........Cople section Style.............=> */
 
-#couple-profile-div{height: 100vh !important; overflow: auto !important; min-height: 100vh; }
+#couple-profile-div {
+  height: 100vh !important;
+  overflow: auto !important;
+  min-height: 100vh;
+}
 
 .couple-head-sec {
   float: left;
@@ -4445,7 +4459,7 @@ section.forself .self-main .box-text-two h4 {
   float: left;
   width: 100%;
   margin-bottom: 100px;
-  
+
 }
 
 .left-mathed-sec {
@@ -4484,8 +4498,8 @@ section.forself .self-main .box-text-two h4 {
   float: left;
   width: 50%;
   padding: 0px !important;
-  display: flex; 
-align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .right-mathed-sec img {
@@ -4533,11 +4547,12 @@ align-items: center;
   .Cards-head {
     margin-top: 2rem !important;
   }
+
   #card-input-field {
     float: left;
     width: 100%;
     padding: 0 10px !important;
-}
+  }
 
 }
 
@@ -4556,6 +4571,7 @@ align-items: center;
     justify-content: center;
     margin-top: 1rem !important;
   }
+
   #card-input-field {
     float: left;
     width: 100%;
@@ -4841,7 +4857,11 @@ align-items: center;
     flex-direction: column-reverse;
     margin-bottom: 0px !important;
   }
-  .right-mathed-sec{margin-bottom: 0px !important;}
+
+  .right-mathed-sec {
+    margin-bottom: 0px !important;
+  }
+
   .left-mathed-sec {
     margin: 30px 0;
     width: 100%;
@@ -5539,7 +5559,7 @@ align-items: center;
 
   section.forself .self-main .box-text-one {
     width: 100%;
-    padding: 20px 20px;
+    padding: 20px 20px !important;
     padding-bottom: 0 !important;
   }
 
@@ -6284,7 +6304,7 @@ align-items: center;
 
 .nav-item .collapsed #icon-cd {
   transform: rotate(180deg);
-  transition:  0.3s;
+  transition: 0.3s;
 }
 
 .nav-link #icon-cd {
