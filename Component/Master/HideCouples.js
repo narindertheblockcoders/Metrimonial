@@ -29,7 +29,7 @@ const HideCouplesList = () => {
                   
               <div className="self-main mb-5 ">
               <div className="self-main-head">
-                <h3>Profile created for Self</h3>
+                <h3>Profile </h3>
               </div>
               
               <div className="left-main-box" id="left-main-box">
@@ -121,9 +121,9 @@ const HideCouplesList = () => {
                       </ul>
                     </div>
 
-                    <a href="" className="like-btn2">
+                    {/* <a href="" className="like-btn2">
                       Request contacted{" "}
-                    </a>
+                    </a> */}
                   </div>
 
                   <div className="boxthree">

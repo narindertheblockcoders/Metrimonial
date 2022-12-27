@@ -8,16 +8,19 @@ import { useRouter } from "next/router";
 import { Button } from "react-bootstrap";
 import userDetails from "../../pages/userDetails/[uid]";
 import { data } from "jquery";
+import { toast, ToastContainer } from "react-toastify";
 
 const UserDetails = (props) => {
-  console.log(props,"to get the id from token")
-  console.log(props.props.token.email)
+  console.log(props, "to get the id from token");
+  console.log(props.props.token.email);
   const [userData, setUserData] = useState();
-  const [adminOneData, setAdminOneData]= useState()
-  const [adminTwoData, setAdminTwoData]= useState()
-  const [adminTwoDisable, setAdminTwoDisable]= useState()
-  const [adminOneDisable, setAdminOneDisable]= useState()
-
+  const [adminOneData, setAdminOneData] = useState();
+  const [adminTwoData, setAdminTwoData] = useState();
+  const [adminTwoDisable, setAdminTwoDisable] = useState();
+  const [adminOneDisable, setAdminOneDisable] = useState();
+  const [nothing, setNothing] = useState("Not Approved");
+  const [subAdmin, setSubAdmin] = useState();
+  const [nullText, setNullText] = useState();
 
   console.log(props.props.id, "to check whethers props are working or not");
 
@@ -47,101 +50,102 @@ const UserDetails = (props) => {
 
   async function getApprovedStatus() {
     try {
-      const id =props.props.id 
-      let res = await axios.post("/api/approve/approvedStatus",{id:id})
+      const id = props.props.id;
+      let res = await axios.post("/api/approve/approvedStatus", { id: id });
       const response = res.data.data.data[0];
-      console.log(response,"to get response from api to apporve from status")
-   
-      setAdminOneData(response.adminApproved1)
-      setAdminOneDisable(true)
+      console.log(response, "to get response from api to apporve from status");
 
-      setAdminTwoData(response.adminApproved2)
-      setAdminTwoDisable(true)
+      setAdminOneData(response.adminApproved1);
+      setAdminTwoData(response.adminApproved2);
+      if (response.adminApproved1 == 1 && response.adminApproved2 == 0) {
+        setNothing(" Sub admin");
+      } else if (response.adminApproved1 == 0 && response.adminApproved2 == 1) {
+        setNothing(" admin");
+      } else if (response.adminApproved1 == 1 && response.adminApproved2 == 1) {
+        setNothing(" both admins");
+      }
 
-    }catch(err){
-      console.log(err)
-      setAdminOneDisable(false)
+  
+    } catch (err) {
+      console.log(err);
+      setAdminOneDisable(false);
     }
   }
 
-  useEffect(()=>{
-    getApprovedStatus()
-   },[])
-  
+  async function adminIdData() {
+    const id = props.props.token.email;
+
+    if (id == 1) {
+      setAdminTwoDisable(true);
+    }
+    if (id == 0) {
+      setAdminOneDisable(true);
+    }
+    if (id == null) {
+      setAdminTwoDisable(true);
+    }
+    if (id == 0) {
+      setAdminOneDisable(false);
+    }
+  }
+
+  useEffect(() => {
+    getApprovedStatus();
+    adminIdData();
+  }, []);
 
   async function getApprovedAdmin1(data) {
     try {
-      let res = await axios.post("/api/approve/approvedBySubAdmin",data)
+      let res = await axios.post("/api/approve/approvedBySubAdmin", data);
       const response = res.data;
-      console.log(response,"to get response from api to apporve from admin 1")
-      setAdminOneData(response.data.message)
-
-    }catch(err){
-      console.log(err)
-     
+      console.log(response, "to get response from api to apporve from admin 1");
+      setAdminOneData(response.data.message);
+      toast.success("Sub Admin Checked Succesfully");
+    } catch (err) {
+      console.log(err);
+      toast.success("Please Try Again");
     }
   }
 
+  async function formSubmitHandler(event) {
+    event.preventDefault();
 
-  async function formSubmitHandler (event) {
-    event.preventDefault()
-
-    const data ={
-      id:props.props.id,
-      adminApproved1:props.props.token.email
-    }
-    console.log(data,"data entered by the admin")
-    getApprovedAdmin1(data)
+    const data = {
+      id: props.props.id,
+      adminApproved1: props.props.token.email,
+    };
+    console.log(data, "data entered by the admin");
+    getApprovedStatus();
+    getApprovedAdmin1(data);
   }
 
 
   async function getApprovedAdmin2(data) {
     try {
-      let res = await axios.post("/api/approve/approvedBySubAdmin2",data)
+      let res = await axios.post("/api/approve/approvedBySubAdmin2", data);
       const response = res.data.data;
-      console.log(response.data,"to get response from api to apporve from admin 1")
-
-      
-
-    }catch(err){
-      console.log(err)
-
+      console.log(
+        response.data,
+        "to get response from api to apporve from admin 1"
+      );
+      setAdminTwoData(response.data);
+      toast.success("Admin Checked Succesfully");
+    } catch (err) {
+      console.log(err);
+      toast.success("Please Try Again");
     }
   }
 
-  async function adminChecked (event) {
-    event.preventDefault()
+  async function adminChecked(event) {
+    event.preventDefault();
 
-    const data ={
-      id:props.props.id,
-      adminApproved2:props.props.token.email
-    }
-
-    console.log(data,"data entered by the admin")
-    getApprovedAdmin2(data)
+    const data = {
+      id: props.props.id,
+      adminApproved2: 1 };
+    console.log(data, "data entered by the admin");
+    getApprovedAdmin2(data);
+    getApprovedStatus();
   }
-  
-
-//   async function getApprovedAdmin2(dataa) {
-//     try {
-//       let res = await axios.post("/api/approve/approvedBySubAdmin2",dataa)
-//       const response = res.data;
-//       console.log(response,"to get response from api to apporve from admin 2")
-//     }catch(err){
-//       console.log(err)
-//   }
-// }
-
-//   async function formSubmitHandler2 (event) {
-//     event.preventDefault()
-
-//     const dataa ={
-//       id:props.props.id,
-//       adminApproved2:1
-//     }
-//     console.log(dataa,"data entered by the admin")
-//     getApprovedAdmin2(dataa)
-//   }
 
 
 
@@ -149,12 +153,13 @@ const UserDetails = (props) => {
     <>
       <div className="new-dashboard">
         <SideBar />
+        <ToastContainer />
 
         <section className="forself profile-sects" id="totalDetailProfileSec">
           <div className="container" id="user-detail-container">
             <div className="self-main">
               <div className="self-main-head">
-                <h3>Profile created for Self</h3>
+                <h3>Profile </h3>
               </div>
               <div className="left-main-box" id="left-main-box">
                 <div className="box-img">
@@ -196,7 +201,11 @@ const UserDetails = (props) => {
                       <ul>
                         <li> City,State, Country</li>
                         <li>
-                          <b>{userData?.city} {","} {userData?.state} {","} {userData?.country}</b>{","}
+                          <b>
+                            {userData?.city} {","} {userData?.state} {","}{" "}
+                            {userData?.country}
+                          </b>
+                          {","}
                         </li>
                       </ul>
                     </div>
@@ -227,7 +236,10 @@ const UserDetails = (props) => {
                         <li>Contact </li>
                         <li>
                           <div className="input-group mb-3">
-                            <span className="form-control">{userData?.phone.slice(0,3)} *****{userData?.phone.slice(-2)}</span>
+                            <span className="form-control">
+                              {userData?.phone.slice(0, 3)} *****
+                              {userData?.phone.slice(-2)}
+                            </span>
                           </div>
                         </li>
                       </ul>
@@ -235,15 +247,17 @@ const UserDetails = (props) => {
                         <li>Email</li>
                         <li>
                           <div className="input-group mb-3">
-                            <span className="form-control">{userData?.email}</span>
+                            <span className="form-control">
+                              {userData?.email}
+                            </span>
                           </div>
                         </li>
                       </ul>
                     </div>
 
-                    <a href="" className="like-btn2">
+                    {/* <a href="" className="like-btn2">
                       Request contacted{" "}
-                    </a>
+                    </a> */}
                   </div>
 
                   <div className="boxthree">
@@ -288,40 +302,81 @@ const UserDetails = (props) => {
                   <div className="self-about-right">
                     <h3>Approved by</h3>
                     <ul>
-                      
                       <li>
-                        {adminOneDisable?( <button className="button sub-admin-btn" type="button" id="sub-admin-disable" >Sub Admin</button>  )
-                        :( <button className="button sub-admin-btn" type="button"  onClick={formSubmitHandler} >Sub Admin</button>)
-                      }
-
-                        </li>
-                      <li>
-                        {adminTwoDisable?( <button className="button sub-admin-btn" type="button" id="sub-admin-disable" > Admin</button>):
-                        ( <button className="button sub-admin-btn" type="button"  onClick={adminChecked}>Admin</button>)
-                      }
+                        {adminOneData == 1 ? (
+                          <button
+                            className="button sub-admin-btn"
+                            type="button"
+                            id="sub-admin-disable"
+                          >
+                            Sub Admin
+                          </button>
+                        ) : (
+                          <button
+                            className="button sub-admin-btn"
+                            type="button"
+                            disabled={adminOneDisable}
+                            onClick={formSubmitHandler}
+                          >
+                            Sub Admin
+                          </button>
+                        )}
                       </li>
-
+                      <li>
+                        {adminTwoData == 1 ? (
+                          <button
+                            className="button sub-admin-btn"
+                            type="button"
+                            id="sub-admin-disable"
+                          >
+                            {" "}
+                            Admin
+                          </button>
+                        ) : (
+                          <button
+                            className="button sub-admin-btn"
+                            type="button"
+                            disabled={adminTwoDisable}
+                            onClick={adminChecked}
+                          >
+                            Admin
+                          </button>
+                        )}
+                      </li>
                     </ul>
                     <ul>
                       <li className="li-status">Status</li>
-                      <li><b>
-                        {/* {adminOneData?("Sub Admin"):"Nothing"} */}
-                      {adminTwoData?("Admin"):"Nothing"}
-                      </b></li>
+                      <li>
+                        <b>
+                          {nothing}
+
+                          {/* {subAdmin? "Both":"Sub Admin"} */}
+                          {/* {adminOneData == adminTwoData?("Both"):"Sub Admin"} */}
+                          {/* {adminTwoData?("Admin"):"Nothing"} */}
+                        </b>
+                      </li>
                     </ul>
                   </div>
 
                   <div className="self-about-right">
                     <h3>Profile</h3>
                     <ul>
-                      
-                      <li><button className="button sub-admin-btn" type="button" >Hide</button></li>
-                      <li><button className="button sub-admin-btn" type="button" >Unhide</button></li>
-
+                      <li>
+                        <button className="button sub-admin-btn" type="button">
+                          Hide
+                        </button>
+                      </li>
+                      <li>
+                        <button className="button sub-admin-btn" type="button">
+                          Unhide
+                        </button>
+                      </li>
                     </ul>
                     <ul>
                       <li className="li-status">Status</li>
-                      <li><b>Hide</b></li>
+                      <li>
+                        <b>Hide</b>
+                      </li>
                     </ul>
                   </div>
                 </div>

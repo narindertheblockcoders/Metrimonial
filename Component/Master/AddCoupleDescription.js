@@ -147,7 +147,7 @@ const AddCoupleDescription = (props) => {
                       </span>
                     </Link>{" "}
                   </span>
-                  HAPPY COUPLE
+                ADD HAPPY COUPLE
                 </h3>
 
                 <div className="Cards-head " id="cards-head-resp">
