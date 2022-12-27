@@ -3626,6 +3626,7 @@ div#add-btn {
   font-size: 16px !important;
   text-align: left;
   margin-left: 20px;
+  word-break: break-all;
 
 }
 .name-title{  text-transform: capitalize !important;}
@@ -4368,7 +4369,7 @@ section.forself .self-main .box-text-two h4 {
   width: 50rem !important;
   padding: 30px 20px !important;
 }
-
+.hide-couple-mb{float: left; width: 100%; padding-bottom: 50px !important;}
 .couple-input-text {
   margin-right: 10px !important;
 }
@@ -4526,6 +4527,9 @@ section.forself .self-main .box-text-two h4 {
   float: right;
   cursor: pointer;
 }
+
+
+
 
 @media (max-width: 1900px) {
   section.forself {
