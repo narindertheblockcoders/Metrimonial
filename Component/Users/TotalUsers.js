@@ -10,6 +10,7 @@ import { Button } from "react-bootstrap";
 const TotalUsers = () => {
   const [users, setUsers] = useState();
   const router = useRouter();
+  const [searchData, setSearchData] = useState();
 
   async function getUsers() {
     try {
@@ -27,14 +28,32 @@ const TotalUsers = () => {
     getUsers();
   }, []);
 
-
+  async function serachFn(e) {
+    console.log(e.target.value);
+    const search = e.target.value;
+    const filteredData = users?.filter((item) => {
+      const email = item?.email;
+      const name = item?.name;
+      const country = item?.country;
+      return (
+        email?.toLowerCase().includes(search.toLowerCase()) ||
+        name?.toLowerCase().includes(search.toLowerCase()) ||
+        country?.toLowerCase().includes(search.toLowerCase())
+      );
+    });
+    console.log(filteredData, "to get the value of the filtered Data");
+    setSearchData(filteredData);
+  }
 
   return (
     <>
       <div className="new-dashboard">
         <SideBar />
 
-        <section className="profile-sec pb-0 profile-sects" id="totalUserProfileSec">
+        <section
+          className="profile-sec pb-0 profile-sects"
+          id="totalUserProfileSec"
+        >
           <div className="container">
             <div className="row justify-content-center">
               <form className="input-sec mb-5" id="card-input-field">
@@ -63,62 +82,160 @@ const TotalUsers = () => {
                           cursor: "pointer",
                         }}
                       >
-                        <img 
+                        <img
                         // src={"/arrow.svg"}
-                         />
+                        />
                       </span>
                     </Link>{" "}
                   </span>
                   USER PROFILE
                 </h3>
-                
-                <div className="Cards-head ">
-                {users?.map((item,id)=> {
-                  return(
-                  <div className="card " id="card-settings">
-                    <img
-                      src={item.avatar}
-                      className="card-img-top"
-                      alt="..."
+
+                <div className="search-bar-sec">
+                  <div className="input-group mb-1" id="search-bar-set">
+                    <span className="input-group-text" id="basic-addon1">
+                      <i className="bi bi-search"></i>
+                    </span>
+
+                    <input
+                      type="text"
+                      className="form-control w-25"
+                      placeholder="Search Country"
+                      onChange={(e) => serachFn(e)}
                     />
-                    <div key={id} className="card-body">
-
-                      <div className="card-body-parts">
-                      <h5 className="card-title">Name:-  </h5>
-                      <h5 className="card-title name-title" id="card-title"> {item.name} </h5></div>
-
-                      <div className="card-body-parts">
-                      <h5 className="card-title">Email:- </h5>
-                      <h5 className="card-title" id="card-title"> {item.email} </h5></div>
-
-                      <div className="card-body-parts">
-                      <h5 className="card-title">Phone:-  </h5>
-                      <h5 className="card-title" id="card-title"> {item.phone} </h5></div>
-
-                      <div className="card-body-parts">
-                      <h5 className="card-title">Age:- </h5>
-                      <h5 className="card-title" id="card-title"> {item.age}</h5></div>
-
-                      <div className="card-body-parts">
-                      <h5 className="card-title">Country:- </h5>
-                      <h5 className="card-title" id="card-title"> {item.country}</h5></div>
-                      <div className="card-body-parts">
-                      <h5></h5>
-                      <h5 className="card-title" id="more-detail">
-
-                        <Link href={"/userDetails/"+ item.id} >
-                        More details ..</Link>
-                        </h5></div>
-
-                    </div>
-                    <div>
-                      {/* <button>
-                    Details
-                      </button> */}
-                    </div>
                   </div>
-                  )
-                })}
+                </div>
+
+                <div className="Cards-head mt-0">
+                  {searchData == null
+                    ? users?.map((item, id) => {
+                        return (
+                          <div className="card " id="card-settings">
+                            <img
+                              src={item.avatar}
+                              className="card-img-top"
+                              alt="..."
+                            />
+                            <div key={id} className="card-body">
+                              <div className="card-body-parts">
+                                <h5 className="card-title">Name:- </h5>
+                                <h5
+                                  className="card-title name-title"
+                                  id="card-title"
+                                >
+                                  {" "}
+                                  {item.name}{" "}
+                                </h5>
+                              </div>
+
+                              <div className="card-body-parts">
+                                <h5 className="card-title">Email:- </h5>
+                                <h5 className="card-title" id="card-title">
+                                  {" "}
+                                  {item.email}{" "}
+                                </h5>
+                              </div>
+
+                              <div className="card-body-parts">
+                                <h5 className="card-title">Phone:- </h5>
+                                <h5 className="card-title" id="card-title">
+                                  {" "}
+                                  {item.phone}{" "}
+                                </h5>
+                              </div>
+
+                              <div className="card-body-parts">
+                                <h5 className="card-title">Age:- </h5>
+                                <h5 className="card-title" id="card-title">
+                                  {" "}
+                                  {item.age}
+                                </h5>
+                              </div>
+
+                              <div className="card-body-parts">
+                                <h5 className="card-title">Country:- </h5>
+                                <h5 className="card-title" id="card-title">
+                                  {" "}
+                                  {item.country}
+                                </h5>
+                              </div>
+                              <div className="card-body-parts">
+                                <h5></h5>
+                                <h5 className="card-title" id="more-detail">
+                                  <Link href={"/userDetails/" + item.id}>
+                                    More details ..
+                                  </Link>
+                                </h5>
+                              </div>
+                            </div>
+                            <div></div>
+                          </div>
+                        );
+                      })
+                    : searchData?.map((item, id) => {
+                        return (
+                          <div className="card " id="card-settings">
+                            <img
+                              src={item.avatar}
+                              className="card-img-top"
+                              alt="..."
+                            />
+                            <div key={id} className="card-body">
+                              <div className="card-body-parts">
+                                <h5 className="card-title">Name:- </h5>
+                                <h5
+                                  className="card-title name-title"
+                                  id="card-title"
+                                >
+                                  {" "}
+                                  {item.name}{" "}
+                                </h5>
+                              </div>
+
+                              <div className="card-body-parts">
+                                <h5 className="card-title">Email:- </h5>
+                                <h5 className="card-title" id="card-title">
+                                  {" "}
+                                  {item.email}{" "}
+                                </h5>
+                              </div>
+
+                              <div className="card-body-parts">
+                                <h5 className="card-title">Phone:- </h5>
+                                <h5 className="card-title" id="card-title">
+                                  {" "}
+                                  {item.phone}{" "}
+                                </h5>
+                              </div>
+
+                              <div className="card-body-parts">
+                                <h5 className="card-title">Age:- </h5>
+                                <h5 className="card-title" id="card-title">
+                                  {" "}
+                                  {item.age}
+                                </h5>
+                              </div>
+
+                              <div className="card-body-parts">
+                                <h5 className="card-title">Country:- </h5>
+                                <h5 className="card-title" id="card-title">
+                                  {" "}
+                                  {item.country}
+                                </h5>
+                              </div>
+                              <div className="card-body-parts">
+                                <h5></h5>
+                                <h5 className="card-title" id="more-detail">
+                                  <Link href={"/userDetails/" + item.id}>
+                                    More details ..
+                                  </Link>
+                                </h5>
+                              </div>
+                            </div>
+                            <div></div>
+                          </div>
+                        );
+                      })}
                 </div>
               </form>
             </div>

@@ -187,7 +187,7 @@ const SideBar = () => {
                 className="nav-link "
                 data-bs-target="#components-navs"
                 // data-bs-toggle="collapse"
-                href="#"
+                href="/master/addSocialMedia"
               >
                 {/* <i className="fa fa-user " id="i-class"></i> */}
                 <i className="bi bi-slack" id="i-class"></i>

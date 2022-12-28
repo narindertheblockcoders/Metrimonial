@@ -4100,6 +4100,7 @@ section.bst-match .container-fluid {
   font-size: 14px;
   margin: 10px 0px;
   font-weight: 700;
+  border: none !important;
 }
 
 .left-main-box .box-text .box-text-two .like-btn3 {
@@ -4529,8 +4530,12 @@ section.forself .self-main .box-text-two h4 {
   cursor: pointer;
 }
 
+.search-bar-sec{float: left; width: 100%; display: flex; justify-content: flex-start; padding-top: 30px;padding-bottom: 10px;}
+#search-bar-sec{margin-left: 0px !important; justify-content: flex-start !important;}
+#search-bar-set{height: 40px; width: 20%;}
 
-
+.search-bar-sec #basic-addon1 {border-right: none !important;}
+.search-bar-sec .form-control {border-left: none !important;}
 
 @media (max-width: 1900px) {
   section.forself {
@@ -4578,7 +4583,16 @@ section.forself .self-main .box-text-two h4 {
   #card-settings {
     width: 32rem;
   }
-
+  #search-bar-set {
+    height: 40px;
+    width: 30%;
+}
+    .search-bar-sec {
+      margin-left: -140px;
+      padding-top: 50px;
+      padding-bottom: 0px !important;
+      justify-content: center;
+  }
 
   /* section.forself .self-main .box-text-one {
     width: 100%;
@@ -4848,6 +4862,12 @@ section.forself .self-main .box-text-two h4 {
 }
 
 @media screen and (max-width: 991px) {
+  .search-bar-sec {
+    margin-left: -125px;}
+  #search-bar-set {
+    height: 40px;
+    width: 50%;
+}
   #faquery-item {
     margin-top: 20px !important;
   }
@@ -5423,8 +5443,23 @@ section.forself .self-main .box-text-two h4 {
   }
 
 }
+@media screen and (max-width: 500px) {
+  
+  .search-bar-sec {
+    margin-left: -115px;
+}
 
+}
 @media screen and (max-width: 480px) {
+  .search-bar-sec {
+    margin-left: 0px;
+    justify-content: center;
+    padding-top: 30px;
+}
+#search-bar-set {
+  height: 40px;
+  width: 80%;
+}
 
   .couple-head-sec {
     margin-top: 0px !important;
@@ -5489,6 +5524,16 @@ section.forself .self-main .box-text-two h4 {
 }
 
 @media screen and (max-width: 414px) {
+  .search-bar-sec {
+    margin-left: 0px;
+    justify-content: flex-start;
+    padding-top: 30px;
+}
+#search-bar-set {
+  height: 40px;
+  width: 100%;
+}
+
 
   #sidebar-close-btn{
     display: block;

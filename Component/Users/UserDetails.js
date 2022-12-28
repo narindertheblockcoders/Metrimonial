@@ -19,10 +19,12 @@ const UserDetails = (props) => {
   const [adminTwoDisable, setAdminTwoDisable] = useState();
   const [adminOneDisable, setAdminOneDisable] = useState();
   const [nothing, setNothing] = useState("Not Approved");
+  const [hideButton, setHideButton]= useState()
+
+
+  const router = useRouter()
 
   console.log(props.props.id, "to check whethers props are working or not");
-
-
 
   async function getUsers() {
     try {
@@ -65,8 +67,6 @@ const UserDetails = (props) => {
       } else if (response.adminApproved1 == 1 && response.adminApproved2 == 1) {
         setNothing(" both admins");
       }
-
-  
     } catch (err) {
       console.log(err);
       setAdminOneDisable(false);
@@ -111,7 +111,7 @@ const UserDetails = (props) => {
 
   async function formSubmitHandler(event) {
     event.preventDefault();
-    
+
     const data = {
       id: props.props.id,
       adminApproved1: "1",
@@ -119,7 +119,6 @@ const UserDetails = (props) => {
     console.log(data, "data entered by the admin");
     getApprovedAdmin1(data);
   }
-
 
   async function getApprovedAdmin2(data) {
     try {
@@ -143,13 +142,39 @@ const UserDetails = (props) => {
 
     const data = {
       id: props.props.id,
-      adminApproved2: 1 };
-      
+      adminApproved2: 1,
+    };
+
     console.log(data, "data entered by the admin");
     getApprovedAdmin2(data);
   }
 
+  async function getHideCouples(data) {
+    try {
+      let res = await axios.post("/api/hideUnhide/hideUsers",data);
+      const response = res.data.data;
+      console.log(response, "to get response from api to apporve from status");
 
+      Router.push("/master/hideCouples")
+      setHideButton(response.isHide)
+
+
+
+    } catch (err) {
+      console.log(err);
+    
+    }
+  }
+
+  async function hideFunction(e) {
+    e.preventDefault();
+    const data = {
+      id: props.props.id,
+      status: 0,
+    };
+    console.log(data, "hide couple data");
+    getHideCouples(data);
+  }
 
   return (
     <>
@@ -256,9 +281,26 @@ const UserDetails = (props) => {
                       </ul>
                     </div>
 
-                    {/* <a href="" className="like-btn2">
-                      Request contacted{" "}
-                    </a> */}
+              
+                        {hideButton == 1?(
+                        <button
+                        className="button like-btn2 "
+                   
+                        type="button"
+                        id="sub-admin-disable"
+                      >
+                        Hide
+                      </button>
+                        ):(      
+                          <button
+                          className="button  like-btn2"
+                          onClick={hideFunction}
+                          type="button"
+                        >
+                          Hide
+                        </button>)
+                        }
+
                   </div>
 
                   <div className="boxthree">
@@ -313,19 +355,33 @@ const UserDetails = (props) => {
                             Sub Admin
                           </button>
                         ) : (
-                          <button className="button sub-admin-btn" type="button" disabled={adminOneDisable} onClick={formSubmitHandler}>
+                          <button
+                            className="button sub-admin-btn"
+                            type="button"
+                            disabled={adminOneDisable}
+                            onClick={formSubmitHandler}
+                          >
                             Sub Admin
                           </button>
                         )}
                       </li>
                       <li>
                         {adminTwoData == 1 ? (
-                          <button  className="button sub-admin-btn"  type="button"  id="sub-admin-disable">
+                          <button
+                            className="button sub-admin-btn"
+                            type="button"
+                            id="sub-admin-disable"
+                          >
                             {" "}
                             Admin
                           </button>
                         ) : (
-                          <button className="button sub-admin-btn" type="button" disabled={adminTwoDisable} onClick={adminChecked} >
+                          <button
+                            className="button sub-admin-btn"
+                            type="button"
+                            disabled={adminTwoDisable}
+                            onClick={adminChecked}
+                          >
                             Admin
                           </button>
                         )}
@@ -345,27 +401,7 @@ const UserDetails = (props) => {
                     </ul>
                   </div>
 
-                  <div className="self-about-right">
-                    <h3>Profile</h3>
-                    <ul>
-                      <li>
-                        <button className="button sub-admin-btn" type="button">
-                          Hide
-                        </button>
-                      </li>
-                      <li>
-                        <button className="button sub-admin-btn" type="button">
-                          Unhide
-                        </button>
-                      </li>
-                    </ul>
-                    <ul>
-                      <li className="li-status">Status</li>
-                      <li>
-                        <b>Hide</b>
-                      </li>
-                    </ul>
-                  </div>
+               
                 </div>
 
                 {/* <section className="reference">
