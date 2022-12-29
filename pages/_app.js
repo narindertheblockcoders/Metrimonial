@@ -8,6 +8,8 @@ import Footer from "../Component/ui/Footer";
 import Head from "next/head";
 import "@rainbow-me/rainbowkit/styles.css";
 import Script from "next/script";
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 
 
 import {

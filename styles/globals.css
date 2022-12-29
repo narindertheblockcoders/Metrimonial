@@ -6,6 +6,7 @@ div {
   margin: 0px;
   padding: 0px;
   font-family: 'Barlow', sans-serif !important;
+  letter-spacing: 0.5px !important;
 
   /* font-family: Arial, Helvetica, sans-serif; */
 }
@@ -3629,7 +3630,11 @@ div#add-btn {
   word-break: break-all;
 
 }
-.name-title{  text-transform: capitalize !important;}
+
+.name-title {
+  text-transform: capitalize !important;
+}
+
 #card-input-field {
   float: left;
   width: 100%;
@@ -4370,7 +4375,13 @@ section.forself .self-main .box-text-two h4 {
   width: 50rem !important;
   padding: 30px 20px !important;
 }
-.hide-couple-mb{float: left; width: 100%; padding-bottom: 50px !important;}
+
+.hide-couple-mb {
+  float: left;
+  width: 100%;
+  padding-bottom: 50px !important;
+}
+
 .couple-input-text {
   margin-right: 10px !important;
 }
@@ -4514,7 +4525,7 @@ section.forself .self-main .box-text-two h4 {
   aspect-ratio: 1/1;
 }
 
-#sidebar-close-btn{
+#sidebar-close-btn {
   right: -92% !important;
   top: -1% !important;
   display: none;
@@ -4530,12 +4541,104 @@ section.forself .self-main .box-text-two h4 {
   cursor: pointer;
 }
 
-.search-bar-sec{float: left; width: 100%; display: flex; justify-content: flex-start; padding-top: 30px;padding-bottom: 10px;}
-#search-bar-sec{margin-left: 0px !important; justify-content: flex-start !important;}
-#search-bar-set{height: 40px; width: 20%;}
+.search-bar-sec {
+  float: left;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
 
-.search-bar-sec #basic-addon1 {border-right: none !important;}
-.search-bar-sec .form-control {border-left: none !important;}
+.rangePicker-set {
+  float: left;
+  width: 100%;
+  height: 40px;
+  color: black !important;
+  border-color: #ced4da !important;
+  font-weight: 600 !important;
+}
+
+.rangePicker-set input::placeholder{color: #999 !important; font-size: 1rem !important;}
+
+#search-bar-sec {
+  margin-left: 0px !important;
+  justify-content: flex-start !important;
+}
+
+#search-bar-set {
+  height: 40px;
+  width: 20%;
+}
+
+.search-bar-sec #basic-addon1 {
+  border-right: none !important;
+}
+
+.search-bar-sec .form-control {
+  border-left: none !important;
+}
+
+/* <=.......Paginate style............=> */
+
+.paginate-sec {
+  float: left;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+.page-link {
+  float: left !important;
+  display: flex !important;
+  justify-content: center !important;
+  list-style: none !important;
+}
+
+.page-link ul {
+  list-style: none !important;
+  background-color: gray !important;
+}
+
+/* .page-link li {gap: 20px !important;} */
+
+.pagination__link {
+  border: 2px solid rgba(0, 0, 0, 0.175) !important;
+  border-radius: 0px;
+  margin-right: 20px;
+  color: var(--bg-color) !important;
+  text-decoration: none !important;
+  font-weight: 600;
+  padding: 7px 14px;
+
+}
+
+.paginate-sec a {
+  border: 2px solid rgba(0, 0, 0, 0.175) !important;
+  border-radius: 0px;
+  margin-right: 20px;
+  color: var(--bg-color) !important;
+  text-decoration: none !important;
+  font-weight: 600;
+  padding: 7px 14px;
+  float: left;
+
+}
+
+.pagination__link--active a {
+  background-color: var(--bg-color) !important;
+  margin-right: 20px;
+  color: white !important;
+  padding: 7px 14px;
+  float: left;
+}
+
+#paginate-sec {
+  margin-bottom: 100px !important;
+}
+
+
 
 @media (max-width: 1900px) {
   section.forself {
@@ -4583,15 +4686,15 @@ section.forself .self-main .box-text-two h4 {
   #card-settings {
     width: 32rem;
   }
+
   #search-bar-set {
     height: 40px;
     width: 30%;
-}
-    .search-bar-sec {
-      margin-left: -140px;
-      padding-top: 50px;
-      padding-bottom: 0px !important;
-      justify-content: center;
+  }
+
+  .search-bar-sec {
+    padding-top: 50px;
+    padding-bottom: 0px !important;
   }
 
   /* section.forself .self-main .box-text-one {
@@ -4703,7 +4806,7 @@ section.forself .self-main .box-text-two h4 {
     height: 100vh;
     transition: all 0.3s;
   }
-  
+
 
   .toggle-sidebar #main,
   .toggle-sidebar #footer {
@@ -4862,12 +4965,13 @@ section.forself .self-main .box-text-two h4 {
 }
 
 @media screen and (max-width: 991px) {
-  .search-bar-sec {
-    margin-left: -125px;}
+
+
   #search-bar-set {
     height: 40px;
-    width: 50%;
-}
+    width: 70%;
+  }
+
   #faquery-item {
     margin-top: 20px !important;
   }
@@ -5151,16 +5255,19 @@ section.forself .self-main .box-text-two h4 {
 }
 
 @media screen and (max-width: 767px) {
+  .rangePicker-set{width: 70%;}
+  .rangePicker-Div{float: left; width: 100%; justify-content: flex-end !important; display: flex;}
 
-.couple-image-sec {
-  float: left;
-  width: 100%;
-  margin-bottom: 30px;
-}
-.card-couple-page {
-  width: 50rem !important;
-  padding:  20px !important;
-}
+  .couple-image-sec {
+    float: left;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .card-couple-page {
+    width: 50rem !important;
+    padding: 20px !important;
+  }
 
 
   svg.rd3t-svg {
@@ -5443,23 +5550,19 @@ section.forself .self-main .box-text-two h4 {
   }
 
 }
-@media screen and (max-width: 500px) {
-  
-  .search-bar-sec {
-    margin-left: -115px;
-}
 
-}
+
 @media screen and (max-width: 480px) {
   .search-bar-sec {
     margin-left: 0px;
     justify-content: center;
     padding-top: 30px;
-}
-#search-bar-set {
-  height: 40px;
-  width: 80%;
-}
+  }
+
+  #search-bar-set {
+    height: 40px;
+    width: 80%;
+  }
 
   .couple-head-sec {
     margin-top: 0px !important;
@@ -5524,20 +5627,26 @@ section.forself .self-main .box-text-two h4 {
 }
 
 @media screen and (max-width: 414px) {
+  .search-bar-sec{flex-direction: column; gap: 10px; margin-bottom: 10px;}
+  .rangePicker-set {
+    width: 100%;
+}
   .search-bar-sec {
     margin-left: 0px;
     justify-content: flex-start;
     padding-top: 30px;
-}
-#search-bar-set {
-  height: 40px;
-  width: 100%;
-}
+  }
+
+  #search-bar-set {
+    height: 40px;
+    width: 100%;
+  }
 
 
-  #sidebar-close-btn{
+  #sidebar-close-btn {
     display: block;
   }
+
   .new-dashboard {
     float: left;
     width: 100%;

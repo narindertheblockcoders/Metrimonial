@@ -1,10 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import SideBar from "../SideBar";
+import ReactPaginate from "react-paginate";
 
 const HappyCoupleLatest = () => {
   const [happycouple, setHappyCouple] = useState();
   const [searchData, setSearchData] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(10);
+
 
   async function getProfileFunction() {
     const res = await axios.post("/api/master/getHappyCouples");
@@ -30,6 +34,17 @@ const HappyCoupleLatest = () => {
     console.log(filteredData, "to get the value of the filtered Data");
     setSearchData(filteredData);
   }
+
+
+    // Pagination
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = happycouple?.slice(indexOfFirstPost, indexOfLastPost);
+ 
+    const paginate = ({ selected }) => {
+      setCurrentPage(selected + 1);
+    };
+
 
   return (
     <div className="new-dashboard">
@@ -59,7 +74,7 @@ const HappyCoupleLatest = () => {
                 </div>
 
           <div className="couple-header ">
-            {searchData == null ? happycouple?.map((item,id)=> {
+            {searchData == null ? currentPosts?.map((item,id)=> {
                 return(
           <div className="couple-mathed-sec">
             <div className="left-mathed-sec">
@@ -95,7 +110,22 @@ const HappyCoupleLatest = () => {
           })
           
           }
+          <div className="paginate-sec " id="paginate-sec" >
+                       <ReactPaginate
+                  previousLabel="← Previous"
+                  nextLabel="Next →"
+                  onPageChange={paginate}
+                  pageCount={Math.ceil(happycouple?.length / postsPerPage)}
+                  containerClassName="pagination"
+                  previousLinkClassName="pagination__link"
+                  nextLinkClassName="pagination__link"
+                  disabledClassName="pagination__link--disabled"
+                  activeClassName="pagination__link--active"
+                  className="page-link"
+                />
+                </div>
           </div>
+
         </div>
       </section>
     </div>

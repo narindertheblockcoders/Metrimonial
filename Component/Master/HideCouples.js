@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import SideBar from "../SideBar";
 import Router from "next/router";
+import ReactPaginate from "react-paginate";
 
 const HideCouplesList = (props) => {
   const [hideCouple, setHideCouple] = useState();
@@ -9,6 +10,8 @@ const HideCouplesList = (props) => {
   const [userId,setUserId] =useState()
   const [userAdded, setUserAdded] = useState(0)
   const [searchData, setSeachData] = useState()
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(10);
 
 
   async function getHideCoupleFunction() {
@@ -71,7 +74,14 @@ const HideCouplesList = (props) => {
 
 
 
+  // Pagination
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = hideCouple?.slice(indexOfFirstPost, indexOfLastPost);
 
+  const paginate = ({ selected }) => {
+    setCurrentPage(selected + 1);
+  };
 
 
 
@@ -101,7 +111,7 @@ const HideCouplesList = (props) => {
                   </div>
                 </div>
               {searchData == null?
-               hideCouple?.map((item,id)=> {
+               currentPosts?.map((item,id)=> {
                 return(
               <div className="self-main mb-5 mt-0 ">
               <div className="self-main-head">
@@ -423,8 +433,21 @@ const HideCouplesList = (props) => {
 
             })
           }
+  <div className="paginate-sec " id="paginate-sec" >
+                       <ReactPaginate
+                  previousLabel="← Previous"
+                  nextLabel="Next →"
+                  onPageChange={paginate}
+                  pageCount={Math.ceil(hideCouple?.length / postsPerPage)}
+                  containerClassName="pagination"
+                  previousLinkClassName="pagination__link"
+                  nextLinkClassName="pagination__link"
+                  disabledClassName="pagination__link--disabled"
+                  activeClassName="pagination__link--active"
+                  className="page-link"
+                />
+                </div>
   </div>
-
 
 
 

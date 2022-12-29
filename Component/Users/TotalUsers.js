@@ -2,15 +2,26 @@ import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import SideBar from "../SideBar";
-import Navbar from "../ui/Navbar";
-import Router from "next/router";
 import { useRouter } from "next/router";
-import { Button } from "react-bootstrap";
+import { DatePicker } from "antd";
+import moment from "moment";
+const { RangePicker } = DatePicker;
+import ReactPaginate from "react-paginate";
 
 const TotalUsers = () => {
-  const [users, setUsers] = useState();
+  const [users, setUsers] = useState([]);
+  const [userses, setUserses] = useState();
+
   const router = useRouter();
   const [searchData, setSearchData] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [oldData,setOldData] =useState([])
+  // const [userStatus, setUserStatus] = useState(0)
+  const [date, setDate] = useState([]);
+
+  const [fromDate, setFromDate] = useState();
+  // const [toDate, setToDate] = useState();
 
   async function getUsers() {
     try {
@@ -19,6 +30,7 @@ const TotalUsers = () => {
       const response = res.data;
       console.log(response.data, "to get the response from api to get users");
       setUsers(response.data);
+      setOldData(response.data)
     } catch (err) {
       console.log(err);
     }
@@ -31,7 +43,7 @@ const TotalUsers = () => {
   async function serachFn(e) {
     console.log(e.target.value);
     const search = e.target.value;
-    const filteredData = users?.filter((item) => {
+    const filteredData = oldData?.filter((item) => {
       const email = item?.email;
       const name = item?.name;
       const country = item?.country;
@@ -43,6 +55,47 @@ const TotalUsers = () => {
     });
     console.log(filteredData, "to get the value of the filtered Data");
     setSearchData(filteredData);
+  }
+
+  // Pagination
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = users.slice(indexOfFirstPost, indexOfLastPost);
+
+  const paginate = ({ selected }) => {
+    setCurrentPage(selected + 1);
+  };
+
+  async function dateFilterFn(e) {
+    try {
+      const fromDate = new Date(e[0]?.$d).toLocaleDateString();
+      const toDate = new Date(e[1]?.$d).toLocaleDateString();
+
+      console.log(fromDate, toDate, "to get from & to Date");
+      const filteredData = oldData?.filter((item) => {
+        console.log(
+          new Date(item?.createdAt).toLocaleDateString(),
+          "to check the date to search"
+        );
+
+        const dateData = new Date(item?.createdAt).toLocaleDateString();
+        console.log(dateData, "filtered data fetch");
+        return dateData >= fromDate && dateData <= toDate;
+      });
+      console.log(filteredData, "ffffff");
+      setUsers(filteredData);
+
+      if(filteredData===[]){
+        setUsers(oldData)
+      }
+      else{
+        setUsers(filteredData)
+      }
+
+    } catch (err) {
+      console.log(err);
+      setUsers(oldData)
+    }
   }
 
   return (
@@ -104,11 +157,38 @@ const TotalUsers = () => {
                       onChange={(e) => serachFn(e)}
                     />
                   </div>
+
+                  <div className="rangePicker-Div">
+                  <RangePicker
+                  className="rangePicker-set"
+                    selected={users}
+                    onChange={(e) => dateFilterFn(e)}
+                  />
+</div>
                 </div>
+
+ 
+                  {/* <RangePicker onChange={(value) => {
+                    setDate(value?.map(item=>{
+                      console.log(value[0].$d,"valu=e is here")
+                      return moment(item).date(value)
+
+                    }))
+                  }}/> */}
+
+                  {/* <DatePicker
+        onChange={(e) => setFromDate(e)}
+      />
+                 <DatePicker
+                    onChange={(e) => dateFilterFn(e)}
+      />          */}
+                  {/* <input type="date" onChange={(e) => setFromDate(e)}/> 
+ <input type="date" onChange={(e) => dateFilterFn(e)}/>  */}
+                
 
                 <div className="Cards-head mt-0">
                   {searchData == null
-                    ? users?.map((item, id) => {
+                    ? currentPosts?.map((item, id) => {
                         return (
                           <div className="card " id="card-settings">
                             <img
@@ -116,6 +196,7 @@ const TotalUsers = () => {
                               className="card-img-top"
                               alt="..."
                             />
+                            
                             <div key={id} className="card-body">
                               <div className="card-body-parts">
                                 <h5 className="card-title">Name:- </h5>
@@ -236,6 +317,20 @@ const TotalUsers = () => {
                           </div>
                         );
                       })}
+                </div>
+                <div className="paginate-sec">
+                  <ReactPaginate
+                    previousLabel="← Previous"
+                    nextLabel="Next →"
+                    onPageChange={paginate}
+                    pageCount={Math.ceil(users.length / postsPerPage)}
+                    containerClassName="pagination"
+                    previousLinkClassName="pagination__link"
+                    nextLinkClassName="pagination__link"
+                    disabledClassName="pagination__link--disabled"
+                    activeClassName="pagination__link--active"
+                    className="page-link"
+                  />
                 </div>
               </form>
             </div>
