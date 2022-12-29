@@ -4610,7 +4610,7 @@ section.forself .self-main .box-text-two h4 {
   color: var(--bg-color) !important;
   text-decoration: none !important;
   font-weight: 600;
-  
+
   padding: 7px 14px;
 
 }
@@ -4620,7 +4620,7 @@ section.forself .self-main .box-text-two h4 {
 
 
 
- a {
+.paginate-sec  a {
   border: 2px solid rgba(0, 0, 0, 0.175) !important;
   border-radius: 0px;
   margin-right: 20px;
