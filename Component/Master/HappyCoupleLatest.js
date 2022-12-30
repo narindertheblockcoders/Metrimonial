@@ -2,12 +2,15 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import SideBar from "../SideBar";
 import ReactPaginate from "react-paginate";
+import { data } from "jquery";
 
 const HappyCoupleLatest = () => {
   const [happycouple, setHappyCouple] = useState();
-  const [searchData, setSearchData] = useState();
+  const [searchData, setSearchData] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
+  const [happyCoupleData,setHappyCoupleData] = useState()
+  const [currentPost, setCurrentPost] =useState()
 
 
   async function getProfileFunction() {
@@ -15,6 +18,8 @@ const HappyCoupleLatest = () => {
     const response = res.data;
     console.log(response, "to get response form api to get happy couple data");
     setHappyCouple(response.data);
+    setHappyCoupleData(response.data)
+
   }
 
   useEffect(() => {
@@ -24,25 +29,35 @@ const HappyCoupleLatest = () => {
   async function serachFn(e) {
     console.log(e.target.value);
     const search = e.target.value;
-    const filteredData = happycouple?.filter((item) => {
+    const filteredData = happyCoupleData?.filter((item) => {
       const name = item?.names;
-      const date = item?.marrigeDate;
       return (
         name?.toLowerCase().includes(search.toLowerCase())
-      );
-    });
-    console.log(filteredData, "to get the value of the filtered Data");
-    setSearchData(filteredData);
-  }
+        );
+      });
+      console.log(filteredData, "to get the value of the filtered Data");
+      setSearchData(filteredData);
+      setPostsPerPage(filteredData)
+      // if(search === null){
+      //   setSearchData("")
+      // }
+      // else{
+    
+      // }
 
+
+  }
+console.log(searchData,'search data here')
 
     // Pagination
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPosts = happycouple?.slice(indexOfFirstPost, indexOfLastPost);
- 
+    const currentPosts = happyCoupleData?.slice(indexOfFirstPost, indexOfLastPost);
+    
+    
     const paginate = ({ selected }) => {
-      setCurrentPage(selected + 1);
+      setCurrentPage(selected + 1); 
+      // setSearchData(null) 
     };
 
 
@@ -67,14 +82,14 @@ const HappyCoupleLatest = () => {
                     <input
                       type="text"
                       className="form-control w-25"
-                      placeholder="Search Country"
+                      placeholder="Search Couple"
                       onChange={(e) => serachFn(e)}
                     />
                   </div>
                 </div>
 
           <div className="couple-header ">
-            {searchData == null ? currentPosts?.map((item,id)=> {
+            {searchData === "" ? currentPosts?.map((item,id)=> {
                 return(
           <div className="couple-mathed-sec">
             <div className="left-mathed-sec">
@@ -93,6 +108,7 @@ const HappyCoupleLatest = () => {
           :
           searchData?.map((item) => {
             return(
+
               <div className="couple-mathed-sec">
             <div className="left-mathed-sec">
               <h3>{item?.names}</h3>
@@ -107,15 +123,14 @@ const HappyCoupleLatest = () => {
           </div>
             )
 
-          })
-          
-          }
+          }) }
           <div className="paginate-sec " id="paginate-sec" >
                        <ReactPaginate
+                       
                   previousLabel="← Previous"
                   nextLabel="Next →"
                   onPageChange={paginate}
-                  pageCount={Math.ceil(happycouple?.length / postsPerPage)}
+                  pageCount={Math.ceil(happyCoupleData?.length / postsPerPage)}
                   containerClassName="pagination"
                   previousLinkClassName="pagination__link"
                   nextLinkClassName="pagination__link"

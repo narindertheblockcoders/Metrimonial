@@ -4614,11 +4614,13 @@ section.forself .self-main .box-text-two h4 {
   padding: 7px 14px;
 
 }
-.paginate-sec a:hover {
+.pagination__link--active a:hover {
   color : white  !important;
 }
 
-
+.pagination__link a:hover {
+  color : white  !important;
+}
 
 .paginate-sec  a {
   border: 2px solid rgba(0, 0, 0, 0.175) !important;

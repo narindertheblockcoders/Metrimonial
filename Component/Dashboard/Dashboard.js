@@ -116,7 +116,7 @@ const NewDashboard = () => {
                               id="dashboard-icons"
                             ></i>
                             <p className="dashboard-txts">{}</p>
-                            <h6 className="dashboard-txt"> TOTAL BUSINESS</h6>
+                            <h6 className="dashboard-txt"> TOTAL INCOME</h6>
                           </div>
                         </Link>
 
