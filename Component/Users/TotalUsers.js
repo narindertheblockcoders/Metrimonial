@@ -10,18 +10,14 @@ import ReactPaginate from "react-paginate";
 
 const TotalUsers = () => {
   const [users, setUsers] = useState([]);
-  const [userses, setUserses] = useState();
-
   const router = useRouter();
   const [searchData, setSearchData] = useState();
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
-  const [oldData,setOldData] =useState([])
-  // const [userStatus, setUserStatus] = useState(0)
-  const [date, setDate] = useState([]);
-
+  const [oldData, setOldData] = useState([]);
+  const [profile, setProfile] = useState();
   const [fromDate, setFromDate] = useState();
-  // const [toDate, setToDate] = useState();
+ const  [oldDate, setOldDate] =useState()
 
   async function getUsers() {
     try {
@@ -30,7 +26,8 @@ const TotalUsers = () => {
       const response = res.data;
       console.log(response.data, "to get the response from api to get users");
       setUsers(response.data);
-      setOldData(response.data)
+      setOldData(response.data);
+      setOldDate(response.data)
     } catch (err) {
       console.log(err);
     }
@@ -43,60 +40,62 @@ const TotalUsers = () => {
   async function serachFn(e) {
     console.log(e.target.value);
     const search = e.target.value;
+    console.log(oldData, "old data here");
     const filteredData = oldData?.filter((item) => {
-      const email = item?.email;
       const name = item?.name;
-      const country = item?.country;
-      return (
-        email?.toLowerCase().includes(search.toLowerCase()) ||
-        name?.toLowerCase().includes(search.toLowerCase()) ||
-        country?.toLowerCase().includes(search.toLowerCase())
-      );
+      return name?.toLowerCase().includes(search.toLowerCase());
     });
     console.log(filteredData, "to get the value of the filtered Data");
-    setSearchData(filteredData);
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const searchPosts = filteredData?.slice(indexOfFirstPost, indexOfLastPost);
+    setSearchData(searchPosts);
   }
+
+  async function setDateFunction(e) {
+    try{
+     const zeroData = e[0].$d
+     const firstData = e[1].$d
+     console.log(oldDate,"old date here for l")
+      const filteredDate = oldDate?.filter((item) => {
+
+          const dateData = new Date(item?.createdAt).toLocaleDateString()
+
+      return (
+        dateData >= new Date(zeroData).toLocaleDateString() &&
+        dateData <= new Date(firstData).toLocaleDateString()
+        );
+      });
+    setUsers(filteredDate);
+  
+    if(filteredDate == []){
+      setUsers(users)
+    }else{
+      setUsers(filteredDate);
+    }
+    console.log(filteredDate,"filteredData")
+    const valueOfPaginate= Math.ceil(users?.length / postsPerPage)
+    console.log(users,valueOfPaginate,"value")
+  }
+    
+    catch(err){
+      console.log(err)
+      setUsers(oldData)
+    }
+  }
+
 
   // Pagination
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = users.slice(indexOfFirstPost, indexOfLastPost);
+  var currentPosts = users?.slice(indexOfFirstPost, indexOfLastPost);
 
-  const paginate = ({ selected }) => {
+
+  const Pagination = ({ selected }) => {
     setCurrentPage(selected + 1);
+    setSearchData(null);
+    setUsers(users)
   };
-
-  async function dateFilterFn(e) {
-    try {
-      const fromDate = new Date(e[0]?.$d).toLocaleDateString();
-      const toDate = new Date(e[1]?.$d).toLocaleDateString();
-
-      console.log(fromDate, toDate, "to get from & to Date");
-      const filteredData = oldData?.filter((item) => {
-        console.log(
-          new Date(item?.createdAt).toLocaleDateString(),
-          "to check the date to search"
-        );
-
-        const dateData = new Date(item?.createdAt).toLocaleDateString();
-        console.log(dateData, "filtered data fetch");
-        return dateData >= fromDate && dateData <= toDate;
-      });
-      console.log(filteredData, "ffffff");
-      setUsers(filteredData);
-
-      if(filteredData===[]){
-        setUsers(oldData)
-      }
-      else{
-        setUsers(filteredData)
-      }
-
-    } catch (err) {
-      console.log(err);
-      setUsers(oldData)
-    }
-  }
 
   return (
     <>
@@ -153,41 +152,20 @@ const TotalUsers = () => {
                     <input
                       type="text"
                       className="form-control w-25"
-                      placeholder="Search Country"
+                      placeholder="Search"
                       onChange={(e) => serachFn(e)}
                     />
                   </div>
 
                   <div className="rangePicker-Div">
-                  <RangePicker
-                  className="rangePicker-set"
-                    selected={users}
-                    onChange={(e) => dateFilterFn(e)}
+                  < RangePicker
+                    onChange={(e)=>setDateFunction(e)}
                   />
+                  
 </div>
-                </div>
-
- 
-                  {/* <RangePicker onChange={(value) => {
-                    setDate(value?.map(item=>{
-                      console.log(value[0].$d,"valu=e is here")
-                      return moment(item).date(value)
-
-                    }))
-                  }}/> */}
-
-                  {/* <DatePicker
-        onChange={(e) => setFromDate(e)}
-      />
-                 <DatePicker
-                    onChange={(e) => dateFilterFn(e)}
-      />          */}
-                  {/* <input type="date" onChange={(e) => setFromDate(e)}/> 
- <input type="date" onChange={(e) => dateFilterFn(e)}/>  */}
-                
-
+</div>
                 <div className="Cards-head mt-0">
-                  {searchData == null
+                  { searchData == null 
                     ? currentPosts?.map((item, id) => {
                         return (
                           <div className="card " id="card-settings">
@@ -196,7 +174,7 @@ const TotalUsers = () => {
                               className="card-img-top"
                               alt="..."
                             />
-                            
+
                             <div key={id} className="card-body">
                               <div className="card-body-parts">
                                 <h5 className="card-title">Name:- </h5>
@@ -322,8 +300,8 @@ const TotalUsers = () => {
                   <ReactPaginate
                     previousLabel="← Previous"
                     nextLabel="Next →"
-                    onPageChange={paginate}
-                    pageCount={Math.ceil(users.length / postsPerPage)}
+                    onPageChange={Pagination}
+                    pageCount={Math.ceil(users?.length / postsPerPage) ||oldData?.length / postsPerPage}
                     containerClassName="pagination"
                     previousLinkClassName="pagination__link"
                     nextLinkClassName="pagination__link"
