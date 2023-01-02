@@ -28,14 +28,14 @@ const AddCoupleDescription = (props) => {
 
   async function addHappyCouple(event) {
     event.preventDefault();
-    console.log(date,month,year,'date')
-    console.log(year+ '/'+ month + "/"+ date)
-      const formData = new FormData();
+    console.log(date, month, year, 'date')
+    console.log(year + '/' + month + "/" + date)
+    const formData = new FormData();
 
-      formData.append("avatar", image);
-      formData.append("names", name);
-      formData.append("description", description);
-      formData.append("marrigeDate", year+ '/'+ month + "/"+ date);
+    formData.append("avatar", image);
+    formData.append("names", name);
+    formData.append("description", description);
+    formData.append("marrigeDate", year + '/' + month + "/" + date);
 
     //   console.log(image, "to check the first image");
     // console.log([...formData], "to get the data of formData");
@@ -46,28 +46,28 @@ const AddCoupleDescription = (props) => {
 
     // console.log(formData, "to check the data entered by the user");
 
-      try {
-        var config = {
-          method: "post",
-          url: "http://3.223.152.95:3000/api/v1/image/addhappycouple",
-          headers: {
-            "Content-Type": "multipart/form-data",
-            Authorization: `Bearer ${props?.props?.token?.name}`,
-          },
-          data: formData,
-        };
-       const response = await axios(config);
-       console.log(response,'response is here')
-       setIsLoading(true)
-       toast.success("Couple Added Successfully")
+    try {
+      var config = {
+        method: "post",
+        url: "http://3.223.152.95:3000/api/v1/image/addhappycouple",
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${props?.props?.token?.name}`,
+        },
+        data: formData,
+      };
+      const response = await axios(config);
+      console.log(response, 'response is here')
+      setIsLoading(true)
+      toast.success("Couple Added Successfully")
 
-       setTimeout(() => {
+      setTimeout(() => {
         router.push("/master/happyCoupleLatest")
-       }, 1000);
-      } catch (err) {
-        console.log(err);
-        setIsLoading(false)
-      }
+      }, 1000);
+    } catch (err) {
+      console.log(err);
+      setIsLoading(false)
+    }
     // }
   }
 
@@ -110,7 +110,7 @@ const AddCoupleDescription = (props) => {
         <SideBar />
 
         <section
-          className="profile-sec pb-0 profile-sects"
+          className="profile-sec pb-0 pt-5 profile-sects"
           id="totalUserProfileSec"
         >
           <div className="container">
@@ -147,36 +147,36 @@ const AddCoupleDescription = (props) => {
                       </span>
                     </Link>{" "}
                   </span>
-                ADD HAPPY COUPLE
+                  ADD HAPPY COUPLE
                 </h3>
 
-                <div className="Cards-head " id="cards-head-resp">
+                <div className="Cards-head mb-5" id="cards-head-resp">
                   <div className="card card-couple-page" id="card-settings">
 
-                  <div className="couple-image-sec">
-                    <label htmlFor="img" className="img-upload-class">
-                      {showImage?(
-         <img
-         // src={item.avatar}
-         src={showImage || ""}
-         className="card-img-top"
-         id="card-img-top"
-         alt="..."
-         />
-                      ):( <h2>Upload Image </h2>  )
-                      }
-           
+                    <div className="couple-image-sec">
+                      <label htmlFor="img" className="img-upload-class">
+                        {showImage ? (
+                          <img
+                            // src={item.avatar}
+                            src={showImage || ""}
+                            className="card-img-top"
+                            id="card-img-top"
+                            alt="..."
+                          />
+                        ) : (<h2>Upload Image </h2>)
+                        }
+
                       </label>
-                    <input
-                      onChange={(e) => uploadImage(e)}
-                      type="file"
-                      id="img"
-                      name="img"
-                      accept="image/*"
-                      className="profile-upload"
-                  
-                    />
-                    {/* <p className="profileupload-text">
+                      <input
+                        onChange={(e) => uploadImage(e)}
+                        type="file"
+                        id="img"
+                        name="img"
+                        accept="image/*"
+                        className="profile-upload"
+
+                      />
+                      {/* <p className="profileupload-text">
                       Click to upload the Photo
                     </p> */}
                     </div>
@@ -198,8 +198,9 @@ const AddCoupleDescription = (props) => {
                       <div className="input-group mb-1" id="search-bar">
                         <textarea
                           type="text"
+                          id="textarea-setting"
                           maxLength="500"
-                          rows="5"
+                          rows="8"
                           className="form-control"
                           aria-label="Username"
                           aria-describedby="basic-addon1"
@@ -274,7 +275,7 @@ const AddCoupleDescription = (props) => {
                           style={{ marginTop: "30px" }}
                           type="submit"
                           disabled={isLoading}
-                          // onClick={addHappyCouple}
+                        // onClick={addHappyCouple}
                         >
                           {isLoading ? "Loading…" : "   SUBMIT"}
                         </Button>

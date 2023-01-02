@@ -49,16 +49,22 @@ const TotalUsers = () => {
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
     const searchPosts = filteredData?.slice(indexOfFirstPost, indexOfLastPost);
+    console.log(searchPosts,"search post")
     setSearchData(searchPosts);
+
+    if(search == ""){
+      setUsers(users)
+    }else{
+     setSearchData(searchPosts);
+    }
+    // setUsers(searchData)
   }
 
   async function setDateFunction(e) {
     try{
      const zeroData = e[0].$d
      const firstData = e[1].$d
-     console.log(oldDate,"old date here for l")
       const filteredDate = oldDate?.filter((item) => {
-
           const dateData = new Date(item?.createdAt).toLocaleDateString()
 
       return (
@@ -73,9 +79,7 @@ const TotalUsers = () => {
     }else{
       setUsers(filteredDate);
     }
-    console.log(filteredDate,"filteredData")
     const valueOfPaginate= Math.ceil(users?.length / postsPerPage)
-    console.log(users,valueOfPaginate,"value")
   }
     
     catch(err){
@@ -301,7 +305,7 @@ const TotalUsers = () => {
                     previousLabel="← Previous"
                     nextLabel="Next →"
                     onPageChange={Pagination}
-                    pageCount={Math.ceil(users?.length / postsPerPage) ||oldData?.length / postsPerPage}
+                    pageCount={Math.ceil(users?.length / postsPerPage)}
                     containerClassName="pagination"
                     previousLinkClassName="pagination__link"
                     nextLinkClassName="pagination__link"

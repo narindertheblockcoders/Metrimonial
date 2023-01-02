@@ -39,21 +39,36 @@ const HappyCoupleLatest = () => {
   };
 
   async function serachFn(e) {
+    try{
     console.log(e.target.value);
     const search = e.target.value;
     const filteredData = happyCoupleData?.filter((item) => {
       const name = item?.names;
       return name?.toLowerCase().includes(search.toLowerCase());
     });
-    console.log(filteredData, "to get the value of the filtered Data");
+    console.log(happyCoupleData, "to get the value of the filtered Data");
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
     const searchPosts = filteredData?.slice(indexOfFirstPost, indexOfLastPost);
     setSearchData(searchPosts);
+    // setHappyCoupleData(filteredData)
+    console.log(filteredData,"filter data happy couple data")
+
+ console.log(happyCoupleData,"search happy couple data")
+    if(search == ""){
+      setHappyCoupleData(happycouple)
+      
+    }else{
+     setSearchData(searchPosts);
+    }
+  }catch(err){
+    console.log(err)
+
+  }
   }
 
 
-
+ console.log(happyCoupleData,"happ couple data all hppens")
   return (
     <div className="new-dashboard">
       <SideBar />

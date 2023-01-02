@@ -610,11 +610,12 @@ header .navbar-light .navbar-nav .nav-link {
   float: left;
   /* width: 40%; */
   width: 470px;
-  padding: 20px;
+  padding: 1rem !important;
   /* border: 1px solid #dfdfdf; */
   border-radius: 10px;
   background-color: #fff !important;
   position: relative;
+box-shadow: 0px 0px 34px rgba(0, 0, 0, 0.1);
 }
 
 .login-top-img {
@@ -736,7 +737,7 @@ sup {
   width: 100%;
   display: block;
   width: 100%;
-  height: 53px;
+  height: 47px;
   padding: 6px 12px;
   font-size: 15px;
   color: var (--color);
@@ -3336,12 +3337,8 @@ svg.rd3t-svg {
 
 /* //////////////State Page///////////////////// */
 .token-head {
-  margin-top: 18px !important;
-  /* border-bottom: 0.5px solid #E3E7EE; */
-  /* padding-bottom: 25px; */
+  /* margin-top: 18px !important; */
   text-align: left;
-  /* display: flex; */
-  /* flex-direction: column ; */
 }
 
 #search-bar {
@@ -3386,6 +3383,7 @@ svg.rd3t-svg {
   border: none !important;
   color: #303030 !important;
   font-size: 15px !important;
+  height: 47px;
 }
 
 #search-bar .form-control:focus {
@@ -3635,11 +3633,6 @@ div#add-btn {
   text-transform: capitalize !important;
 }
 
-#card-input-field {
-  float: left;
-  width: 100%;
-  padding: 0 50px !important;
-}
 
 #more-detail {
   margin-left: 0px;
@@ -4646,7 +4639,8 @@ section.forself .self-main .box-text-two h4 {
   margin-bottom: 100px !important;
 }
 
-
+#card-input-field{float: left; width: 100%;}
+#textarea-setting{height: 130px !important;}
 
 @media (max-width: 1900px) {
   section.forself {
@@ -4682,11 +4676,6 @@ section.forself .self-main .box-text-two h4 {
     margin-top: 2rem !important;
   }
 
-  #card-input-field {
-    float: left;
-    width: 100%;
-    padding: 0 10px !important;
-  }
 
 }
 
@@ -4719,11 +4708,7 @@ section.forself .self-main .box-text-two h4 {
     margin-top: 1rem !important;
   }
 
-  #card-input-field {
-    float: left;
-    width: 100%;
-    padding: 0 30px !important;
-  }
+    
 }
 
 @media (max-width: 1200px) {
@@ -5047,12 +5032,6 @@ section.forself .self-main .box-text-two h4 {
     font-weight: bold !important;
     color: black !important;
     padding-top: 0px;
-  }
-
-  #card-input-field {
-    float: left;
-    width: 100%;
-    padding: 0 10px !important;
   }
 
   .Cards-head {
@@ -5561,6 +5540,8 @@ section.forself .self-main .box-text-two h4 {
 
 
 @media screen and (max-width: 480px) {
+
+  #search-bar-sec{padding-top: 0px !important; margin-top: 0px !important;}
   .paginate-sec a, .pagination__link{margin-right: 0px !important;}
   .paginate-sec a{padding: 6px 12px !important;}
   .search-bar-sec {
@@ -5624,6 +5605,7 @@ section.forself .self-main .box-text-two h4 {
 
   /* .toggle-settings{float: right !important ;} */
   #totalUserProfileSec {
+    padding-top: 30px;
     padding-bottom: 100px !important;
   }
 
@@ -5637,6 +5619,7 @@ section.forself .self-main .box-text-two h4 {
 }
 
 @media screen and (max-width: 414px) {
+  .profile-sec .input-sec .btn-round{width: 100% !important;}
   .search-bar-sec{flex-direction: column; gap: 10px; margin-bottom: 10px;}
   .rangePicker-set {
     width: 100%;
@@ -6238,11 +6221,7 @@ section.forself .self-main .box-text-two h4 {
 }
 
 @media screen and (max-width: 375px) {
-  #card-input-field {
-    float: left;
-    width: 100% !important;
-    padding: 0 10px !important;
-  }
+
 
   .login-top-img {
     height: 152px;
@@ -6250,8 +6229,8 @@ section.forself .self-main .box-text-two h4 {
 
   #card-settings .card-img-top {
     max-width: 300px;
-    height: 300px;
-  }
+    height: 260px !important;
+}
 
   .user-image {
     width: 320px;

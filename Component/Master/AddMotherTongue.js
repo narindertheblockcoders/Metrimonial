@@ -135,7 +135,7 @@ const AddCountry = () => {
               >
                 <div className="input-line iptset-line" id="index-line"></div>
 
-                <div className="p-3">
+                <div className="p-0">
                   <div className="login-top-img" id="city-head-set">
                     <h3 className="heading-text mt-3"></h3>
                     <h3 className="heading-text mt-3 " id="city-text">
