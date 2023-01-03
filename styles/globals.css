@@ -4064,7 +4064,9 @@ section.bst-match .container-fluid {
   display: flex;
   justify-content: space-between;
 }
-
+.hideAdmin-ul{display: flex; list-style: none; width: 100%; float: left; padding-left: 0px !important;}
+.hideAdmin-ul li{    width: 50%;
+  font-size: 16px;}
 .left-main-box .box-text .box-text-one {
   width: 50%;
   padding: 0px 20px;
@@ -4641,6 +4643,15 @@ section.forself .self-main .box-text-two h4 {
 
 #card-input-field{float: left; width: 100%;}
 #textarea-setting{height: 130px !important;}
+.ant-picker-input{height: 30px; }
+.ant-picker-input input::placeholder{color: #999 !important;}
+#rightform-query-sec{width: 100% !important;}
+
+/* ............Query card setting................ */
+#adv-user-image{width: 474px; height: 115px;}
+
+.delete-btn-sec{float: left; width: 100%; display: flex; justify-content: space-between; padding-bottom: 15px; padding-right: 20px;}
+
 
 @media (max-width: 1900px) {
   section.forself {

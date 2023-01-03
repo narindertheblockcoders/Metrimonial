@@ -242,6 +242,46 @@ const SideBar = () => {
             </li>
 
             <li className="nav-item">
+              <a
+                className="nav-link "
+                data-bs-target="#components-navs"
+                data-bs-toggle="collapse"
+                href="#"
+              >
+                <i className="bi bi-person-heart" id="i-class"></i>
+                <span className="spanic">TESTIMONIAL</span>
+                <i className="fa fa-chevron-down" id="icon-cd"></i>
+              </a>
+              <ul
+                id="components-navs"
+                className="nav-content collapse show"
+                data-bs-parent="#sidebar-nav"
+              >
+                {/* <li>
+                  <a href="/master/addSocialMedia">
+                    <i className="fa fa-circle"></i>
+                    <span>SOCIAL MEDIA</span>
+                  </a>
+                </li> */}
+                <li>
+                  <a href="/master/advertisement">
+                    <i className="fa fa-circle"></i>
+                    <span>ADVERTISEMENT </span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="/master/query">
+                    <i className="fa fa-circle"></i>
+                    <span>QUERY</span>
+                  </a>
+                </li>
+
+           
+              </ul>
+            </li>
+
+            <li className="nav-item">
               <button
                 className="nav-link"
                 type="submit"

@@ -171,6 +171,7 @@ const UserDetails = (props) => {
     const data = {
       id: props.props.id,
       status: 0,
+      hideAdmin:"1"
     };
     console.log(data, "hide couple data");
     getHideCouples(data);

@@ -48,6 +48,7 @@ const HideCouplesList = (props) => {
     const data = {
       id: id,
       status: "1",
+      hideAdmin:"0"
     };
     console.log(data, "hide couple data");
     getUnHideCouples(data);
@@ -205,22 +206,33 @@ const HideCouplesList = (props) => {
                           </div>
                         </li>
                       </ul>
-                    </div>
 
+                    <button
+                    className="like-btn2"
+                    value={item.id}
+                    onClick={(e)=>{unHideFunction(e)}}
+                    type="button"
+                  >
+                    Unhide
+                  </button>
+                  <ul className="two-inner2-ul">
+                        <li>Status</li>
+                        <li>
+                          <div className="input-group mb-3">
+                            <span className="form-control" style={{fontSize:"16px"}}>
+
+                              {item?.hideAdmin ==1? ("Hide by admin"):("Hide by user")  }
+                              </span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
                     {/* <button href="" className="like-btn2">
                       Unhide{" "}
                     </button> */}
 
                     
                              
-                          <button
-                          className="like-btn2"
-                          value={item.id}
-                          onClick={(e)=>{unHideFunction(e)}}
-                          type="button"
-                        >
-                          Unhide
-                        </button>
                         
                   </div>
 
