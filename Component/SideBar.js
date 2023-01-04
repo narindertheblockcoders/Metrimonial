@@ -62,12 +62,115 @@ const SideBar = () => {
             <li className="nav-item">
               <a
                 className="nav-link "
+                data-bs-target="#components-nav-one"
+                data-bs-toggle="collapse"
+                href="#"
+              >
+                <i className="fa fa-user " id="i-class"></i>
+                <span className="spanic">REGISTER USERS</span>
+                <i className="fa fa-chevron-down" id="icon-cd"></i>
+              </a>
+              <ul
+                id="components-nav-one"
+                className="nav-content collapse show"
+                data-bs-parent="#sidebar-nav"
+              >
+                <li>
+                  <a href="/users/totalUsers">
+                    <i className="fa fa-circle"></i>
+                    <span>LIST OF ALL PROFILES </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/profileStatus/adminApprove">
+                    <i className="fa fa-circle"></i>
+                    <span> APPROVED PROFILES </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/profileStatus/disaproveProfile">
+                    <i className="fa fa-circle"></i>
+                    <span> DISAPPROVED PROFILES </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/profileStatus/activeProfiles">
+                    <i className="fa fa-circle"></i>
+                    <span>ACTIVE PROFILES </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/profileStatus/inactiveProfiles">
+                    <i className="fa fa-circle"></i>
+                    <span>INACTIVE PROFILES  </span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li className="nav-item">
+              <a
+                className="nav-link "
+                data-bs-target="#components-navs"
+                data-bs-toggle="collapse"
+                href="#"
+              >
+                <i className="bi bi-person-heart" id="i-class"></i>
+                <span className="spanic">TESTIMONIALS</span>
+                <i className="fa fa-chevron-down" id="icon-cd"></i>
+              </a>
+              <ul
+                id="components-navs"
+                className="nav-content collapse show"
+                data-bs-parent="#sidebar-nav"
+              >
+                {/* <li>
+                  <a href="/master/addSocialMedia">
+                    <i className="fa fa-circle"></i>
+                    <span>SOCIAL MEDIA</span>
+                  </a>
+                </li> */}
+                <li>
+                  <a href="/master/happyCoupleLatest">
+                    <i className="fa fa-circle"></i>
+                    <span>LIST OF TESTIMONIALS </span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="/master/addCoupleDescription">
+                    <i className="fa fa-circle"></i>
+                    <span>ADD TESTIMONIALS</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="/master/query">
+                    <i className="fa fa-circle"></i>
+                    <span>EDIT TESTIMONIALS</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="/master/query">
+                    <i className="fa fa-circle"></i>
+                    <span>DELETE TESTIMONIALS</span>
+                  </a>
+                </li>
+
+           
+              </ul>
+            </li>
+
+            <li className="nav-item">
+              <a
+                className="nav-link "
                 data-bs-target="#components-nav"
                 data-bs-toggle="collapse"
                 href="#"
               >
                 <i className="fa fa-user " id="i-class"></i>
-                <span className="spanic">USERS</span>
+                <span className="spanic">SOCIAL MEDIA</span>
                 <i className="fa fa-chevron-down" id="icon-cd"></i>
               </a>
               <ul
@@ -78,29 +181,9 @@ const SideBar = () => {
                 <li>
                   <a href="/users/totalUsers">
                     <i className="fa fa-circle"></i>
-                    <span>USER PROFILE</span>
+                    <span>UPDATE SOCIAL MEDIA LINKS</span>
                   </a>
                 </li>
-
-                {/* <li>
-                  <a href="#">
-                    <i className="fa fa-circle"></i>
-                    <span>BLOCK USERS</span>
-                  </a>
-                </li> */}
-                {/* <li>
-                  <a href="#">
-                    <i className="fa fa-circle"></i>
-                    <span>UNBLOCK USERS</span>
-                  </a>
-                </li> */}
-
-                {/* <li>
-                  <a href="/changePassword">
-                    <i className="fa fa-circle"></i>
-                    <span>CHANGE PASSWORD </span>
-                  </a>
-                </li> */}
               </ul>
             </li>
 
@@ -112,7 +195,7 @@ const SideBar = () => {
                 href="#"
               >
                 <i className="fa fa-network-wired " id="i-class"></i>
-                <span className="spanic">MASTER</span>
+                <span className="spanic">MASTER TALBLES</span>
                 <i className="fa fa-chevron-down" id="icon-cd"></i>
               </a>
               <ul
@@ -166,35 +249,10 @@ const SideBar = () => {
                     <span>MOTHER TONGUE</span>
                   </a>
                 </li>
-
-                {/* <li>
-                  <a href="/master/addSocialMedia">
-                    <i className="fa fa-circle"></i>
-                    <span>SOCIAL MEDIA</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/master/addCoupleDescription">
-                    <i className="fa fa-circle"></i>
-                    <span>HAPPY COUPLE</span>
-                  </a>
-                </li> */}
               </ul>
             </li>
 
-            <li className="nav-item">
-              <a
-                className="nav-link "
-                data-bs-target="#components-navs"
-                // data-bs-toggle="collapse"
-                href="/master/addSocialMedia"
-              >
-                {/* <i className="fa fa-user " id="i-class"></i> */}
-                <i className="bi bi-slack" id="i-class"></i>
-                <span className="spanic">SOCIAL MEDIA</span>
-                {/* <i className="fa fa-chevron-down" id="icon-cd"></i> */}
-              </a>
-            </li>
+            
 
             <li className="nav-item">
               <a
@@ -204,7 +262,7 @@ const SideBar = () => {
                 href="#"
               >
                 <i className="bi bi-person-heart" id="i-class"></i>
-                <span className="spanic">TESTIMONIAL</span>
+                <span className="spanic">ADVERTISE BANNER</span>
                 <i className="fa fa-chevron-down" id="icon-cd"></i>
               </a>
               <ul
@@ -212,74 +270,16 @@ const SideBar = () => {
                 className="nav-content collapse show"
                 data-bs-parent="#sidebar-nav"
               >
-                {/* <li>
-                  <a href="/master/addSocialMedia">
-                    <i className="fa fa-circle"></i>
-                    <span>SOCIAL MEDIA</span>
-                  </a>
-                </li> */}
                 <li>
                   <a href="/master/addCoupleDescription">
                     <i className="fa fa-circle"></i>
-                    <span>ADD HAPPY COUPLE</span>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="/master/happyCoupleLatest">
-                    <i className="fa fa-circle"></i>
-                    <span>ALL HAPPY COUPLE</span>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="/master/hideCouples">
-                    <i className="fa fa-circle"></i>
-                    <span>ALL HIDE PROFILE</span>
+                    <span>MANAGE BANNERS</span>
                   </a>
                 </li>
               </ul>
             </li>
 
-            <li className="nav-item">
-              <a
-                className="nav-link "
-                data-bs-target="#components-navs"
-                data-bs-toggle="collapse"
-                href="#"
-              >
-                <i className="bi bi-person-heart" id="i-class"></i>
-                <span className="spanic">TESTIMONIAL</span>
-                <i className="fa fa-chevron-down" id="icon-cd"></i>
-              </a>
-              <ul
-                id="components-navs"
-                className="nav-content collapse show"
-                data-bs-parent="#sidebar-nav"
-              >
-                {/* <li>
-                  <a href="/master/addSocialMedia">
-                    <i className="fa fa-circle"></i>
-                    <span>SOCIAL MEDIA</span>
-                  </a>
-                </li> */}
-                <li>
-                  <a href="/master/advertisement">
-                    <i className="fa fa-circle"></i>
-                    <span>ADVERTISEMENT </span>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="/master/query">
-                    <i className="fa fa-circle"></i>
-                    <span>QUERY</span>
-                  </a>
-                </li>
-
-           
-              </ul>
-            </li>
+         
 
             <li className="nav-item">
               <button

@@ -615,14 +615,14 @@ header .navbar-light .navbar-nav .nav-link {
   border-radius: 10px;
   background-color: #fff !important;
   position: relative;
-box-shadow: 0px 0px 34px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 34px rgba(0, 0, 0, 0.1);
 }
 
 .login-top-img {
   content: "";
-  background: url(/others/login-bg1.png);
+  /* background: url(/others/login-bg1.png); */
   background-repeat: no-repeat;
-  height: 210px;
+  /* height: 210px; */
   width: 100%;
   background-size: contain !important;
   position: relative;
@@ -633,9 +633,9 @@ box-shadow: 0px 0px 34px rgba(0, 0, 0, 0.1);
 
 .login-top-img::before {
   content: "";
-  background: url(/others/login-icon.png);
+  /* background: url(/others/login-icon.png); */
   background-repeat: no-repeat;
-  height: 98px;
+  /* height: 98px; */
   width: 110px;
   background-size: contain !important;
   position: absolute;
@@ -1732,7 +1732,7 @@ sup {
 }
 
 .funds-table tbody tr:hover {
-  background-color: #0045a2 !important;
+  /* background-color: #0045a2 !important; */
   color: black !important;
   cursor: pointer;
 }
@@ -2313,7 +2313,7 @@ div#qrScanner {
 }
 
 #fuds {
-  background-color: var(--bg-color) !important;
+  background-color: black !important;
   color: var(--gray-color) !important;
   border: none !important;
   border-color: transparent !important;
@@ -2387,7 +2387,7 @@ div#qrScanner {
 
 .dashboard-txt {
   margin: 0;
-  color: var(--gray-color);
+  color: #434343;
   font-weight: 600;
   font-size: 15px;
 }
@@ -2932,18 +2932,14 @@ input#rc_select_0 {
   /* justify-content: center; */
   align-items: flex-start;
   color: black !important;
-  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 0px 20px 20px inset, rgba(0, 0, 0, 0.3) 0px 0px 0px 0px inset; */
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 0px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.1);
   font-weight: 600;
   font-size: 16px;
   padding: 35px 20px;
   cursor: pointer;
   text-align: center;
   position: relative;
-  background-color: var(--bg-color);
-  /* padding-top: 70px; */
-  /* padding-bottom: 30px; */
-  /* padding-left: 30px !important; */
+  background-color: #FFFFFF;
   flex-direction: column;
 }
 
@@ -2956,22 +2952,20 @@ input#rc_select_0 {
 .left-dashboard {
   float: left;
   width: 100% !important;
-  border: 2px solid white;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: black !important;
   font-weight: 600;
   font-size: 16px;
   cursor: pointer;
   text-align: center;
   position: relative;
-  padding: 30px 100px !important;
+  padding: 30px !important;
   margin-top: 50px !important;
   flex-direction: column;
-  background-color: black !important;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 0px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  background-color: #FFFFFF !important;
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.1);
 }
 
 #leftt-section {
@@ -2981,6 +2975,7 @@ input#rc_select_0 {
   color: black !important;
   font-weight: 600 !important;
   font-size: 30px !important;
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.1) !important;
 }
 
 .left-url {
@@ -3039,7 +3034,7 @@ input#rc_select_0 {
   font-weight: bold;
   font-size: 22px;
   margin-top: 0px;
-  color: var(--gray-color);
+  color: black;
 }
 
 /* #reffaral-ids {justify-content: center !important; display: flex !;} */
@@ -3198,7 +3193,7 @@ section#skills {
 }
 
 #dashboard-icons {
-  color: #fff !important;
+  color: var(--bg-color) !important;
   font-size: 28px !important;
   margin-top: -15px;
   margin-left: 0px;
@@ -3515,10 +3510,10 @@ svg.rd3t-svg {
 }
 
 #pin-dark-icon {
-  float: left;
+  float: right;
   font-size: 15px;
   font-weight: 400;
-  text-align: left;
+  text-align: right;
   color: #6c86ad;
   /* margin-left: 20px; */
 }
@@ -3876,6 +3871,10 @@ section.forself .self-main .self-about .self-about-main .self-about-right {
   border: none !important;
 }
 
+#admin-black-btn {
+  background-color: black;
+}
+
 #sub-admin-disable {
   box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(255, 255, 255, 0.15) 0px -36px 30px 0px inset, rgba(255, 255, 255, 0.1) 0px -79px 40px 0px inset, rgba(253, 242, 242, 0.06) 0px 2px 1px, rgba(255, 242, 242, 0.09) 0px 4px 2px, rgba(255, 234, 234, 0.09) 0px 8px 4px, rgba(255, 249, 249, 0.09) 0px 16px 8px, rgba(246, 223, 223, 0.09) 0px 32px 16px;
 }
@@ -4064,9 +4063,20 @@ section.bst-match .container-fluid {
   display: flex;
   justify-content: space-between;
 }
-.hideAdmin-ul{display: flex; list-style: none; width: 100%; float: left; padding-left: 0px !important;}
-.hideAdmin-ul li{    width: 50%;
-  font-size: 16px;}
+
+.hideAdmin-ul {
+  display: flex;
+  list-style: none;
+  width: 100%;
+  float: left;
+  padding-left: 0px !important;
+}
+
+.hideAdmin-ul li {
+  width: 50%;
+  font-size: 16px;
+}
+
 .left-main-box .box-text .box-text-one {
   width: 50%;
   padding: 0px 20px;
@@ -4554,7 +4564,10 @@ section.forself .self-main .box-text-two h4 {
   font-weight: 600 !important;
 }
 
-.rangePicker-set input::placeholder{color: #999 !important; font-size: 1rem !important;}
+.rangePicker-set input::placeholder {
+  color: #999 !important;
+  font-size: 1rem !important;
+}
 
 #search-bar-sec {
   margin-left: 0px !important;
@@ -4609,15 +4622,16 @@ section.forself .self-main .box-text-two h4 {
   padding: 7px 14px;
 
 }
+
 .pagination__link--active a:hover {
-  color : white  !important;
+  color: white !important;
 }
 
 .pagination__link a:hover {
-  color : white  !important;
+  color: white !important;
 }
 
-.paginate-sec  a {
+.paginate-sec a {
   border: 2px solid rgba(0, 0, 0, 0.175) !important;
   border-radius: 0px;
   margin-right: 20px;
@@ -4641,16 +4655,142 @@ section.forself .self-main .box-text-two h4 {
   margin-bottom: 100px !important;
 }
 
-#card-input-field{float: left; width: 100%;}
-#textarea-setting{height: 130px !important;}
-.ant-picker-input{height: 30px; }
-.ant-picker-input input::placeholder{color: #999 !important;}
-#rightform-query-sec{width: 100% !important;}
+#card-input-field {
+  float: left;
+  width: 100%;
+}
+
+#textarea-setting {
+  height: 130px !important;
+}
+
+.ant-picker-input {
+  height: 30px;
+}
+
+.ant-picker-input input::placeholder {
+  color: #999 !important;
+}
+
+#rightform-query-sec {
+  width: 100% !important;
+}
 
 /* ............Query card setting................ */
-#adv-user-image{width: 474px; height: 115px;}
+#adv-user-image {
+  width: 474px;
+  height: 115px;
+}
 
-.delete-btn-sec{float: left; width: 100%; display: flex; justify-content: space-between; padding-bottom: 15px; padding-right: 20px;}
+.delete-btn-sec {
+  float: left;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  padding-right: 20px;
+  gap: 20px;
+}
+
+#massege-body-parts {
+  align-items: flex-start !important;
+}
+
+#quehy-description-sec {
+  flex-direction: column;
+  width: 100%;
+}
+
+#query-description {
+  word-break: break-all;
+  padding-top: 10px;
+  width: 100%;
+}
+
+
+
+.input-sec-header {
+  float: left;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.input-serch-set {
+  display: flex !important;
+  justify-content: center !important;
+  flex-direction: column;
+  align-items: center;
+}
+
+#token-head-add {
+  width: 50%;
+}
+
+#edit-contry-input {
+  border: none !important;
+}
+
+#edit-btn {
+  color: var(--bg-color);
+  font-size: 18px;
+  padding-left: 10px;
+}
+
+.approve-top-header {
+  float: left;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#self-about-top {
+  float: right;
+  width: 100%;
+  padding: 30px 30px 0px 30px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 50px;
+}
+
+.view-btn {
+  background-color: var(--bg-color) !important;
+  color: white !important;
+}
+
+.delete-btn {
+  background-color: black !important;
+  color: white !important;
+}
+
+.td-icons {
+  display: none !important;
+}
+
+.tbody-tr:hover .td-icons {
+  display: block !important;
+}
+
+.td-width {
+  width: 3% !important;
+  text-align: right !important;
+}
+
+.editDetails-input {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 0px;
+  width: 100%;
+  border: 1px solid #aaaaaa;
+  border-radius: 5px !important;
+  background-color: #FFFFFF !important;
+  padding: 5px !important;
+}
+#self-main-head{width: 100%;}
+
 
 
 @media (max-width: 1900px) {
@@ -4668,6 +4808,22 @@ section.forself .self-main .box-text-two h4 {
     margin-top: 0px;
   }
 }
+
+@media (max-width: 1660px) {
+  #left-main-boxs {
+    flex-direction: column;
+  }
+
+  #query-box-text {
+    margin-top: 20px;
+  }
+
+  #query-description {
+    word-break: break-all;
+  }
+}
+
+
 
 @media (max-width: 1550px) {
   .left-mathed-sec h3 {
@@ -4719,7 +4875,7 @@ section.forself .self-main .box-text-two h4 {
     margin-top: 1rem !important;
   }
 
-    
+
 }
 
 @media (max-width: 1200px) {
@@ -4836,6 +4992,10 @@ section.forself .self-main .box-text-two h4 {
 
 
 @media screen and (max-width: 1199px) {
+  .approve-top-header {
+    flex-wrap: wrap !important;
+  }
+
   section.forself .self-main #left-main-box {
     padding: 20;
   }
@@ -5253,8 +5413,16 @@ section.forself .self-main .box-text-two h4 {
 }
 
 @media screen and (max-width: 767px) {
-  .rangePicker-set{width: 70%;}
-  .rangePicker-Div{float: left; width: 100%; justify-content: flex-end !important; display: flex;}
+  .rangePicker-set {
+    width: 70%;
+  }
+
+  .rangePicker-Div {
+    float: left;
+    width: 100%;
+    justify-content: flex-end !important;
+    display: flex;
+  }
 
   .couple-image-sec {
     float: left;
@@ -5552,9 +5720,20 @@ section.forself .self-main .box-text-two h4 {
 
 @media screen and (max-width: 480px) {
 
-  #search-bar-sec{padding-top: 0px !important; margin-top: 0px !important;}
-  .paginate-sec a, .pagination__link{margin-right: 0px !important;}
-  .paginate-sec a{padding: 6px 12px !important;}
+  #search-bar-sec {
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+  }
+
+  .paginate-sec a,
+  .pagination__link {
+    margin-right: 0px !important;
+  }
+
+  .paginate-sec a {
+    padding: 6px 12px !important;
+  }
+
   .search-bar-sec {
     margin-left: 0px;
     justify-content: center;
@@ -5630,11 +5809,20 @@ section.forself .self-main .box-text-two h4 {
 }
 
 @media screen and (max-width: 414px) {
-  .profile-sec .input-sec .btn-round{width: 100% !important;}
-  .search-bar-sec{flex-direction: column; gap: 10px; margin-bottom: 10px;}
+  .profile-sec .input-sec .btn-round {
+    width: 100% !important;
+  }
+
+  .search-bar-sec {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
   .rangePicker-set {
     width: 100%;
-}
+  }
+
   .search-bar-sec {
     margin-left: 0px;
     justify-content: flex-start;
@@ -6241,7 +6429,7 @@ section.forself .self-main .box-text-two h4 {
   #card-settings .card-img-top {
     max-width: 300px;
     height: 260px !important;
-}
+  }
 
   .user-image {
     width: 320px;
@@ -6419,7 +6607,7 @@ section.forself .self-main .box-text-two h4 {
 .sidebar-nav .nav-link {
   display: flex;
   align-items: center;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--gray-color);
   transition: 0.3;
@@ -6510,7 +6698,7 @@ section.forself .self-main .box-text-two h4 {
 
 .sidebar-nav .nav-link.collapsed .spanic {
   color: var(--gray-color);
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .collap {
@@ -6546,7 +6734,7 @@ section.forself .self-main .box-text-two h4 {
 .sidebar-nav .nav-link:hover {
   color: var(--gray-color) !important;
   background: none;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 /* .sidebar-nav .nav-link:hover i {

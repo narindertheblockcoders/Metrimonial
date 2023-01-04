@@ -2,29 +2,57 @@ import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import SideBar from "../SideBar";
-import Navbar from "../ui/Navbar";
-import Router from "next/router";
+
 import { useRouter } from "next/router";
-import { Button } from "react-bootstrap";
-import userDetails from "../../pages/userDetails/[uid]";
-import { data } from "jquery";
 import { toast, ToastContainer } from "react-toastify";
+
 
 const Advertisement = () => {
   const router = useRouter()
-
   const [advertisement, setAdvertisement] = useState()
  
   async function advertisementFunction(){
-  const res = await axios.post("/api/master/advertisement")
+  const res = await axios.post("/api/advertisement/advertisement")
   const response = res.data
   console.log(response.data,"contact us data")
   setAdvertisement(response.data)
+
   }
 
   useEffect(()=>{
 advertisementFunction()
   },[])
+
+  async function ApproveAdvertisement(e){
+    console.log(e,"e data here")
+    try{
+     const id = e
+     const active = 1
+    const res = await axios.post("/api/advertisement/approveAdvertisement",{id:id,active}),
+    responses= res.data
+    console.log(responses,"approve user response here")
+    toast.success("Approve Successfully")
+
+  }catch(err){
+    console.log(err)
+  }
+  }
+
+
+
+
+  async function deleteAdvertisement(e){
+    console.log(e,"e data here")
+    try{
+     const id = e
+    const res = await axios.post("/api/advertisement/deleteAdvertisement",{id:id})
+    response = res.data
+    console.log(response.data,"delete user response here")
+  }catch(err){
+    console.log(err)
+  }
+  }
+
 
 
 
@@ -45,7 +73,7 @@ advertisementFunction()
               <div className="self-main-head">
                 <h3> Advertisement </h3>
               </div>
-              <div className="left-main-box" id="left-main-box">
+              <div className="left-main-box" style={{boxShadow:"none"}} id="left-main-boxs">
                 <div className="box-img">
                   <img
                     className="user-image"
@@ -55,13 +83,13 @@ advertisementFunction()
                     id="adv-user-image"
                   />
                 </div>
-                <div className="box-text">
+                <div className="box-text" id="query-box">
                   <div className="box-text-one">
                     <h2>
                         {item?.fullName}
                         </h2>
                     <div className="flex-box-one">
-                      <ul>
+                      <ul >
                         <li>Organization</li>
                         <li>
                           <b>
@@ -71,12 +99,12 @@ advertisementFunction()
                       </ul>
                     </div>
 
-                    <div className="flex-box-one">
-                      <ul>
+                    <div className="flex-box-one" >
+                      <ul >
                         <li>Description</li>
 
-                        <li>
-                          <b>{item?.description}</b>{" "}
+                        <li id="query-description">
+                          <li id="quehy-description-sec"><b> {item?.description}</b></li>{" "}
                         </li>
                       </ul>
                     </div>
@@ -113,12 +141,14 @@ advertisementFunction()
                           <button
                           className="button  like-btn2"
                           type="button"
+                          onClick={()=>ApproveAdvertisement(item?.id)}
                         >
                           Approved
                         </button>
                         <button
                           className="button  like-btn2"
                           type="button"
+                          onClick={()=>deleteAdvertisement(item?.id)}
                         >
                           Delete
                         </button>
@@ -127,7 +157,7 @@ advertisementFunction()
                   <div className="boxthree">
                     {/* <p>I am looking for a suitalbe partner. I have completed my gratuation in From USA
                                 univercity</p> */}
-                    <p>hello</p>
+                    {/* <p>hello</p> */}
                   </div>
                 </div>
               </div>

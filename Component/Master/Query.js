@@ -66,7 +66,7 @@ const Query = () => {
                       </span>
                     </Link>{" "}
                   </span>
-                  QUERY
+                USERS  QUERY
                 </h3>
 
                 <div className="search-bar-sec">
@@ -102,7 +102,7 @@ const Query = () => {
                                   id="card-title"
                                 >
                                   {" "}
-                                  Nikhil
+                                  
                                   {item.firstName}{" "}
                                 </h5>
                               </div>
@@ -129,9 +129,10 @@ const Query = () => {
                                 </h5>
                               </div>
 
-                              <div className="card-body-parts">
+                              <div className="card-body-parts" id="massege-body-parts">
                                 <h5 className="card-title">Message:- </h5>
                                 <h5 className="card-title" id="card-title">
+                                    
                                   {" "}
                                   {item.message}
                                 </h5>
