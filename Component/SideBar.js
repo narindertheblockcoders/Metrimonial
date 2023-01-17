@@ -12,10 +12,9 @@ const SideBar = () => {
     event.preventDefault();
     signOut();
   }
- async function sidebarHide (){
-  // document.getElementsByClassName("sidebar")[0].style.left="-300px"
- }
-
+  async function sidebarHide() {
+    // document.getElementsByClassName("sidebar")[0].style.left="-300px"
+  }
 
   return (
     <div>
@@ -31,7 +30,7 @@ const SideBar = () => {
         <aside className=" sidebar ">
           <button
             type="button"
-            class="btn-close btn-close-white"
+            className="btn-close btn-close-white"
             aria-label="Close"
             data-bs-dismiss="sidebar"
             id="sidebar-close-btn"
@@ -52,28 +51,26 @@ const SideBar = () => {
             </div> */}
 
             <li className="nav-item">
-              <a className="collap" href="/dashboard">
+              <a className="nav-link" href="/dashboard">
                 {/* <img src="/others/dashboard.png"/> */}
-                <i className="fa-regular fa-grid"></i>
-
-                <span className="dash-texts">Dashboard</span>
+                <i className="bi bi-columns-gap" id="i-class"></i>
+                <span className="spanic">DASHBOARD</span>
               </a>
             </li>
             <li className="nav-item">
               <a
                 className="nav-link "
-                data-bs-target="#components-nav-one"
+                data-bs-target="#allprofile-nav"
                 data-bs-toggle="collapse"
-                href="#"
               >
-                <i className="fa fa-user " id="i-class"></i>
+                <i className="bi bi-people-fill " id="i-class"></i>
                 <span className="spanic">REGISTER USERS</span>
                 <i className="fa fa-chevron-down" id="icon-cd"></i>
               </a>
               <ul
-                id="components-nav-one"
+                id="allprofile-nav"
                 className="nav-content collapse show"
-                data-bs-parent="#sidebar-nav"
+                data-bs-parent="#allprofile-nav"
               >
                 <li>
                   <a href="/users/totalUsers">
@@ -93,7 +90,7 @@ const SideBar = () => {
                     <span> DISAPPROVED PROFILES </span>
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a href="/profileStatus/activeProfiles">
                     <i className="fa fa-circle"></i>
                     <span>ACTIVE PROFILES </span>
@@ -102,34 +99,27 @@ const SideBar = () => {
                 <li>
                   <a href="/profileStatus/inactiveProfiles">
                     <i className="fa fa-circle"></i>
-                    <span>INACTIVE PROFILES  </span>
+                    <span>INACTIVE PROFILES </span>
                   </a>
-                </li>
+                </li> */}
               </ul>
             </li>
 
             <li className="nav-item">
               <a
                 className="nav-link "
-                data-bs-target="#components-navs"
+                data-bs-target="#testimonial-nav"
                 data-bs-toggle="collapse"
-                href="#"
               >
-                <i className="bi bi-person-heart" id="i-class"></i>
+                <img src="/others/qoute.png" id="i-class-img"></img>
                 <span className="spanic">TESTIMONIALS</span>
                 <i className="fa fa-chevron-down" id="icon-cd"></i>
               </a>
               <ul
-                id="components-navs"
+                id="testimonial-nav"
                 className="nav-content collapse show"
-                data-bs-parent="#sidebar-nav"
+                data-bs-parent="#testimonial-nav"
               >
-                {/* <li>
-                  <a href="/master/addSocialMedia">
-                    <i className="fa fa-circle"></i>
-                    <span>SOCIAL MEDIA</span>
-                  </a>
-                </li> */}
                 <li>
                   <a href="/master/happyCoupleLatest">
                     <i className="fa fa-circle"></i>
@@ -144,42 +134,39 @@ const SideBar = () => {
                   </a>
                 </li>
 
-                <li>
+                {/* <li>
                   <a href="/master/query">
                     <i className="fa fa-circle"></i>
                     <span>EDIT TESTIMONIALS</span>
                   </a>
-                </li>
+                </li> */}
 
-                <li>
+                {/* <li>
                   <a href="/master/query">
                     <i className="fa fa-circle"></i>
                     <span>DELETE TESTIMONIALS</span>
                   </a>
-                </li>
-
-           
+                </li> */}
               </ul>
             </li>
 
             <li className="nav-item">
               <a
                 className="nav-link "
-                data-bs-target="#components-nav"
+                data-bs-target="#social-nav"
                 data-bs-toggle="collapse"
-                href="#"
               >
-                <i className="fa fa-user " id="i-class"></i>
+                <i className="bi bi-slack" id="i-class"></i>
                 <span className="spanic">SOCIAL MEDIA</span>
                 <i className="fa fa-chevron-down" id="icon-cd"></i>
               </a>
               <ul
-                id="components-nav"
+                id="social-nav"
                 className="nav-content collapse show"
-                data-bs-parent="#sidebar-nav"
+                data-bs-parent="#social-nav"
               >
                 <li>
-                  <a href="/users/totalUsers">
+                  <a href="/master/addSocialMedia">
                     <i className="fa fa-circle"></i>
                     <span>UPDATE SOCIAL MEDIA LINKS</span>
                   </a>
@@ -194,7 +181,7 @@ const SideBar = () => {
                 data-bs-toggle="collapse"
                 href="#"
               >
-                <i className="fa fa-network-wired " id="i-class"></i>
+                <img src="/others/table.png" id="i-class-img"></img>
                 <span className="spanic">MASTER TALBLES</span>
                 <i className="fa fa-chevron-down" id="icon-cd"></i>
               </a>
@@ -252,26 +239,25 @@ const SideBar = () => {
               </ul>
             </li>
 
-            
-
             <li className="nav-item">
               <a
                 className="nav-link "
-                data-bs-target="#components-navs"
+                data-bs-target="#banner-nav"
                 data-bs-toggle="collapse"
                 href="#"
               >
-                <i className="bi bi-person-heart" id="i-class"></i>
+                {/* <i className="bi bi-badge-ad-fill" id="i-class"></i> */}
+                <img src="/others/adverticement.png" id="i-img"></img>
                 <span className="spanic">ADVERTISE BANNER</span>
                 <i className="fa fa-chevron-down" id="icon-cd"></i>
               </a>
               <ul
-                id="components-navs"
+                id="banner-nav"
                 className="nav-content collapse show"
-                data-bs-parent="#sidebar-nav"
+                data-bs-parent="#banner-nav"
               >
                 <li>
-                  <a href="/master/addCoupleDescription">
+                  <a href="/master/advertisement">
                     <i className="fa fa-circle"></i>
                     <span>MANAGE BANNERS</span>
                   </a>
@@ -279,7 +265,68 @@ const SideBar = () => {
               </ul>
             </li>
 
-         
+            <li className="nav-item">
+              <a
+                className="nav-link "
+                data-bs-target="#ques-nav"
+                data-bs-toggle="collapse"
+                href="#"
+              >
+                <i className="bi bi-question-square-fill" id="i-class"></i>
+                <span className="spanic">FREQUENTLY ASKED QUESTIONS</span>
+                <i className="fa fa-chevron-down" id="icon-cd"></i>
+              </a>
+              <ul
+                id="ques-nav"
+                className="nav-content collapse show"
+                data-bs-parent="#ques-nav"
+              >
+                <li>
+                  <a href="/faq/allFaq">
+                    <i className="fa fa-circle"></i>
+                    <span>FREQUENTLY ASKED QUESTIONS</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li className="nav-item">
+              <a
+                className="nav-link "
+                data-bs-target="#legal-nav"
+                data-bs-toggle="collapse"
+                href="#"
+              >
+                {/* <i className="bi bi-person-heart" id="i-class"></i> */}
+                <i className="bi bi-file-person" id="i-class"></i>
+                <span className="spanic">LEGAL</span>
+                <i className="fa fa-chevron-down" id="icon-cd"></i>
+              </a>
+              <ul
+                id="legal-nav"
+                className="nav-content collapse show"
+                data-bs-parent="#legal-nav"
+              >
+                <li>
+                  <a href="/explore/aboutUs">
+                    <i className="fa fa-circle"></i>
+                    <span>ABOUT US</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/explore/terms">
+                    <i className="fa fa-circle"></i>
+                    <span>TERMS OF USE </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/explore/privacyPolicy">
+                    <i className="fa fa-circle"></i>
+                    <span>PRIVACY POLICY</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
 
             <li className="nav-item">
               <button

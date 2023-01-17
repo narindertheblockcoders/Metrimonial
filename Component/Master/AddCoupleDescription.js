@@ -110,7 +110,7 @@ const AddCoupleDescription = (props) => {
         <SideBar />
 
         <section
-          className="profile-sec pb-0 pt-5 profile-sects"
+          className="profile-sec pb-0  profile-sects"
           id="totalUserProfileSec"
         >
           <div className="container">

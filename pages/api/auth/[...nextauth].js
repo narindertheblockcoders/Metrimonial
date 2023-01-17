@@ -17,7 +17,7 @@ export default NextAuth({
         let data = { email: email, password: password };
         console.log(data, "form email and password");
         let response = await axios.post(
-          "http://3.223.152.95:3000/api/v1/auth/adminlogin",
+          "https://api.orthomatri.com/api/v1/auth/adminlogin",
           data
         );
         let user = response.data;

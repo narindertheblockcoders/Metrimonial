@@ -117,11 +117,11 @@ jQueryFunction()
                   />
                 </div>
 
-                {/* <div class="form-group">
-            <label class="col-md-4 control-label">Password</label>
-            <div class="col-md-6">
-              <input id="password-field" type="password" class="form-control" name="password" value="secret">
-              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                {/* <div className="form-group">
+            <label className="col-md-4 control-label">Password</label>
+            <div className="col-md-6">
+              <input id="password-field" type="password" className="form-control" name="password" value="secret">
+              <span toggle="#password-field" className="fa fa-fw fa-eye field-icon toggle-password"></span>
             </div>
           </div> */}
                 <div
@@ -137,7 +137,7 @@ jQueryFunction()
                     onChange={(e) => setPassword(e.target.value)}
                     autoComplete="on"
                   />
-               <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+               <span toggle="#password-field" className="fa fa-fw fa-eye field-icon toggle-password"></span>
 
                 </div>
 

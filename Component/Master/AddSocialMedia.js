@@ -106,7 +106,7 @@ const AddSocialMedia = () => {
               >
                 <div className="input-line iptset-line" id="index-line"></div>
 
-                <div className="p-3">
+                <div className="p-0">
                   <div className="login-top-img" id="city-head-set">
                     <h3 className="heading-text mt-3"></h3>
                     <h3 className="heading-text mt-3 " id="city-text"></h3>
@@ -147,7 +147,7 @@ const AddSocialMedia = () => {
               >
                 <div className="input-line iptset-line" id="index-line"></div>
 
-                <div className="p-3">
+                <div className="p-0">
                   <div className="login-top-img" id="city-head-set">
                     <h3 className="heading-text mt-3"></h3>
                     <h3 className="heading-text mt-3 " id="city-text"></h3>
@@ -189,7 +189,7 @@ const AddSocialMedia = () => {
               >
                 <div className="input-line iptset-line" id="index-line"></div>
 
-                <div className="p-3">
+                <div className="p-0">
                   <div className="login-top-img" id="city-head-set">
                     <h3 className="heading-text mt-3"></h3>
                     <h3 className="heading-text mt-3 " id="city-text"></h3>
@@ -207,6 +207,7 @@ const AddSocialMedia = () => {
                       className="textinput"
                       type="text"
                       name="username"
+                      
                       autoComplete="on"
                       onChange={(e) => setAddTwitter(e.target.value)}
                     />
@@ -248,6 +249,7 @@ const AddSocialMedia = () => {
                             value={item.instagramLink}
                             aria-label="Username"
                             aria-describedby="basic-addon1"
+                            id="social-inputt-set"
                             disabled
                           />
 
@@ -268,6 +270,7 @@ const AddSocialMedia = () => {
                             value={item.facebookLink}
                             aria-label="Username"
                             aria-describedby="basic-addon1"
+                            id="social-inputt-set"
                             disabled
                           />
 
@@ -286,9 +289,8 @@ const AddSocialMedia = () => {
                             className="form-control"
                             placeholder="Social Media"
                             value={item.twitterLink}
-                            aria-label="Username"
-                            aria-describedby="basic-addon1"
                             disabled
+                            style={{borderLeft: "1px solid #ced4da !important"}}
                           />
 
                           <div

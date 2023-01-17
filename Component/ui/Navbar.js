@@ -52,13 +52,17 @@ const Navbar = () => {
   return (
     <>
       <header>
-        <nav className="navbar navbar-expand-lg top-nav ">
+        <nav className="navbar navbar-expand-lg top-nav pt-0">
           <div className="container-fluid" id="fluid-set">
           {session ? (
+          <div  className="left-dashboard  first-set  mb-4" id="leftt-section">
+                {" "}
+                <h5>Welcome -  {" "} Admin1 </h5>
+              </div>):null}
+          {/* {session ? (
             <a className="navbar-brand" href="/" id="href-setts" >
               Welcome {tokenData?.firstName}
-              {/* <img id="logo-id" style={{ marginLeft: "-10px" }} src="/navbar/stier.png"/> */}
-            </a>):null}
+            </a>):null} */}
               <img style={{ marginLeft: "-10px" }}  />
             {/* <button
               // onClick={() => setOpen(!open)}
@@ -73,85 +77,7 @@ const Navbar = () => {
               <span className="navbar-toggler-icon"></span>
             </button> */}
             {/* <Collapse> */}
-              <div
-                // className="collapse "
-                // id="navbarSupportedContent"
-                // style={{ justifyContent: "flex-end", position:"absolute", right:"3%", marginRight:"0px !important", margin:"0" }}
-              >
-                <ul
-                  className="navbar-nav mb-2 mb-lg-0"
-                  style={{ marginLeft: "auto !important" }}
-             >
-            
-            {session ? (
-                    <li className="nav-item" id="bg-navbar">
-                      <a
-                        className="nav-link active total-account"
-                        aria-current="page"
-                        href="#"
-                       
-                      >
-                      <i style={{fontSize:"18px"}} className="fa-regular fa-bell" id="i-nav"></i>
-                      </a>
-                    </li>
-                  ) : null}
-                        
-            {session ? (
-                    <li className="nav-item" id="bg-navbar">
-                      <a
-                        className="nav-link active total-account"
-                        aria-current="page"
-                        href="#"
-                       
-                      >
-                  <i style={{fontSize:"18px"}} className="fa-regular fa-circle-question" id="i-nav"></i>
-                      </a>
-                    </li>
-                  ) : null}
-
-            {session ? (
-                    <li className="nav-item p-0" id="bg-navbar">
-                        <a onClick={logoutHandler}
-                          className="nav-link active total-account "
-                          // style={{ marginBottom: "-10px", padding:"0" }}
-                          type="submit"
-                        >
-                       <img src="/navbar/logout.png"/>
-                        </a>
-                    </li>
-                  ) : null}
-
-                  {/* {!session ? (
-                    <li className="nav-item">
-                      <Link href={"/"}>
-                        <button
-                          className="btn btn-outline-success border-btn"
-                          type="submit"
-                        >
-                          LOGIN / SIGNUP
-                        </button>
-                      </Link>
-                    </li>
-                  ) : null} */}
-
-                </ul>
-              </div>
-            {/* </Collapse> */}
-
-            {/* {session ? (
-                    <li className="nav-item">
-                      <Link href={"/"}>
-                        <button
-                          onClick={logoutHandler}
-                          className="btn btn-outline-success border-btn"
-                          style={{ marginRight: "10px" }}
-                          type="submit"
-                        >
-                          Logout
-                        </button>
-                      </Link>
-                    </li>
-                  ) : null} */}
+        
           </div>
         </nav>
       </header>

@@ -1,12 +1,13 @@
 {
-  "name": "stier",
+  "name": "matrimony",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "devii": "node server.js"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
@@ -40,6 +41,7 @@
     "react-date-range": "^1.4.0",
     "react-dnd": "^16.0.1",
     "react-dom": "18.1.0",
+    "react-modal": "^3.16.1",
     "react-paginate": "^8.1.4",
     "react-toastify": "^9.0.4",
     "stripe": "^9.9.0",

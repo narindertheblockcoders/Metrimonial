@@ -82,7 +82,7 @@ function MyApp({ Component, pageProps }) {
               <meta property="og:image" key="image" style={{width:"100%"}} content="" />
               <link rel="icon" type="image/x-icon"  style={{width:"100%"}} href="/logo.ico"/>
             </Head>
-        
+        <Navbar/>
             <Component {...pageProps} />
             
             <Footer />

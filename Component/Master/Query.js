@@ -4,16 +4,22 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
     import axios from "axios";
+import ReactPaginate from "react-paginate";
 
 
 const Query = () => {
   const [contactData, setContactData] = useState()
- 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(9);
+  const [searchData, setSearchData] = useState();
+  const [fullData, setFullData] = useState()
+
     async function contactUsFunction(){
     const res = await axios.post("/api/master/contactUs")
     const response = res.data
     console.log(response.data,"contact us data")
     setContactData(response.data)
+    setFullData(response.data)
     }
 
     useEffect(()=>{
@@ -21,6 +27,44 @@ const Query = () => {
     },[])
 
 
+    async function serachFn(e) {
+      console.log(e.target.value);
+      const search = e.target.value;
+      console.log(contactData, "old data here");
+      const filteredData = contactData?.filter((item) => {
+        const name = item?.firstName;
+        return name?.toLowerCase().includes(search.toLowerCase());
+      });
+      console.log(filteredData, "to get the value of the filtered Data");
+      const selected = 0;
+      Pagination({ selected });
+      const indexOfLastPost = currentPage * postsPerPage;
+      const indexOfFirstPost = indexOfLastPost - postsPerPage;
+      const searchPosts = filteredData?.slice(indexOfFirstPost, indexOfLastPost);
+      console.log(searchPosts, "search post");
+  
+      setSearchData(searchPosts);
+  
+      if (search == "") {
+        setSearchData(fullData);
+        setContactData(fullData)
+        console.log(fullData,"fullData here for you")
+      } else {
+        setSearchData(searchPosts);
+      }
+      // setUsers(searchData)
+    }
+  
+     // Pagination
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  var currentPosts = contactData?.slice(indexOfFirstPost, indexOfLastPost);
+
+  const Pagination = ({ selected }) => {
+    setCurrentPage(selected + 1);
+    setSearchData(null);
+    setContactData(contactData);
+  };
 
   return (
     <div>
@@ -60,9 +104,8 @@ const Query = () => {
                           cursor: "pointer",
                         }}
                       >
-                        <img
-                        // src={"/arrow.svg"}
-                        />
+                        <img  // src={"/arrow.svg"}
+/>
                       </span>
                     </Link>{" "}
                   </span>
@@ -71,17 +114,20 @@ const Query = () => {
 
                 <div className="search-bar-sec">
                   <div className="input-group mb-1" id="search-bar-set">
-                    <span className="input-group-text" id="basic-addon1">
-                      <i className="bi bi-search"></i>
-                    </span>
-
-                    <input
+  
+                             <input
                       type="text"
-                      className="form-control w-25"
+                      style={{ paddingLeft: "0px" }}
+                      className="input-group-text "
                       placeholder="Search"
                       onChange={(e) => serachFn(e)}
+                      id="search-bg-set"
                     />
+                    <span className="form-control ">
+                      <i className="bi bi-search" id="search-iColor"></i>
+                    </span>
                   </div>
+                  
 
                   <div className="rangePicker-Div">
               
@@ -89,8 +135,8 @@ const Query = () => {
 </div>
 </div>
                 <div className="Cards-head mt-0">
-
-                    {contactData?.map((item)=>{
+                {searchData == null?
+                    currentPosts?.map((item)=>{
                         return(         
                           <div className="card " id="card-settings">
                        
@@ -142,10 +188,66 @@ const Query = () => {
                              
                             </div>
                             <div></div>
+                          </div> 
+                        )  
+                        })
+                          :searchData?.map((item)=>{
+                            return(
+                            <div className="card " id="card-settings">
+                       
+                            <div  className="card-body">
+                              <div className="card-body-parts">
+                                <h5 className="card-title">First Name:- </h5>
+                                <h5
+                                  className="card-title name-title"
+                                  id="card-title"
+                                >
+                                  {" "}
+                                  
+                                  {item.firstName}{" "}
+                                </h5>
+                              </div>
+                              <div className="card-body-parts">
+                                <h5 className="card-title">Last Name:- </h5>
+                                <h5 className="card-title" id="card-title">
+                                  {" "}
+                                  {item.lastName}{" "}
+                                </h5>
+                              </div>
+                              <div className="card-body-parts">
+                                <h5 className="card-title">Email:- </h5>
+                                <h5 className="card-title" id="card-title">
+                                  {" "}
+                                  {item.email}{" "}
+                                </h5>
+                              </div>
+
+                              <div className="card-body-parts">
+                                <h5 className="card-title">Phone:- </h5>
+                                <h5 className="card-title" id="card-title">
+                                  {" "}
+                                  {item.phone}{" "}
+                                </h5>
+                              </div>
+
+                              <div className="card-body-parts" id="massege-body-parts">
+                                <h5 className="card-title">Message:- </h5>
+                                <h5 className="card-title" id="card-title">
+                                    
+                                  {" "}
+                                  {item.message}
+                                </h5>
+                              </div>
+
+                         
+                             
+                            </div>
+                            <div></div>
                           </div>
-                        );
-                      })
-                    } 
+                          );
+                        })
+                          
+                        } 
                 </div>
                 {/* <div className="paginate-sec">
                   <ReactPaginate
@@ -162,6 +264,28 @@ const Query = () => {
                   />
                 </div> */}
               </form>
+
+
+
+
+              <div className="paginate-sec">
+                <ReactPaginate
+                  previousLabel="← Previous"
+                  nextLabel="Next →"
+                  onPageChange={Pagination}
+                  pageCount={Math.ceil(
+                    contactData?.length  / postsPerPage
+                  )}
+                  containerClassName="pagination"
+                  previousLinkClassName="pagination__link"
+                  nextLinkClassName="pagination__link"
+                  disabledClassName="pagination__link--disabled"
+                  activeClassName="pagination__link--active"
+                  className="page-link"
+                />
+              </div>
+
+
             </div>
           </div>
         </section>

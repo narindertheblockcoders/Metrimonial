@@ -14,16 +14,16 @@ const UserDetails = (props) => {
   console.log(props, "to get the id from token");
   console.log(props.props.token.email);
 
-   
   const [userData, setUserData] = useState();
   const [adminOneData, setAdminOneData] = useState();
   const [adminTwoData, setAdminTwoData] = useState();
   const [adminTwoDisable, setAdminTwoDisable] = useState();
   const [adminOneDisable, setAdminOneDisable] = useState();
-  const [nothing, setNothing] = useState("Not Approved");
+  const [nothing, setNothing] = useState("Yet to be approved");
   const [hideButton, setHideButton] = useState();
-  const [adminBtn,setAdminBtn] =useState()
-  const [showBtn, setShowBtn] = useState(false)
+  const [adminBtn, setAdminBtn] = useState();
+  const [showBtn, setShowBtn] = useState(false);
+  const [added, setAdded] = useState(0);
 
   const router = useRouter();
 
@@ -51,7 +51,7 @@ const UserDetails = (props) => {
 
   useEffect(() => {
     getUsers();
-  }, []);
+  }, [added]);
 
   async function getApprovedStatus() {
     try {
@@ -63,12 +63,12 @@ const UserDetails = (props) => {
       setAdminOneData(response.adminApproved1);
       setAdminTwoData(response.adminApproved2);
       if (response.adminApproved1 == 1 && response.adminApproved2 == 0) {
-        setNothing("Sub admin");
+        setNothing("Approved by Sub Admin.. Pending by Admin End");
       } else if (response.adminApproved1 == 0 && response.adminApproved2 == 1) {
         // setAdminOneDisable(true)
-        setNothing("admin");
+        setNothing("Approved by Admin.. Pending by Sub-Admin End");
       } else if (response.adminApproved1 == 1 && response.adminApproved2 == 1) {
-        setNothing("both admins");
+        setNothing(" This Profile Has Been Approved by Both Admins");
       }
     } catch (err) {
       console.log(err);
@@ -98,27 +98,28 @@ const UserDetails = (props) => {
     adminIdData();
   }, []);
 
-  
   async function getApprovedAdmin1(data) {
     try {
       let res = await axios.post("/api/approve/approvedBySubAdmin", data);
       const response = res.data;
       getApprovedStatus();
       console.log(response, "to get response from api to apporve from admin 1");
-      console.log(response.data.data,"to see the status of approval")
+      console.log(response.data.data, "to see the status of approval");
+      setAdded(added + 1);
       setAdminBtn(response.data.data);
-      toast.success("Sub Admin Checked Succesfully");
-      setShowBtn(true)
+      toast.success("This profile has been approved successfully");
+      setShowBtn(true);
     } catch (err) {
       console.log(err);
-      toast.error("Please Try Again");
-      setShowBtn(false)
-
+      toast.error("Failed to Approved..Please Try Again");
+      setShowBtn(false);
     }
   }
 
   async function formSubmitHandler(event) {
     event.preventDefault();
+
+    setShowBtn(true);
 
     const data = {
       id: props.props.id,
@@ -136,21 +137,22 @@ const UserDetails = (props) => {
         response.data,
         "to get response from api to apporve from admin 1"
       );
+      setAdded(added + 1);
       getApprovedStatus();
       setAdminTwoData(response.data);
-      setShowBtn(true)
-
-      toast.success("Admin Checked Succesfully");
+      setShowBtn(true);
+      toast.success("This profile has been approved successfully");
     } catch (err) {
       console.log(err);
       toast.error("Please Try Again");
-      setShowBtn(false)
-
+      setShowBtn(false);
     }
   }
 
   async function adminChecked(event) {
     event.preventDefault();
+
+    setShowBtn(true);
 
     const data = {
       id: props.props.id,
@@ -159,6 +161,68 @@ const UserDetails = (props) => {
 
     console.log(data, "data entered by the admin");
     getApprovedAdmin2(data);
+  }
+
+  async function getDisApprovedAdmin1(data) {
+    try {
+      let res = await axios.post("/api/approve/approvedBySubAdmin", data);
+      const response = res.data;
+      getApprovedStatus();
+      console.log(response, "to get response from api to apporve from admin 1");
+      console.log(response.data.data, "to see the status of approval");
+      setAdded(added + 1);
+      setAdminBtn(response.data.data);
+      toast.success("Profile Has Been Deneid by Sub-Admin");
+      setShowBtn(true);
+    } catch (err) {
+      console.log(err);
+      toast.error("Please Try Again");
+      setShowBtn(false);
+    }
+  }
+
+  async function formSubmitHandler1(event) {
+    event.preventDefault();
+
+    const data = {
+      id: props.props.id,
+      adminApproved1: "2",
+    };
+    console.log(data, "data entered by the admin");
+    getDisApprovedAdmin1(data);
+  }
+
+  async function getDisApprovedAdmin2(data) {
+    try {
+      let res = await axios.post("/api/approve/approvedBySubAdmin2", data);
+      const response = res.data.data;
+      console.log(
+        response.data,
+        "to get response from api to apporve from admin 1"
+      );
+      setAdded(added + 1);
+      getApprovedStatus();
+      setAdminTwoData(response.data);
+      setShowBtn(true);
+
+      toast.success("Profile Has been Denied By Admin");
+    } catch (err) {
+      console.log(err);
+      toast.error("Please Try Again");
+      setShowBtn(false);
+    }
+  }
+
+  async function adminChecked1(event) {
+    event.preventDefault();
+
+    const data = {
+      id: props.props.id,
+      adminApproved2: "2",
+    };
+
+    console.log(data, "data entered by the admin");
+    getDisApprovedAdmin2(data);
   }
 
   async function getHideCouples(data) {
@@ -208,28 +272,86 @@ const UserDetails = (props) => {
         <section className="forself profile-sects" id="totalDetailProfileSec">
           <div className="container" id="user-detail-container">
             <div className="self-main">
-          
-          <div className="approve-top-header">
-              <div className="self-main-head">
-                <h3>Profile </h3>
-              </div>
-                    { showBtn == false? 
-                       <div className="self-about-right" id="self-about-top">
-                       {/* <h3>Approved by</h3> */}
-                            <button className="button sub-admin-btn" type="button" disabled={adminOneDisable} onClick={props.props.token.email == 1 ? formSubmitHandler : adminChecked} >
-                            Approve  </button>
-                  
-                            <button className="button sub-admin-btn" id="admin-black-btn" type="button" disabled={adminTwoDisable} onClick={props.props.token.email == 1 ? formSubmitHandler : adminChecked} >
-                              Disapprove
-                            </button>
-                      
-                        
-                     </div>:("" )}
+              <div className="approve-top-header">
+                <div className="self-main-head">
+                  <h3>Profile </h3>
+                </div>
+                {/* {showBtn == false ? (
+                  <div className="self-about-right" id="self-about-top">
+                    <button
+                      className="button sub-admin-btn"
+                      type="button"
+                      disabled={adminOneDisable}
+                      onClick={
+                        props.props.token.email == 1
+                          ? formSubmitHandler
+                          : adminChecked
+                      }
+                    >
+                      Approve{" "}
+                    </button>
 
+                    <button
+                      className="button sub-admin-btn"
+                      id="admin-black-btn"
+                      type="button"
+                      onClick={
+                        props.props.token.email == 1
+                          ? formSubmitHandler1
+                          : adminChecked1
+                      }
+                    >
+                      Disapprove
+                    </button>
                   </div>
+                ) : (
+                  ""
+                )} */}
+
+                {(userData?.adminApproved1 == 1 &&
+                  userData?.adminApproved2 == 1) ||
+                (userData?.adminApproved1 == 2 &&
+                  userData?.adminApproved2 == 2) ||
+                (userData?.adminApproved1 == 2 &&
+                  userData?.adminApproved2 == 0) ||
+                (userData?.adminApproved1 == 0 &&
+                  userData?.adminApproved2 == 2) ||
+                (userData?.adminApproved1 == 1 &&
+                  userData?.adminApproved2 == 2) ||
+                (userData?.adminApproved1 == 2 &&
+                  userData?.adminApproved2 == 1) ? null : (
+                  <div className="self-about-right" id="self-about-top">
+                    <button
+                      className="button sub-admin-btn"
+                      type="button"
+                      disabled={adminOneDisable}
+                      onClick={
+                        props.props.token.email == 1
+                          ? formSubmitHandler
+                          : adminChecked
+                      }
+                    >
+                      Approve{" "}
+                    </button>
+
+                    <button
+                      className="button sub-admin-btn"
+                      id="admin-black-btn"
+                      type="button"
+                      onClick={
+                        props.props.token.email == 1
+                          ? formSubmitHandler1
+                          : adminChecked1
+                      }
+                    >
+                      Disapprove
+                    </button>
+                  </div>
+                )}
+              </div>
 
               <div className="left-main-box" id="left-main-box">
-                <div className="box-img">
+                <div className="box-img" id="userDetail-box-img">
                   <img
                     className="user-image"
                     src={userData?.avatar || "/img/box-img.png"}
@@ -359,7 +481,7 @@ const UserDetails = (props) => {
               </div>
 
               <div className="self-about">
-                <div className="self-about-main">
+                <div className="self-about-main" id="self-about-main">
                   <div className="self-about-left">
                     <ul>
                       <li>Mother Tongue</li>
@@ -391,10 +513,52 @@ const UserDetails = (props) => {
                   </div>
                   <div className="self-about-right">
                     {/* <h3>Approved by</h3> */}
-                 
-                        <h3>Approved by  {nothing}</h3>
-                   
-                      
+
+                    {/* <h3>{nothing}</h3> */}
+                    {userData?.adminApproved1 == 1 &&
+                    userData?.adminApproved2 == 1 ? (
+                      <button
+                        type="button"
+                        className="btn view-btn"
+                        id="approve-detailbtn"
+                      >
+                        Approved
+                      </button>
+                    ) : null}
+
+                    {(userData?.adminApproved1 == 1 &&
+                      userData?.adminApproved2 == 0) ||
+                    (userData?.adminApproved1 == 0 &&
+                      userData?.adminApproved2 == 1) ||
+                    (userData?.adminApproved1 == 0 &&
+                      userData?.adminApproved2 == 0) ? (
+                      <button
+                        type="button"
+                        className="btn view-btn"
+                        id="approvePending-deatilbtn"
+                      >
+                        Pending
+                      </button>
+                    ) : null}
+
+                    {userData?.adminApproved1 == 2 ||
+                    userData?.adminApproved2 == 2 ||
+                    (userData?.adminApproved1 == 2 &&
+                      userData?.adminApproved2 == 0) ||
+                    (userData?.adminApproved1 == 0 &&
+                      userData?.adminApproved2 == 2) ||
+                    (userData?.adminApproved1 == 1 &&
+                      userData?.adminApproved2 == 2) ||
+                    (userData?.adminApproved1 == 2 &&
+                      userData?.adminApproved2 == 1) ? (
+                      <button
+                        type="button"
+                        className="btn view-detailbtn"
+                        id="disapprove-btn"
+                      >
+                        Disapproved
+                      </button>
+                    ) : null}
                   </div>
                 </div>
 

@@ -6,7 +6,7 @@ export default async function handler(req, res) {
 
   if (req.method === "POST") {
     try {
-      const { data } = req.body;
+      const data  = req.body;
       console.log(data, "to send data to send to api");
       var config = {
         method: "post",

@@ -10,32 +10,49 @@ import { toast, ToastContainer } from "react-toastify";
 const Advertisement = () => {
   const router = useRouter()
   const [advertisement, setAdvertisement] = useState()
- 
+  const [added, setAdded] = useState(0)
+ const [btnResponse, setBtnResponse] =useState(false)
+ const [deleteIdValue, setDeleteIdValue] = useState();
+
+
   async function advertisementFunction(){
   const res = await axios.post("/api/advertisement/advertisement")
   const response = res.data
   console.log(response.data,"contact us data")
   setAdvertisement(response.data)
-
+  setBtnResponse(true)
   }
 
   useEffect(()=>{
 advertisementFunction()
-  },[])
+  },[added])
 
-  async function ApproveAdvertisement(e){
-    console.log(e,"e data here")
+  async function ApproveAdvertisement(data){
+    // console.log(e,"e data here")
     try{
-     const id = e
-     const active = 1
-    const res = await axios.post("/api/advertisement/approveAdvertisement",{id:id,active}),
-    responses= res.data
+    //  const id = e
+    //  const active = 1
+    const res = await axios.post("/api/advertisement/approveAdvertisement",data)
+    const responses= res.data
     console.log(responses,"approve user response here")
+    setBtnResponse(true)
     toast.success("Approve Successfully")
-
+    setAdded(added+1)
   }catch(err){
+    setBtnResponse(false)
     console.log(err)
+    setBtnResponse(false)
   }
+  }
+
+  async function approvedSubmitHandler (e) {
+    console.log(e.target.value,"to get the id of the user")
+    const data = {
+      id:e.target.value,
+      active:1
+    }
+    console.log(data,"data entered by the user")
+    ApproveAdvertisement(data)
   }
 
 
@@ -46,10 +63,13 @@ advertisementFunction()
     try{
      const id = e
     const res = await axios.post("/api/advertisement/deleteAdvertisement",{id:id})
-    response = res.data
+    const response = res.data
     console.log(response.data,"delete user response here")
+     toast.success("Delete advertisement successfully")
+     setAdded(added+1)
   }catch(err){
     console.log(err)
+    toast.error("Please try again")
   }
   }
 
@@ -63,7 +83,7 @@ advertisementFunction()
         <SideBar />
         <ToastContainer />
 
-        <section className="forself profile-sects" id="couple-profile-div">
+        <section className="forself  profile-sects pt-0" id="couple-profile-div">
           <div className="container" id="user-detail-container">
             <div className="hide-couple-mb">
             
@@ -101,10 +121,10 @@ advertisementFunction()
 
                     <div className="flex-box-one" >
                       <ul >
-                        <li>Description</li>
+                        <li id="quehy-description-sec">Description</li>
 
                         <li id="query-description">
-                          <li id="quehy-description-sec"><b> {item?.description}</b></li>{" "}
+                          <li ><b> {item?.description}</b></li>{" "}
                         </li>
                       </ul>
                     </div>
@@ -136,23 +156,28 @@ advertisementFunction()
                       </ul>
                     </div>
 
-              
-                        <div className="delete-btn-sec">
-                          <button
-                          className="button  like-btn2"
-                          type="button"
-                          onClick={()=>ApproveAdvertisement(item?.id)}
-                        >
-                          Approved
-                        </button>
-                        <button
-                          className="button  like-btn2"
-                          type="button"
-                          onClick={()=>deleteAdvertisement(item?.id)}
-                        >
-                          Delete
-                        </button>
-                        </div>
+              <div className="delete-btn-sec">
+          {/* {btnResponse == false?( */}
+            <button
+            className="button  like-btn2"
+            type="button"
+            value={item.id}
+            onClick={(e) => approvedSubmitHandler(e)}
+          >
+            Approve
+          </button>
+          {/* ):(
+           "")}   */}
+          <button
+            className="button  like-btn2"
+            type="button"
+            onClick={() =>setDeleteIdValue(item?.id) }
+            data-bs-toggle="modal" data-bs-target="#deleteModal"
+          >
+            Delete
+          </button>
+          </div>
+                     
                   </div>
                   <div className="boxthree">
                     {/* <p>I am looking for a suitalbe partner. I have completed my gratuation in From USA
@@ -168,6 +193,43 @@ advertisementFunction()
 </div>
           </div>
         </section>
+
+
+              {/* <!-- Modal --> */}
+              <div
+          class="modal fade"
+          id="deleteModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" id="deleteModl-content">
+              <div class="modal-body">Are You Sure You Want to Delete This Advertisement?</div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  id="deleteBtn-Modal"
+                  value={deleteIdValue}
+                  data-bs-dismiss="modal"
+                  onClick={(e) => deleteAdvertisement(e.target.value)}
+
+                  class="btn btn-primary"
+                >
+                  Delete
+                </button>
+                <button
+                  type="button"
+                  id="cancelBtn-Modal"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

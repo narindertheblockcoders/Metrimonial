@@ -292,12 +292,14 @@ const AddCity = () => {
                   <h6 className="State-text mt-0">Country</h6>
 
                   <div className="input-group mb-1" id="search-bar">
-                    <span className="input-group-text" id="basic-addon1">
+                  <span className="input-group-text " id="seacch-wusec" style={{height:"61px !important"}}>
                       <i className="bi bi-search"></i>
                     </span>
 
                     <input
                       type="text"
+                      style={{borderLeft:"none !important"}}
+                      id="social-input-set"
                       className="form-control"
                       placeholder="Search Country"
                       value={countryName}
@@ -351,12 +353,14 @@ const AddCity = () => {
                   <h6 className="State-text mt-4">State</h6>
 
                   <div className="input-group mb-1" id="search-bar">
-                    <span className="input-group-text" id="basic-addon1">
+                  <span className="input-group-text " id="seacch-wusec" style={{height:"61px !important"}}>
                       <i className="bi bi-search"></i>
                     </span>
 
                     <input
                       type="text"
+                      style={{borderLeft:"none !important"}}
+                      id="social-input-set"
                       className="form-control"
                       placeholder="Search State"
                       value={stateName}
@@ -411,11 +415,13 @@ const AddCity = () => {
                   <h6 className="State-text mt-4">City</h6>
 
                   <div className="input-group mb-1" id="search-bar">
-                    <span className="input-group-text" id="basic-addon1">
+                  <span className="input-group-text " id="seacch-wusec" style={{height:"61px !important"}}>
                       <i className="bi bi-search"></i>
                     </span>
 
                     <input
+                           style={{borderLeft:"none !important"}}
+                           id="social-input-set"
                       type="text"
                       className="form-control"
                       placeholder="Search city"

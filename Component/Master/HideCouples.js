@@ -11,7 +11,7 @@ const HideCouplesList = (props) => {
   const [userAdded, setUserAdded] = useState(0)
   const [searchData, setSeachData] = useState()
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [postsPerPage, setPostsPerPage] = useState(9);
 
 
   async function getHideCoupleFunction() {
